@@ -41,21 +41,7 @@
       	
       	<!-- 合作网站登陆start -->
       	<p>&nbsp;</p>
-      	<!--
-      	<p>
-	      	<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101223876" data-redirecturi="http://dovip.aliapp.com/login/qqLogin.jsp" charset="utf-8" ></script>
-
-			<span id="qqLoginBtn" ></span>
-			
-			<script type="text/javascript">
-			 QC.Login({
-			  btnId : "qqLoginBtn",//插入按钮的html标签id
-			  size : "B_M",//按钮尺寸
-			  scope : "get_user_info",//展示授权，全部可用授权可填 all
-			  display : "pc"//应用场景，可选
-			 });
-			</script>
-		</p> 腾讯登陆-->
+      	<#include "template/qqLogin.ftl"><!-- 腾讯登陆-->
 		<!-- 
 		<p>
     		<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=81516774&debug=true" type="text/javascript" charset="utf-8"></script>
