@@ -1,6 +1,9 @@
 package com.buymall.service;
 
+import java.util.Map;
+
 import com.buymall.entity.Product;
+import com.framework.core.page.Page;
 
 public interface ProductService {
 	/**
@@ -39,4 +42,25 @@ public interface ProductService {
      * @return
      */
     int updateByPrimaryKey(Product record);
+    /**
+     * 分页查询，倒叙排列
+     * @param sqlId
+     * @param param
+     * @param pageNo
+     * @param pageSize
+     * @return
+     */
+	Page<Product> findByPage(String sqlId, Map<String, Object> param,
+			int pageNo, int pageSize);
+	
+	/**
+	 * 分页查询，根据类型，倒叙排列
+	 * @param sqlId
+	 * @param param
+	 * @param pageNo
+	 * @param pageSize
+	 * @return
+	 */
+	Page<Product> findTypeByPage(String sqlId, Map<String, Object> param,
+			int pageNo, int pageSize);
 }

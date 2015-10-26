@@ -79,7 +79,7 @@
 			  </div>
 		   </div>
 		   
-		   <button type="button" class="btn btn-primary" onclick="doSubmit();">提交</button>
+		   <button type="button" class="btn btn-primary" onclick="doSubmit();" style="width:100%;">提交</button>
 		</form>
 		<!-- form end -->
 		
