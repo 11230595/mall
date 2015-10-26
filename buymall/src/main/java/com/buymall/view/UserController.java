@@ -127,7 +127,7 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value="/signin",method={RequestMethod.GET,RequestMethod.POST})
-	public @ResponseBody Map<String, Object> signin(HttpServletRequest request,
+	public @ResponseBody Map<String, Object> signin(HttpServletRequest request,HttpServletResponse response,
 			@RequestParam String userCode, @RequestParam String password,@RequestParam(required=false) String returnUrl) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		String ip = IPUtils.getIP(request);
@@ -143,6 +143,8 @@ public class UserController {
 				map.put("returnUrl", Constants.config.getString("BASE_URL"));
 			
 			request.getSession().setAttribute("user", user);
+			
+			addCookie(response,user.getUserId()); //cookie
 			
 			//日志
 			loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 0, userCode, "", ip, IPUtils.getAddress(ip)));

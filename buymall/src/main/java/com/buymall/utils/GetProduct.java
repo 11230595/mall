@@ -8,20 +8,20 @@ import org.apache.commons.lang.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-public class Test {
+public class GetProduct {
 
 	public static void main(String[] args) {
-		String url = "http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3D5wHuvXgEAXTuDAZjWhpTWEeDw1Z%252FUn1SKDTWVub3jJJBWJVBnwmj7tnO073KpEUuesayvrQ7hvkEwiwEAUVRm%252Fr4c8w8d32Rs2vARpeSUotqrKpcqC%252FWnlRmtaud%252B0v%252BxAR4DpyIxRK30T7H6cltKQ%253D%253D%26ptype%3D100010%26from%3Dbasic&k=5ccfdb950740ca16&c=un&b=alimm_0&p=mm_18774322_6466308_22486110";
-		Map<String, String> map = autoSaveAiTaoBao(url);
+		String url = "http://ai.taobao.com/auction/edetail.htm?e=QSGVxzzyfvi6k0Or%2B%2BH4tJV4TNWlht7Cm7kUtxZzUh2LltG5xFicOdXrTUTgh9sMDPIwxrc30rgxfUmn3z%2FE3AqJIJEX%2BikKLakP2cazicSjGvRGGdqoum3abJM7sDg2tjS618V%2BwtOdDV%2FJ%2F%2Fm36w%3D%3D&ptype=100010&from=basic&clk1=c309c3ce21cd5f4b56af491971697601&upsid=c309c3ce21cd5f4b56af491971697601";
+		Map<String, Object> map = autoSaveAiTaoBao(url);
 		
-		for(Map.Entry<String, String> entry : map.entrySet()){
+		for(Map.Entry<String, Object> entry : map.entrySet()){
 			System.out.println(entry.getKey() + "---->" + entry.getValue());
 		}
 	}
 	
-	public static Map<String, String> autoSaveAiTaoBao(String getUrl){
+	public static Map<String, Object> autoSaveAiTaoBao(String getUrl){
 		Document doc = null;
-		Map<String, String> map = new HashMap<String, String>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		try {
 			doc = Jsoup.connect(getUrl).timeout(4000).get();
 			map.put("error", "0");//错误信息
@@ -39,6 +39,8 @@ public class Test {
 		map.put("scoreCount", doc.select(".left-score").select("a").text());//得分
 		map.put("price", doc.select(".price-promo").select("strong").text());//爱淘宝销量
 		map.put("actDesc", doc.select(".price-dic").text());//活动关键词
+		String platform = doc.select(".tmall-tag").text();
+		map.put("platform", StringUtils.isBlank(platform) ? "淘宝" : platform);//平台
 		
 		return map;
 	}

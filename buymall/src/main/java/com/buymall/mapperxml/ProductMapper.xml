@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.buymall.mapper.ProductMapper" >
+  <resultMap id="BaseResultMap" type="com.buymall.entity.Product" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="PRODUCT_DESC" property="productDesc" jdbcType="VARCHAR" />
+    <result column="ITEM_URL" property="itemUrl" jdbcType="VARCHAR" />
+    <result column="IMG_URL" property="imgUrl" jdbcType="VARCHAR" />
+    <result column="BUY_COUNT" property="buyCount" jdbcType="VARCHAR" />
+    <result column="COLLECT_COUNT" property="collectCount" jdbcType="VARCHAR" />
+    <result column="SURPLUS_COUNT" property="surplusCount" jdbcType="VARCHAR" />
+    <result column="SCORE" property="score" jdbcType="VARCHAR" />
+    <result column="ACT_DESC" property="actDesc" jdbcType="VARCHAR" />
+    <result column="PLATFORM" property="platform" jdbcType="VARCHAR" />
+    <result column="TYPE" property="type" jdbcType="INTEGER" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="BZ1" property="bz1" jdbcType="VARCHAR" />
+    <result column="BZ2" property="bz2" jdbcType="VARCHAR" />
+    <result column="BZ3" property="bz3" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="EXPIRE_TIME" property="expireTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, TITLE, PRODUCT_DESC, ITEM_URL, IMG_URL, BUY_COUNT, COLLECT_COUNT, SURPLUS_COUNT, 
+    SCORE, ACT_DESC, PLATFORM, TYPE, STATUS, BZ1, BZ2, BZ3, CREATE_TIME, EXPIRE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from product
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.buymall.entity.Product" >
+    insert into product (ID, TITLE, PRODUCT_DESC, 
+      ITEM_URL, IMG_URL, BUY_COUNT, 
+      COLLECT_COUNT, SURPLUS_COUNT, SCORE, 
+      ACT_DESC, PLATFORM, TYPE, 
+      STATUS, BZ1, BZ2, BZ3, 
+      CREATE_TIME, EXPIRE_TIME)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{productDesc,jdbcType=VARCHAR}, 
+      #{itemUrl,jdbcType=VARCHAR}, #{imgUrl,jdbcType=VARCHAR}, #{buyCount,jdbcType=VARCHAR}, 
+      #{collectCount,jdbcType=VARCHAR}, #{surplusCount,jdbcType=VARCHAR}, #{score,jdbcType=VARCHAR}, 
+      #{actDesc,jdbcType=VARCHAR}, #{platform,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{bz1,jdbcType=VARCHAR}, #{bz2,jdbcType=VARCHAR}, #{bz3,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{expireTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.buymall.entity.Product" >
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="productDesc != null" >
+        PRODUCT_DESC,
+      </if>
+      <if test="itemUrl != null" >
+        ITEM_URL,
+      </if>
+      <if test="imgUrl != null" >
+        IMG_URL,
+      </if>
+      <if test="buyCount != null" >
+        BUY_COUNT,
+      </if>
+      <if test="collectCount != null" >
+        COLLECT_COUNT,
+      </if>
+      <if test="surplusCount != null" >
+        SURPLUS_COUNT,
+      </if>
+      <if test="score != null" >
+        SCORE,
+      </if>
+      <if test="actDesc != null" >
+        ACT_DESC,
+      </if>
+      <if test="platform != null" >
+        PLATFORM,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="bz1 != null" >
+        BZ1,
+      </if>
+      <if test="bz2 != null" >
+        BZ2,
+      </if>
+      <if test="bz3 != null" >
+        BZ3,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="expireTime != null" >
+        EXPIRE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="productDesc != null" >
+        #{productDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="itemUrl != null" >
+        #{itemUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="imgUrl != null" >
+        #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="buyCount != null" >
+        #{buyCount,jdbcType=VARCHAR},
+      </if>
+      <if test="collectCount != null" >
+        #{collectCount,jdbcType=VARCHAR},
+      </if>
+      <if test="surplusCount != null" >
+        #{surplusCount,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="actDesc != null" >
+        #{actDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null" >
+        #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="bz1 != null" >
+        #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz3 != null" >
+        #{bz3,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expireTime != null" >
+        #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.buymall.entity.Product" >
+    update product
+    <set >
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="productDesc != null" >
+        PRODUCT_DESC = #{productDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="itemUrl != null" >
+        ITEM_URL = #{itemUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="imgUrl != null" >
+        IMG_URL = #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="buyCount != null" >
+        BUY_COUNT = #{buyCount,jdbcType=VARCHAR},
+      </if>
+      <if test="collectCount != null" >
+        COLLECT_COUNT = #{collectCount,jdbcType=VARCHAR},
+      </if>
+      <if test="surplusCount != null" >
+        SURPLUS_COUNT = #{surplusCount,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        SCORE = #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="actDesc != null" >
+        ACT_DESC = #{actDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null" >
+        PLATFORM = #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="bz1 != null" >
+        BZ1 = #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        BZ2 = #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz3 != null" >
+        BZ3 = #{bz3,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expireTime != null" >
+        EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.buymall.entity.Product" >
+    update product
+    set TITLE = #{title,jdbcType=VARCHAR},
+      PRODUCT_DESC = #{productDesc,jdbcType=VARCHAR},
+      ITEM_URL = #{itemUrl,jdbcType=VARCHAR},
+      IMG_URL = #{imgUrl,jdbcType=VARCHAR},
+      BUY_COUNT = #{buyCount,jdbcType=VARCHAR},
+      COLLECT_COUNT = #{collectCount,jdbcType=VARCHAR},
+      SURPLUS_COUNT = #{surplusCount,jdbcType=VARCHAR},
+      SCORE = #{score,jdbcType=VARCHAR},
+      ACT_DESC = #{actDesc,jdbcType=VARCHAR},
+      PLATFORM = #{platform,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=INTEGER},
+      STATUS = #{status,jdbcType=INTEGER},
+      BZ1 = #{bz1,jdbcType=VARCHAR},
+      BZ2 = #{bz2,jdbcType=VARCHAR},
+      BZ3 = #{bz3,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
