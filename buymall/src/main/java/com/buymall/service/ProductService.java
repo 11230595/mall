@@ -4,7 +4,11 @@ import java.util.Map;
 
 import com.buymall.entity.Product;
 import com.framework.core.page.Page;
-
+/**
+ * 产品
+ * @author zhoudong
+ *
+ */
 public interface ProductService {
 	/**
 	 * 删除

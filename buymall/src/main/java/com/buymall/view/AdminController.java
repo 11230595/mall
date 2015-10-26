@@ -14,7 +14,11 @@ import com.buymall.entity.User;
 import com.buymall.service.LoginLogService;
 import com.buymall.service.UserService;
 import com.framework.core.utils.IPUtils;
-
+/**
+ * 后台管理部分
+ * @author zhoudong
+ *
+ */
 @Controller
 public class AdminController {
 	private static Logger logger = Logger.getLogger(AdminController.class);
@@ -24,7 +28,7 @@ public class AdminController {
 	private LoginLogService loginLogService;
 	
 	/**
-	 * 首页
+	 * 后台首页
 	 * @return
 	 */
 	@RequestMapping(value="admin",method={RequestMethod.GET,RequestMethod.POST})
@@ -47,7 +51,7 @@ public class AdminController {
 	 * @param request
 	 * @return
 	 */
-	public User getSessionAndCookie(HttpServletRequest request){
+	private User getSessionAndCookie(HttpServletRequest request){
 		User user = (User) request.getSession().getAttribute("user");
 		String userId = "";
 		

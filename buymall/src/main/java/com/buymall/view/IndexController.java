@@ -16,7 +16,11 @@ import com.buymall.entity.User;
 import com.buymall.service.LoginLogService;
 import com.buymall.service.UserService;
 import com.framework.core.utils.IPUtils;
-
+/**
+ * 首页部分功能
+ * @author zhoudong
+ *
+ */
 @Controller
 public class IndexController {
 	private static Logger logger = Logger.getLogger(IndexController.class);
@@ -46,7 +50,7 @@ public class IndexController {
 	 * @param request
 	 * @return
 	 */
-	public User getSessionAndCookie(HttpServletRequest request){
+	private User getSessionAndCookie(HttpServletRequest request){
 		User user = (User) request.getSession().getAttribute("user");
 		String userId = "";
 		

@@ -11,7 +11,11 @@ import com.buymall.mapper.UserMapper;
 import com.buymall.service.UserService;
 import com.framework.core.mybatis.BaseMybatisDao;
 import com.framework.core.page.Page;
-
+/**
+ * 用户
+ * @author zhoudong
+ *
+ */
 @Service
 public class UserServiceImpl extends BaseMybatisDao implements UserService{
 	@Resource

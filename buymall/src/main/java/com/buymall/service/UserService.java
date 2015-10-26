@@ -4,7 +4,11 @@ import java.util.Map;
 
 import com.buymall.entity.User;
 import com.framework.core.page.Page;
-
+/**
+ * 用户
+ * @author zhoudong
+ *
+ */
 public interface UserService {
     int deleteByPrimaryKey(String userId);
 

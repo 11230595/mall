@@ -7,7 +7,11 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-
+/**
+ * 获取产品
+ * @author zhoudong
+ *
+ */
 public class GetProduct {
 
 	public static void main(String[] args) {

@@ -25,7 +25,11 @@ import com.buymall.service.UserService;
 import com.buymall.utils.GetProduct;
 import com.framework.core.page.Page;
 import com.framework.core.utils.DateUtils;
-
+/**
+ * 产品类
+ * @author zhoudong
+ *
+ */
 @Controller
 @RequestMapping("product")
 public class ProductController {
