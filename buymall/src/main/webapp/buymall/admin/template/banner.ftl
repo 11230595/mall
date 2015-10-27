@@ -3,12 +3,12 @@
 	   <caption>已存在的banner</caption>
 	   <thead>
 	      <tr>
-	         <th>banner名称</th>
-	         <th>图片地址</th>
-	         <th>跳转地址</th>
-	         <th>所属页面</th>
-	         <th>位置</th>
-	         <th>操作</th>
+	         <th style="width:20%">banner名称</th>
+	         <th style="width:30%">图片地址</th>
+	         <th style="width:30%">跳转地址</th>
+	         <th style="width:10%">所属页面</th>
+	         <th style="width:5%">位置</th>
+	         <th style="width:5%">操作</th>
 	      </tr>
 	   </thead>
 	   <tbody>

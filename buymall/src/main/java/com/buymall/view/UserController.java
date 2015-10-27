@@ -130,7 +130,7 @@ public class UserController {
 	public @ResponseBody Map<String, Object> signin(HttpServletRequest request,HttpServletResponse response,
 			@RequestParam String userCode, @RequestParam String password,@RequestParam(required=false) String returnUrl) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		String ip = IPUtils.getIP(request);
+		//String ip = IPUtils.getIP(request);
 		
 		User user = userService.login(userCode,password);
 		
@@ -147,12 +147,12 @@ public class UserController {
 			addCookie(response,user.getUserId()); //cookie
 			
 			//日志
-			loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 0, userCode, "", ip, IPUtils.getAddress(ip)));
+			loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 0, userCode, "", "", ""));
 		}else {
 			map.put("respCode", 1);	//登陆失败
 			
 			//日志
-			loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 0, userCode, "该用户不存在！", ip, IPUtils.getAddress(ip)));
+			loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 0, userCode, "该用户不存在！", "", ""));
 		}
 		
 		return map;

@@ -33,11 +33,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">后台管理</a>
+          <a class="navbar-brand" href="${request.contextPath}/admin">后台管理</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">导入数据</a></li>
+            <li class="active"><a href="${request.contextPath}/admin">导入数据</a></li>
             <li><a href="#about">模板管理</a></li>
             <li><a href="javascript:void(0);" onclick="toBannerPage(this);">Banner管理</a></li>
           </ul>
@@ -58,7 +58,6 @@
 
     </div> <!-- /container -->
 
-	<#include "../template/foot.ftl"><!-- 脚信息 -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
