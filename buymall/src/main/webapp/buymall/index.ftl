@@ -214,42 +214,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			   <div class="banner-grids">
 				   <div class="col-md-6 jocket">
 					   <div class="jock-img">
-						 <img src="images/sht.jpg" alt="">
+						 <img src="${bannerPage.list[0].imgUrl}" alt="" style="width:100%">
 					   </div>
 						<div class="jock-text">
-						  <h3 class="b-tittle">Men's Jacket</h3>
-						 <a class="collection" href="single.html">View collection <i class="glyphicon glyphicon-arrow-right"></i></a>
+						  <h3 class="b-tittle">${bannerPage.list[0].title}</h3>
+						 <a class="collection" href="${bannerPage.list[0].itemUrl}">View collection <i class="glyphicon glyphicon-arrow-right"></i></a>
 					   </div>
 					   <div class="clearfix"> </div>
 				   </div>
+				   
 				   <div class="col-md-6 shoe">
 						   <div class="shoe-img">
-							 <img src="images/shoe.jpg" class="img-responsive" alt="">
+							 <img src="${bannerPage.list[1].imgUrl}" class="img-responsive" alt="" style="width:100%">
 						   </div>
 							<div class="shoe-text">
-							   <h3 class="b-tittle">Men's Shoes</h3>
-							 <a class="collection" href="single.html">View collection <i class="glyphicon glyphicon-arrow-right"></i></a>
+							   <h3 class="b-tittle">${bannerPage.list[1].title}</h3>
+							 <a class="collection" href="${bannerPage.list[1].itemUrl}">View collection <i class="glyphicon glyphicon-arrow-right"></i></a>
 						   </div>
 						   <div class="clearfix"> </div>
 					<div class="bottom-bags">
 						   <div class="col-md-6 pack">
 							  <div class="bag-text">
-								   <h3 class="b-tittle">Bags</h3>
-								 <a class="collection" href="single.html">View collection <i class="glyphicon glyphicon-arrow-right"></i></a>
+								   <h3 class="b-tittle">${bannerPage.list[2].title}</h3>
+								 <a class="collection" href="${bannerPage.list[2].itemUrl}">View collection <i class="glyphicon glyphicon-arrow-right"></i></a>
 							   </div>
 							   <div class="bag-img">
-								 <img src="images/bag.jpg" class="img-responsive" alt="">
+								 <img src="${bannerPage.list[2].imgUrl}" class="img-responsive" alt="" style="width:100%">
 							   </div>
 							   <div class="clearfix"> </div>
 							   
 						   </div>	
+						   
 						   <div class="col-md-6 glass">
 							  <div class="glass-text">
-								   <h3 class="b-tittle">Glasses</h3>
-							 <a class="collection" href="single.html">View collection <i class="glyphicon glyphicon-arrow-right"></i></a>
+								   <h3 class="b-tittle">${bannerPage.list[3].title}</h3>
+							 <a class="collection" href="${bannerPage.list[3].itemUrl}">View collection <i class="glyphicon glyphicon-arrow-right"></i></a>
 							   </div>
 							   <div class="glass-img">
-								 <img src="images/glass.jpg" class="img-responsive" alt="">
+								 <img src="${bannerPage.list[3].imgUrl}" class="img-responsive" alt="" style="width:100%">
 							   </div>
 							   <div class="clearfix"> </div>
 							   
@@ -318,37 +320,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					
 					<div class="standard_content">
 						<div class="standard active" data-selector="1">
-						<div class="tag-grid">
-							<div class="tag-wrapper">		
-								<a href="single.html"><img src="images/s2.jpg" class="img-responsive" alt="" /></a>
-								<div class="r-title">
-									<h3>Sunny Dress</h3>
-									<h4>$30</h4>
+							<#list page as page>
+								<div class="tag-grid">
+									<div class="tag-wrapper">		
+										<a href="http://${page.itemUrl!''}"><img src="${page.imgUrl!''}" class="img-responsive" alt="" /></a>
+										<div class="r-title">
+											<h3>${page.title!''}</h3>
+											<h4>￥${page.price!'99.00'}</h4>
+										</div>
+									</div>
+									<div class="atc"><a href="single.html">Shop</a></div>
+							   </div>
+						   </#list>
+							<div class="tag-grid">
+								<div class="tag-wrapper">		
+									<a href="single.html"><img src="images/s1.jpg" class="img-responsive" alt="" /></a>
+									<div class="atc"><a href="single.html">Shop</a></div>
+									<div class="r-title">
+										<h3>White Shirt</h3>
+										<h4>$30</h4>
+									</div>
 								</div>
 							</div>
-							<div class="atc"><a href="single.html">Shop</a></div>
-					   </div>
-					<div class="tag-grid">
-							<div class="tag-wrapper">		
-								<a href="single.html"><img src="images/s1.jpg" class="img-responsive" alt="" /></a>
-								<div class="atc"><a href="single.html">Shop</a></div>
-								<div class="r-title">
-									<h3>White Shirt</h3>
-									<h4>$30</h4>
+							<div class="tag-grid">
+								<div class="tag-wrapper">		
+									<a href="single.html"><img src="images/s3.jpg" class="img-responsive" alt="" /></a>
+									<div class="atc"><a href="single.html">Shop</a></div>
+									<div class="r-title">
+										<h3>Puma Shoe</h3>
+										<h4>$30</h4>
+									</div>
 								</div>
 							</div>
-					</div>
-					<div class="tag-grid">
-							<div class="tag-wrapper">		
-								<a href="single.html"><img src="images/s3.jpg" class="img-responsive" alt="" /></a>
-								<div class="atc"><a href="single.html">Shop</a></div>
-								<div class="r-title">
-									<h3>Puma Shoe</h3>
-									<h4>$30</h4>
-								</div>
-							</div>
-					</div>
-					<div class="clearfix"></div>
+							<div class="clearfix"></div>
 						</div>
 						<div class="standard" data-selector="2">
 							<div class="tag-grid">

@@ -59,7 +59,10 @@ public class IndexController {
 		//分页查询产品
 		Page<Product> page = productService.findByPage(new HashMap<String, Object>(), 1, 10);
 		
-		return new ModelAndView("index");
+		ModelAndView mav = new ModelAndView("index");
+		mav.addObject("bannerPage", bannerPage);
+		mav.addObject("page", page);
+		return mav;
 	}
 	
 	/**
