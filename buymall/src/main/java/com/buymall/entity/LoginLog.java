@@ -21,7 +21,7 @@ public class LoginLog {
     private String addr;
 
     
-    public static final String APP_NAME = "收藏夹";
+    public static final String APP_NAME = "购物";
     
     public LoginLog(String appName, Integer loginType,
 			String loginName, String errorInfo, String ipAddr,

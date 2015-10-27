@@ -37,8 +37,8 @@ public class Test extends Thread {
 	
 	public void run() {
 		for(int i=0; i<10000; i++){
-			//String url = "http://172.28.2.18:8113/mgs/service.do?service=query_balance&_input_charset=UTF-8&account_type=101&identity_type=MOBILE&partner_id=188888888888&sign_type=RSA&version=1.0&memo=&identity_no=18511833392&sign=wHzuQ42gnu0xjrr43bElxGApPbnMFvULkrf+T1DQWyHBSsNTNrT7yuheOdgt5NQBilYYHxEHfyMddQt4mz9ZoOBQ/Vd+LFU1xP42FpiFUO+bk8j57PBGnGGCMSMojoaw7p2+1NL9GkQ/TujT1t76oqmAorkn+LR66L7/5QQg600=";
-			String url = "http://172.28.2.18:8113/mgs/index.html";
+			String url = "http://172.28.2.18:8113/mgs/service.do?service=query_balance&_input_charset=UTF-8&account_type=101&identity_type=MOBILE&partner_id=188888888888&sign_type=RSA&version=1.0&memo=&identity_no=18511833392&sign=wHzuQ42gnu0xjrr43bElxGApPbnMFvULkrf+T1DQWyHBSsNTNrT7yuheOdgt5NQBilYYHxEHfyMddQt4mz9ZoOBQ/Vd+LFU1xP42FpiFUO+bk8j57PBGnGGCMSMojoaw7p2+1NL9GkQ/TujT1t76oqmAorkn+LR66L7/5QQg600=";
+			//String url = "http://172.28.2.18:8113/mgs/index.html";
 			String result = HTTPUtils.sendGet(url);
 			
 			System.out.println(name + "--->" + result);

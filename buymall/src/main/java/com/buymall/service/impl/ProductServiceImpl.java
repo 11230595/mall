@@ -47,16 +47,15 @@ public class ProductServiceImpl extends BaseMybatisDao implements ProductService
 	/**
 	 * 分页查询，倒叙排列
 	 */
-	public Page<Product> findByPage(String sqlId, Map<String, Object> param,
+	public Page<Product> findByPage(Map<String, Object> param,
 			int pageNo, int pageSize) {
-		return (Page<Product>) findByPageBySqlId(sqlId,param,pageNo,pageSize);
+		return (Page<Product>) findByPageBySqlId("findProductByPage",param,pageNo,pageSize);
 	}
 	/**
 	 * 分页查询，根据类型，倒叙排列
 	 */
-	public Page<Product> findTypeByPage(String sqlId,
-			Map<String, Object> param, int pageNo, int pageSize) {
-		return (Page<Product>) findByPageBySqlId(sqlId,param,pageNo,pageSize);
+	public Page<Product> findTypeByPage(Map<String, Object> param, int pageNo, int pageSize) {
+		return (Page<Product>) findByPageBySqlId("findProductTypeByPage",param,pageNo,pageSize);
 	}
 	
 }

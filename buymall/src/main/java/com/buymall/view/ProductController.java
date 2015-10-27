@@ -82,7 +82,7 @@ public class ProductController {
 		//分页参数
 		param.put("expireTime", DateUtils.DateToString(new Date(), "yyyy-MM-dd HH:mm:ss"));
 		
-		Page<Product> page = productService.findByPage("findProductByPage",param,pageNo,pageSize);
+		Page<Product> page = productService.findByPage(param,pageNo,pageSize);
 		map.put("page", page);
 		return map;
 	}
@@ -99,7 +99,7 @@ public class ProductController {
 		param.put("expireTime", DateUtils.DateToString(new Date(), "yyyy-MM-dd HH:mm:ss"));
 		param.put("type", type);
 		
-		Page<Product> page = productService.findTypeByPage("findProductTypeByPage",param,pageNo,pageSize);
+		Page<Product> page = productService.findTypeByPage(param,pageNo,pageSize);
 		map.put("page", page);
 		return map;
 	}

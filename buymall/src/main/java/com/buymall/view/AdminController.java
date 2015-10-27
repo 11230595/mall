@@ -34,7 +34,7 @@ public class AdminController {
 	@RequestMapping(value="admin",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView index(HttpServletRequest request) {
 		//从cookie取数据
-		String ip = IPUtils.getIP(request);
+		//String ip = IPUtils.getIP(request);
 		
 		User user = getSessionAndCookie(request);
 		
@@ -42,7 +42,7 @@ public class AdminController {
 			logger.info("Cookie不存在,跳转登录..");
 			redirect: return new ModelAndView("redirect:/user/login?returnUrl=../admin");
 		}
-		loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 10, user.getUserCode(), "", ip, IPUtils.getAddress(ip)));
+		loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 10, user.getUserCode(), "", "", ""));
 		return new ModelAndView("admin/index");
 	}
 	

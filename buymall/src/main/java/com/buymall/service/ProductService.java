@@ -54,7 +54,7 @@ public interface ProductService {
      * @param pageSize
      * @return
      */
-	Page<Product> findByPage(String sqlId, Map<String, Object> param,
+	Page<Product> findByPage(Map<String, Object> param,
 			int pageNo, int pageSize);
 	
 	/**
@@ -65,6 +65,6 @@ public interface ProductService {
 	 * @param pageSize
 	 * @return
 	 */
-	Page<Product> findTypeByPage(String sqlId, Map<String, Object> param,
+	Page<Product> findTypeByPage(Map<String, Object> param,
 			int pageNo, int pageSize);
 }

@@ -1,5 +1,7 @@
 package com.buymall.view;
 
+import java.util.HashMap;
+
 import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -11,10 +13,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.buymall.constants.Constants;
+import com.buymall.entity.Banner;
 import com.buymall.entity.LoginLog;
+import com.buymall.entity.Product;
 import com.buymall.entity.User;
+import com.buymall.service.BannerService;
 import com.buymall.service.LoginLogService;
+import com.buymall.service.ProductService;
 import com.buymall.service.UserService;
+import com.framework.core.page.Page;
 import com.framework.core.utils.IPUtils;
 /**
  * 首页部分功能
@@ -28,6 +35,10 @@ public class IndexController {
 	private UserService userService;
 	@Resource
 	private LoginLogService loginLogService;
+	@Resource
+	private ProductService productService;
+	@Resource
+	private BannerService bannerService;
 	
 	/**
 	 * 首页
@@ -35,16 +46,30 @@ public class IndexController {
 	 */
 	@RequestMapping(value="index",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView index(HttpServletRequest request) {
+		//String ip = IPUtils.getIP(request);
 		//从cookie取数据
-		String ip = IPUtils.getIP(request);
-		
 		User user = getSessionAndCookie(request);
 		if(user != null){
-			loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 10, user.getUserCode(), "", ip, IPUtils.getAddress(ip)));
+			loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 10, user.getUserCode(), "", "", ""));
 		}
-		return new ModelAndView("index","style","navbar navbar-inverse navbar-static-top");
+		
+		//头部信息
+		Page<Banner> bannerPage = findBanner();
+		
+		//分页查询产品
+		Page<Product> page = productService.findByPage(new HashMap<String, Object>(), 1, 10);
+		
+		return new ModelAndView("index");
 	}
 	
+	/**
+	 * 查询海报
+	 * @return
+	 */
+	private Page<Banner> findBanner() {
+		return bannerService.findByPage();
+	}
+
 	/**
 	 * 获取cookie和session
 	 * @param request

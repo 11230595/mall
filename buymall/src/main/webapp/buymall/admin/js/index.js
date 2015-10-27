@@ -9,6 +9,7 @@ function loginOut() {
 
 // 绑定回车事件
 $(function() {
+	$("#dataTemplate").show(100);
 	document.onkeydown = function(e) {
 		var ev = document.all ? window.event : e;
 		if (ev.keyCode == 13) {
@@ -16,7 +17,7 @@ $(function() {
 		}
 	}
 });
-
+//导入数据提交
 function doSubmit() {
 	var type = $("#type").val();
 	var url = $("#url").val();
@@ -41,4 +42,51 @@ function doSubmit() {
 			alert("网络繁忙，请稍后再试..");
 		}
 	});
+}
+
+//跳转到banner页面
+function toBannerPage(obj){
+	$(obj).parent().parent().find("li").removeClass();
+	$(obj).parent().addClass("active");
+	$("#dataTemplate").hide();
+	$("#bannerTemplate").show();
+	
+	fillBannerData();
+}
+//填充banner页面数据表格
+function fillBannerData(){
+	$.post("banner/findAll",function(data){
+		$("#bannerTemplate").find("tbody").empty();
+		$.each(data.banners,function(i,d){
+			var html = '<tr class="active">				\
+				         <td>'+d.title+'</td>			\
+				         <td>'+d.imgUrl+'</td>			\
+				         <td>'+d.itemUrl+'</td>			\
+						 <td>'+d.page+'</td>			\
+						 <td>'+d.position+'</td>		\
+						 <td><a href="javascript:void(0);" onclick="deleteBanner(\''+d.id+'\')">删除</a></td>		\
+				      </tr>';
+			$("#bannerTemplate").find("tbody").append(html);
+		});
+		
+		$("#bannerTemplate tr:odd").addClass("success");
+		$("#bannerTemplate tr:even").addClass("active");
+	})
+}
+
+function deleteBanner(id){
+	$.post("banner/del/"+id,function(data){
+		if(data.respCode == 0){
+			fillBannerData()
+		}
+	})
+}
+
+//提交，保存banner
+function doSubmitBanner(){
+	$.post("banner/add",$("#bannerForm").serialize(),function(data){
+		if(data.respCode == 0){
+			window.location.reload(true);
+		}
+	})
 }
