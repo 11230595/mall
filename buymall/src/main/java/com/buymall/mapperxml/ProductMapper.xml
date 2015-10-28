@@ -7,6 +7,7 @@
     <result column="PRODUCT_DESC" property="productDesc" jdbcType="VARCHAR" />
     <result column="ITEM_URL" property="itemUrl" jdbcType="VARCHAR" />
     <result column="IMG_URL" property="imgUrl" jdbcType="VARCHAR" />
+    <result column="PRICE" property="price" jdbcType="DOUBLE" />
     <result column="BUY_COUNT" property="buyCount" jdbcType="VARCHAR" />
     <result column="COLLECT_COUNT" property="collectCount" jdbcType="VARCHAR" />
     <result column="SURPLUS_COUNT" property="surplusCount" jdbcType="VARCHAR" />
@@ -22,7 +23,7 @@
     <result column="EXPIRE_TIME" property="expireTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    ID, TITLE, PRODUCT_DESC, ITEM_URL, IMG_URL, BUY_COUNT, COLLECT_COUNT, SURPLUS_COUNT, 
+    ID, TITLE, PRODUCT_DESC, ITEM_URL, IMG_URL, PRICE, BUY_COUNT, COLLECT_COUNT, SURPLUS_COUNT, 
     SCORE, ACT_DESC, PLATFORM, TYPE, STATUS, BZ1, BZ2, BZ3, CREATE_TIME, EXPIRE_TIME
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
@@ -37,17 +38,19 @@
   </delete>
   <insert id="insert" parameterType="com.buymall.entity.Product" >
     insert into product (ID, TITLE, PRODUCT_DESC, 
-      ITEM_URL, IMG_URL, BUY_COUNT, 
-      COLLECT_COUNT, SURPLUS_COUNT, SCORE, 
-      ACT_DESC, PLATFORM, TYPE, 
-      STATUS, BZ1, BZ2, BZ3, 
-      CREATE_TIME, EXPIRE_TIME)
+      ITEM_URL, IMG_URL, PRICE, 
+      BUY_COUNT, COLLECT_COUNT, SURPLUS_COUNT, 
+      SCORE, ACT_DESC, PLATFORM, 
+      TYPE, STATUS, BZ1, 
+      BZ2, BZ3, CREATE_TIME, 
+      EXPIRE_TIME)
     values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{productDesc,jdbcType=VARCHAR}, 
-      #{itemUrl,jdbcType=VARCHAR}, #{imgUrl,jdbcType=VARCHAR}, #{buyCount,jdbcType=VARCHAR}, 
-      #{collectCount,jdbcType=VARCHAR}, #{surplusCount,jdbcType=VARCHAR}, #{score,jdbcType=VARCHAR}, 
-      #{actDesc,jdbcType=VARCHAR}, #{platform,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
-      #{status,jdbcType=INTEGER}, #{bz1,jdbcType=VARCHAR}, #{bz2,jdbcType=VARCHAR}, #{bz3,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{expireTime,jdbcType=TIMESTAMP})
+      #{itemUrl,jdbcType=VARCHAR}, #{imgUrl,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, 
+      #{buyCount,jdbcType=VARCHAR}, #{collectCount,jdbcType=VARCHAR}, #{surplusCount,jdbcType=VARCHAR}, 
+      #{score,jdbcType=VARCHAR}, #{actDesc,jdbcType=VARCHAR}, #{platform,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{bz1,jdbcType=VARCHAR}, 
+      #{bz2,jdbcType=VARCHAR}, #{bz3,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{expireTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.buymall.entity.Product" >
     insert into product
@@ -66,6 +69,9 @@
       </if>
       <if test="imgUrl != null" >
         IMG_URL,
+      </if>
+      <if test="price != null" >
+        PRICE,
       </if>
       <if test="buyCount != null" >
         BUY_COUNT,
@@ -123,6 +129,9 @@
       <if test="imgUrl != null" >
         #{imgUrl,jdbcType=VARCHAR},
       </if>
+      <if test="price != null" >
+        #{price,jdbcType=DOUBLE},
+      </if>
       <if test="buyCount != null" >
         #{buyCount,jdbcType=VARCHAR},
       </if>
@@ -179,6 +188,9 @@
       <if test="imgUrl != null" >
         IMG_URL = #{imgUrl,jdbcType=VARCHAR},
       </if>
+      <if test="price != null" >
+        PRICE = #{price,jdbcType=DOUBLE},
+      </if>
       <if test="buyCount != null" >
         BUY_COUNT = #{buyCount,jdbcType=VARCHAR},
       </if>
@@ -227,6 +239,7 @@
       PRODUCT_DESC = #{productDesc,jdbcType=VARCHAR},
       ITEM_URL = #{itemUrl,jdbcType=VARCHAR},
       IMG_URL = #{imgUrl,jdbcType=VARCHAR},
+      PRICE = #{price,jdbcType=DOUBLE},
       BUY_COUNT = #{buyCount,jdbcType=VARCHAR},
       COLLECT_COUNT = #{collectCount,jdbcType=VARCHAR},
       SURPLUS_COUNT = #{surplusCount,jdbcType=VARCHAR},
@@ -242,7 +255,6 @@
       EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP}
     where ID = #{id,jdbcType=VARCHAR}
   </update>
-  
   <!-- 分页查询所有属性 -->
   <select id="findProductByPage" resultMap="BaseResultMap">
 	select 

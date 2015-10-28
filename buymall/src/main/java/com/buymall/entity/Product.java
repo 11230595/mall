@@ -13,6 +13,8 @@ public class Product {
 
     private String imgUrl;
 
+    private Double price;
+
     private String buyCount;
 
     private String collectCount;
@@ -77,6 +79,14 @@ public class Product {
 
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl == null ? null : imgUrl.trim();
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public String getBuyCount() {

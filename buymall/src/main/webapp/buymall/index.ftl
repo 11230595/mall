@@ -309,6 +309,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="recommand-section-head text-center">
 					<h3 class="tittle fea">Recommended Products</h3>
 				</div>
+				<!-- recommand -->
 				<div class="recommand-section-grids">
 
 					<div class="standards">
@@ -317,146 +318,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li class="selector active" data-selector="1">天猫</li>
 							<li class="selector" data-selector="2">淘宝</li>
 					</ul>
-					
+					<!-- 内容 -->
 					<div class="standard_content">
 						<div class="standard active" data-selector="1">
-							<#list page as page>
+							<#list page.list as page>
 								<div class="tag-grid">
 									<div class="tag-wrapper">		
-										<a href="http://${page.itemUrl!''}"><img src="${page.imgUrl!''}" class="img-responsive" alt="" /></a>
+										<a href="https://${page.itemUrl!''}"><img src="${page.imgUrl!''}" class="img-responsive" alt="" /></a>
 										<div class="r-title">
 											<h3>${page.title!''}</h3>
 											<h4>￥${page.price!'99.00'}</h4>
 										</div>
 									</div>
-									<div class="atc"><a href="single.html">Shop</a></div>
+									<div class="atc"><a target="_blank" href="https://${page.itemUrl!''}">Shop</a></div>
 							   </div>
 						   </#list>
-							<div class="tag-grid">
-								<div class="tag-wrapper">		
-									<a href="single.html"><img src="images/s1.jpg" class="img-responsive" alt="" /></a>
-									<div class="atc"><a href="single.html">Shop</a></div>
-									<div class="r-title">
-										<h3>White Shirt</h3>
-										<h4>$30</h4>
-									</div>
-								</div>
-							</div>
+							<div class="clearfix"></div>
+						</div>
+						<!-- 2-->
+						<div class="standard" data-selector="2">
 							<div class="tag-grid">
 								<div class="tag-wrapper">		
 									<a href="single.html"><img src="images/s3.jpg" class="img-responsive" alt="" /></a>
 									<div class="atc"><a href="single.html">Shop</a></div>
 									<div class="r-title">
-										<h3>Puma Shoe</h3>
+										<h3>Sunny Dress</h3>
 										<h4>$30</h4>
 									</div>
 								</div>
 							</div>
 							<div class="clearfix"></div>
 						</div>
-						<div class="standard" data-selector="2">
-							<div class="tag-grid">
-							<div class="tag-wrapper">		
-								<a href="single.html"><img src="images/s3.jpg" class="img-responsive" alt="" /></a>
-								<div class="atc"><a href="single.html">Shop</a></div>
-								<div class="r-title">
-									<h3>Sunny Dress</h3>
-									<h4>$30</h4>
-								</div>
-							</div>
+						<!--2 -->
 					</div>
-					<div class="tag-grid">
-							<div class="tag-wrapper">		
-								<a href="single.html"><img src="images/s2.jpg" class="img-responsive" alt="" /></a>
-								<div class="atc"><a href="single.html">Shop</a></div>
-								<div class="r-title">
-									<h3>White Shirt</h3>
-									<h4>$30</h4>
-								</div>
-							</div>
-					</div>
-					<div class="tag-grid">
-							<div class="tag-wrapper">		
-								<a href="single.html"><img src="images/s1.jpg" class="img-responsive" alt="" /></a>
-								<div class="atc"><a href="single.html">Shop</a></div>
-								<div class="r-title">
-									<h3>Puma Shoe</h3>
-									<h4>$30</h4>
-								</div>
-							</div>
-					</div>
-						<div class="clearfix"></div>
-						</div>
-						<div class="standard" data-selector="3">
-							<div class="tag-grid">
-							<div class="tag-wrapper">		
-								<a href="single.html"><img src="images/s2.jpg" class="img-responsive" alt="" /></a>
-								<div class="atc"><a href="single.html">Shop</a></div>
-								<div class="r-title">
-									<h3>Sunny Dress</h3>
-									<h4>$30</h4>
-								</div>
-							</div>
-					</div>
-					<div class="tag-grid">
-							<div class="tag-wrapper">		
-								<a href="single.html"><img src="images/s1.jpg" class="img-responsive" alt="" /></a>
-								<div class="atc"><a href="single.html">Shop</a></div>
-								<div class="r-title">
-									<h3>White Shirt</h3>
-									<h4>$30</h4>
-								</div>
-							</div>
-					</div>
-					<div class="tag-grid">
-							<div class="tag-wrapper">		
-								<a href="single.html"><img src="images/s3.jpg" class="img-responsive" alt="" /></a>
-								<div class="atc"><a href="single.html">Shop</a></div>
-								<div class="r-title">
-									<h3>Puma Shoe</h3>
-									<h4>$30</h4>
-								</div>
-							</div>
-					</div>
-					<div class="clearfix"></div>
-				  </div>
-				   <div class="standard" data-selector="4">
-						<div class="tag-grid">
-							<div class="tag-wrapper">		
-								<a href="single.html"><img src="images/s1.jpg" class="img-responsive" alt="" /></a>
-								<div class="atc"><a href="single.html">Shop</a></div>
-								<div class="r-title">
-									<h3>Sunny Dress</h3>
-									<h4>$30</h4>
-								</div>
-							</div>
-					</div>
-					<div class="tag-grid">
-							<div class="tag-wrapper">		
-								<a href="single.html"><img src="images/s3.jpg" class="img-responsive" alt="" /></a>
-								<div class="atc"><a href="single.html">Shop</a></div>
-								<div class="r-title">
-									<h3>White Shirt</h3>
-									<h4>$30</h4>
-								</div>
-							</div>
-					</div>
-					<div class="tag-grid">
-							<div class="tag-wrapper">		
-								<a href="single.html"><img src="images/s2.jpg" class="img-responsive" alt="" /></a>
-								<div class="atc"><a href="single.html">Shop</a></div>
-								<div class="r-title">
-									<h3>Puma Shoe</h3>
-									<h4>$30</h4>
-								</div>
-							</div>
-					</div>
-						<div class="clearfix"></div>
-						</div>
-					</div>
-					<div class="clearfix"></div>
+					<!-- 内容end -->
 				</div>
-				</div>
+				<!-- recommand end -->
 			</div>
 		</div>
 		<!-- //end-产品 -->
