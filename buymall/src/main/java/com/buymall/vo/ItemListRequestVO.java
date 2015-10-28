@@ -41,6 +41,11 @@ public class ItemListRequestVO {
 	 * 价格上限
 	 */
 	private long endPrice;
+	
+	/**
+	 * 类型
+	 */
+	private int type;
 	/**
 	 * url
 	 */
@@ -135,6 +140,12 @@ public class ItemListRequestVO {
 	}
 	public void setEndPrice(long endPrice) {
 		this.endPrice = endPrice;
+	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
 	}
 	public ItemListRequestVO(String q, String itemloc, String sort,
 			boolean isTmall, long pageNo, long pageSize, boolean isOverseas,

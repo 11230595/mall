@@ -1,5 +1,8 @@
 package com.buymall.utils;
 
+import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang.StringUtils;
+
 import com.buymall.vo.ItemListRequestVO;
 import com.taobao.api.ApiException;
 import com.taobao.api.DefaultTaobaoClient;
@@ -13,8 +16,10 @@ public class TKUtils {
 	
 	public static void main(String[] args) {
 		ItemListRequestVO itemListRequestVO = new ItemListRequestVO("女装", ItemListRequestVO.SORT_SALES, false, 1L, 10L, 0L, 99L);
-		getItemList(itemListRequestVO);
+		String result = getItemList(itemListRequestVO);
 	}
+	
+	private static String[] sorts = {"_des","_asc","total_sales","tk_rate","tk_total_sales","tk_total_commi"};
 	
 	/**
 	 * 淘宝客商品查询
@@ -29,21 +34,34 @@ public class TKUtils {
 		//需返回的字段列表
 		req.setFields("num_iid,title,pict_url,small_images,reserve_price,zk_final_price,user_type,provcity,item_url");
 		req.setQ(itemRequest.getQ());				//查询词
-		req.setItemloc(itemRequest.getItemloc());		//所在地
-		req.setSort(itemRequest.getSort());	//排序_des（降序），排序_asc（升序），销量（total_sales），淘客佣金比率（tk_rate）， 累计推广量（tk_total_sales），总支出佣金（tk_total_commi）
+		if(StringUtils.isNotBlank(itemRequest.getItemloc())){
+			req.setItemloc(itemRequest.getItemloc());		//所在地
+		}
+		if(ArrayUtils.contains(sorts, itemRequest.getSort())){
+			req.setSort(itemRequest.getSort());	//排序_des（降序），排序_asc（升序），销量（total_sales），淘客佣金比率（tk_rate）， 累计推广量（tk_total_sales），总支出佣金（tk_total_commi）
+		}
 		req.setIsTmall(itemRequest.getIsTmall());		//是否商城商品，设置为true表示该商品是属于淘宝商城商品，设置为false或不设置表示不判断这个属性
 		req.setIsOverseas(itemRequest.getIsOverseas());	//是否海外商品，设置为true表示该商品是属于海外商品，设置为false或不设置表示不判断这个属性
-		req.setStartPrice(itemRequest.getStartPrice());		//折扣价范围下限，单位：元
-		req.setEndPrice(itemRequest.getEndPrice());		//折扣价范围上限，单位：元
+		if(itemRequest.getStartPrice() > 0){
+			req.setStartPrice(itemRequest.getStartPrice());		//折扣价范围下限，单位：元
+		}
+		if(itemRequest.getEndPrice() > 0){
+			req.setEndPrice(itemRequest.getEndPrice());		//折扣价范围上限，单位：元
+		}
 		//req.setStartTkRate(123L);	//淘客佣金比率下限，如：1234表示12.34%
 		//req.setEndTkRate(123L);		//淘客佣金比率上限，如：1234表示12.34%
 		//req.setPlatform(1L);		//链接形式：1：PC，2：无线，默认：１
-		req.setPageNo(itemRequest.getPageNo());		//第几页，默认：１
-		req.setPageSize(itemRequest.getPageSize());		//页大小，默认20，1~100
+		if(itemRequest.getPageNo() > 0){
+			req.setPageNo(itemRequest.getPageNo());		//第几页，默认：１
+		}
+		if(itemRequest.getPageSize() > 0){
+			req.setPageSize(itemRequest.getPageSize());		//页大小，默认20，1~100
+		}
 		TbkItemGetResponse rsp = null;
 		try {
 			rsp = client.execute(req);
 		} catch (ApiException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println(rsp.getBody());

@@ -43,7 +43,25 @@ function doSubmit() {
 		}
 	});
 }
-
+function doAPISubmit(){
+	var type = $("#tpType").val();
+	
+	if (type == "") {
+		alert("请选择类型");
+		return;
+	}
+	
+	$.post("tp/add", $("#tpForm").serialize(), function(data) {
+		if (data.respCode == 0) {
+			alert("导入成功");
+			window.location.reload(true);
+		}else if(data.respCode == 2){
+			alert("没有搜索到数据，请重新输入条件..");
+		} else {
+			alert("网络繁忙，请稍后再试..");
+		}
+	});
+}
 //跳转到banner页面
 function toBannerPage(obj){
 	$(obj).parent().parent().find("li").removeClass();
