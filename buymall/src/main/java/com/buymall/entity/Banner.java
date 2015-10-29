@@ -13,7 +13,7 @@ public class Banner {
 
     private String bannerDesc;
 
-    private Integer type;
+    private Integer bannerType;
 
     private String page;
 
@@ -61,12 +61,12 @@ public class Banner {
         this.bannerDesc = bannerDesc == null ? null : bannerDesc.trim();
     }
 
-    public Integer getType() {
-        return type;
+    public Integer getBannerType() {
+        return bannerType;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setBannerType(Integer bannerType) {
+        this.bannerType = bannerType;
     }
 
     public String getPage() {

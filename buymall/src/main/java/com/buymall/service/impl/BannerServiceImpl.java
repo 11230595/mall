@@ -49,9 +49,9 @@ public class BannerServiceImpl extends BaseMybatisDao implements BannerService{
 	/**
 	 * 分页查询海报
 	 */
-	public Page<Banner> findByPage() {
+	public Page<Banner> findByPage(int bannerType) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("type", 0);
+		map.put("bannerType", bannerType);
 		return (Page<Banner>) findByPageBySqlId("findByPage", map, 1, 4);
 	}
 	/**

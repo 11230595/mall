@@ -153,7 +153,7 @@ public class ProductController {
 		Map<String, Object> param = new HashMap<String, Object>();
 		//参数
 		param.put("expireTime", DateUtils.DateToString(new Date(), "yyyy-MM-dd HH:mm:ss"));
-		param.put("type", type);
+		param.put("userType", type);
 		
 		Page<Product> page = productService.findTypeByPage(param,pageNo,pageSize);
 		map.put("page", page);

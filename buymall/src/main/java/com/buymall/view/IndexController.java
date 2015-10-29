@@ -54,23 +54,27 @@ public class IndexController {
 		}
 		
 		//头部信息
-		Page<Banner> bannerPage = findBanner();
+		Page<Banner> bannerPage = findBanner(0);
+		//中部信息
+		Page<Banner> bPage	= findBanner(2);
 		
 		//分页查询产品
 		Page<Product> page = productService.findByPage(new HashMap<String, Object>(), 1, 10);
 		
 		ModelAndView mav = new ModelAndView("index");
 		mav.addObject("bannerPage", bannerPage);
+		mav.addObject("bPage", bPage);
 		mav.addObject("page", page);
 		return mav;
 	}
 	
 	/**
 	 * 查询海报
+	 * @param bannerType 
 	 * @return
 	 */
-	private Page<Banner> findBanner() {
-		return bannerService.findByPage();
+	private Page<Banner> findBanner(int bannerType) {
+		return bannerService.findByPage(bannerType);
 	}
 
 	/**

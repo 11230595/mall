@@ -44,9 +44,10 @@ public interface BannerService {
     int updateByPrimaryKey(Banner record);
     /**
      * 分页查询海报
+     * @param bannerType 
      * @return
      */
-	Page<Banner> findByPage();
+	Page<Banner> findByPage(int bannerType);
 	/**
 	 * 查询全部
 	 * @return

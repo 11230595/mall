@@ -7,13 +7,13 @@
     <result column="ITEM_URL" property="itemUrl" jdbcType="VARCHAR" />
     <result column="IMG_URL" property="imgUrl" jdbcType="VARCHAR" />
     <result column="BANNER_DESC" property="bannerDesc" jdbcType="VARCHAR" />
-    <result column="TYPE" property="type" jdbcType="INTEGER" />
+    <result column="BANNER_TYPE" property="bannerType" jdbcType="INTEGER" />
     <result column="PAGE" property="page" jdbcType="VARCHAR" />
     <result column="POSITION" property="position" jdbcType="INTEGER" />
     <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    ID, TITLE, ITEM_URL, IMG_URL, BANNER_DESC, TYPE, PAGE, POSITION, CREATE_TIME
+    ID, TITLE, ITEM_URL, IMG_URL, BANNER_DESC, BANNER_TYPE, PAGE, POSITION, CREATE_TIME
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -27,11 +27,11 @@
   </delete>
   <insert id="insert" parameterType="com.buymall.entity.Banner" >
     insert into banner (ID, TITLE, ITEM_URL, 
-      IMG_URL, BANNER_DESC, TYPE, 
+      IMG_URL, BANNER_DESC, BANNER_TYPE, 
       PAGE, POSITION, CREATE_TIME
       )
     values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{itemUrl,jdbcType=VARCHAR}, 
-      #{imgUrl,jdbcType=VARCHAR}, #{bannerDesc,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+      #{imgUrl,jdbcType=VARCHAR}, #{bannerDesc,jdbcType=VARCHAR}, #{bannerType,jdbcType=INTEGER}, 
       #{page,jdbcType=VARCHAR}, #{position,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -53,8 +53,8 @@
       <if test="bannerDesc != null" >
         BANNER_DESC,
       </if>
-      <if test="type != null" >
-        TYPE,
+      <if test="bannerType != null" >
+        BANNER_TYPE,
       </if>
       <if test="page != null" >
         PAGE,
@@ -82,8 +82,8 @@
       <if test="bannerDesc != null" >
         #{bannerDesc,jdbcType=VARCHAR},
       </if>
-      <if test="type != null" >
-        #{type,jdbcType=INTEGER},
+      <if test="bannerType != null" >
+        #{bannerType,jdbcType=INTEGER},
       </if>
       <if test="page != null" >
         #{page,jdbcType=VARCHAR},
@@ -111,8 +111,8 @@
       <if test="bannerDesc != null" >
         BANNER_DESC = #{bannerDesc,jdbcType=VARCHAR},
       </if>
-      <if test="type != null" >
-        TYPE = #{type,jdbcType=INTEGER},
+      <if test="bannerType != null" >
+        BANNER_TYPE = #{bannerType,jdbcType=INTEGER},
       </if>
       <if test="page != null" >
         PAGE = #{page,jdbcType=VARCHAR},
@@ -132,24 +132,19 @@
       ITEM_URL = #{itemUrl,jdbcType=VARCHAR},
       IMG_URL = #{imgUrl,jdbcType=VARCHAR},
       BANNER_DESC = #{bannerDesc,jdbcType=VARCHAR},
-      TYPE = #{type,jdbcType=INTEGER},
+      BANNER_TYPE = #{bannerType,jdbcType=INTEGER},
       PAGE = #{page,jdbcType=VARCHAR},
       POSITION = #{position,jdbcType=INTEGER},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where ID = #{id,jdbcType=VARCHAR}
   </update>
-  
-    <!-- 分页查询所有属性 -->
+  <!-- 分页查询所有属性 -->
   <select id="findByPage" resultMap="BaseResultMap">
 	select 
     <include refid="Base_Column_List" />
     from banner
     where 1=1
-    
-    <if test="type != null and type !=''"  >
-      and type = ${type}
-    </if>
-    
+      and banner_type = ${bannerType}
     order by position
     <!-- 分页 -->
     <if test="page_sql != null and page_sql !=''"  >
@@ -157,7 +152,7 @@
     </if>
   </select>
   
-  <!-- 分页查询所有属性 -->
+  <!-- 查询所有属性 -->
   <select id="findAll" resultMap="BaseResultMap">
 	select 
     <include refid="Base_Column_List" />

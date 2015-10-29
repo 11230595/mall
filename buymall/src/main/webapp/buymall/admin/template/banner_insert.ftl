@@ -36,6 +36,9 @@
 	   <div class="form-group">
 	      <input class="form-control" type="text" placeholder="顺序" name="position">
 	   </div>
+	   <div class="form-group">
+	      <input class="form-control" type="text" placeholder="类型" name="type">
+	   </div>
 	   
 	   <button type="button" class="btn btn-primary" onclick="doSubmitBanner();" style="width:100%;">提交</button>
 	</form>

@@ -246,26 +246,9 @@
     where ID = #{id,jdbcType=VARCHAR}
   </update>
   
-    <!-- 分页查询所有属性 -->
-  <select id="findTkProductByPage" resultMap="BaseResultMap">
-	select 
-    <include refid="Base_Column_List" />
-    from product
-    where 1=1
-    
-    <if test="expireTime != null and expireTime !=''"  >
-      and expire_Time &gt; '${expireTime}'
-    </if>
-    
-    order by create_time desc
-    <!-- 分页 -->
-    <if test="page_sql != null and page_sql !=''"  >
-       ${page_sql}
-    </if>
-  </select>
   
-  <!-- 分页查询根据类型 -->
-  <select id="findTkProductTypeByPage" resultMap="BaseResultMap">
+  <!-- 分页查询 -->
+  <select id="findProductByPage" resultMap="BaseResultMap">
 	select 
     <include refid="Base_Column_List" />
     from product
@@ -274,8 +257,8 @@
     <if test="expireTime != null and expireTime !=''"  >
       and expire_Time &gt; '${expireTime}'
     </if>
-    <if test="type != null and type !=''"  >
-      and type = '${type}'
+    <if test="userType != null and userType !=''"  >
+      and user_type = ${userType}
     </if>
     order by create_time desc
     <!-- 分页 -->
