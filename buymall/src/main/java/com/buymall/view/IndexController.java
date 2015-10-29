@@ -1,15 +1,19 @@
 package com.buymall.view;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.buymall.constants.Constants;
@@ -44,8 +48,9 @@ public class IndexController {
 	 * 首页
 	 * @return
 	 */
-	@RequestMapping(value="index",method={RequestMethod.GET,RequestMethod.POST})
-	public ModelAndView index(HttpServletRequest request) {
+	@RequestMapping(value="index/{pageNo}",method={RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView index(HttpServletRequest request,@PathVariable int pageNo,@RequestParam(required=false) String type) {
+		ModelAndView mav = new ModelAndView("index");
 		//String ip = IPUtils.getIP(request);
 		//从cookie取数据
 		User user = getSessionAndCookie(request);
@@ -58,10 +63,14 @@ public class IndexController {
 		//中部信息
 		Page<Banner> bPage	= findBanner(2);
 		
+		Map<String, Object> map = new HashMap<String, Object>();
 		//分页查询产品
-		Page<Product> page = productService.findByPage(new HashMap<String, Object>(), 1, 10);
+		if(StringUtils.isNotBlank(type)){
+			map.put("type", Integer.parseInt(type));
+			mav.addObject("type", type);
+		}
+		Page<Product> page = productService.findByPage(map, pageNo, 21);
 		
-		ModelAndView mav = new ModelAndView("index");
 		mav.addObject("bannerPage", bannerPage);
 		mav.addObject("bPage", bPage);
 		mav.addObject("page", page);

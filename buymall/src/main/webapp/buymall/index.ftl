@@ -27,6 +27,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="${request.contextPath}/js/index/modernizr.custom.js"></script>
 <script type="text/javascript" src="${request.contextPath}/js/index/move-top.js"></script>
 <script type="text/javascript" src="${request.contextPath}/js/index/easing.js"></script>
+<script type="text/javascript" src="${request.contextPath}/js/jquery.page.js"></script><!-- 分页 -->
 <!--/script-->
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
@@ -45,7 +46,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="top_right">
 				<ul>
 					<li><a href="#">帮助</a></li>
-					<li><a href="contact.html">登录/注册</a></li>
+					<li>
+						<#if user??>
+							<a href="${request.contextPath}/user/userHome/${user.userId!''}">${user.userCode!''}</a>
+						<#else>
+							<a href="${request.contextPath}/user/login">登录/注册</a>
+						</#if>
+					</li>
 					<li><a href="#">签到</a></li>
 				</ul>
 			</div>
@@ -106,7 +113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<#list page.list as page>
 								<div class="tag-grid">
 									<div class="tag-wrapper">		
-										<a href="${page.itemUrl!''}"><img src="${page.imgUrl!''}" class="img-responsive" alt="" /></a>
+										<a href="${page.itemUrl!''}"><img src="${page.imgUrl!''}" class="img-responsive" style="width:100%;height: 218px"/></a>
 										<div class="r-title">
 											<h3>${page.title!''}</h3>
 											<h4>
@@ -119,6 +126,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							   </div>
 						   </#list>
 							<div class="clearfix"></div>
+							<div style="width:100%;text-align:center;margin-top:20px;">
+								<#include "template/page.ftl"><!-- 导航模板 -->
+							</div>
 						</div>
 					</div>
 					<!-- 内容end -->
@@ -126,6 +136,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- recommand end -->
 			</div>
 		</div>
+	</div>
 		<!-- //end-产品 -->
 	  <!-- /start-底图图片 -->
 	  
@@ -236,6 +247,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		$(document).ready(function() {
 			$().UItoTop({ easingType: 'easeOutQuart' });
 		});
+		
+		$(function(){
+			var pageNo = ${page.pageNo};
+			if(pageNo != 1){
+				window.scrollTo(100,1400);
+			}
+		})
 	</script>
 	<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 </body>

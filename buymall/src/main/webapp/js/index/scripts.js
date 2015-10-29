@@ -72,7 +72,7 @@ jQuery(document).ready(function ($) {
 		    
 			var height2 = $('.standard.active').height();
 		    $('.standard_content').css("height", height2);
-		    $('.standards').css("height", height2);
+		    $('.standards').css("height", height2 + 100);
 		    
 	    } else {
 	    
@@ -90,7 +90,7 @@ jQuery(document).ready(function ($) {
 		
 		$('.service_wrapper').css("height", height);
 		$('.standard_content').css("height", height2);
-		$('.standards').css("height", height2);
+		$('.standards').css("height",  height2 + 100);
     
     });
     
@@ -101,7 +101,7 @@ jQuery(document).ready(function ($) {
 		
 		$('.service_wrapper').css("height", height);
 		$('.standard_content').css("height", height2);
-		$('.standards').css("height", height2);
+		$('.standards').css("height",  height2 + 100);
 		
 	});
 	

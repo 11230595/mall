@@ -10,17 +10,18 @@
 	    </div>
 		<!-- 导航start -->
 		<ul class="megamenu skyblue">
-			<li class="active grid"><a class="color1" href="index.html">首页</a></li>
-			<li class="grid"><a class="color2" href="#">分类</a>
+			<li class="active grid"><a class="color1" href="${request.contextPath}">首页</a></li>
+			<li class="grid"><a class="color2" href="javascript:void(0)">分类</a>
 				<div class="megapanel">
 					<div class="row">
 						<div class="col1">
 							<div class="h_nav">
 								<h4>穿着</h4>
 								<ul>
-									<li><a href="product.html">服装</a></li>
-									<li><a href="product.html">鞋包</a></li>
-									<li><a href="product.html">饰品</a></li>
+									<li><a href="${request.contextPath}?type=1">女装</a></li>
+									<li><a href="${request.contextPath}?type=2">男装</a></li>
+									<li><a href="${request.contextPath}?type=3">内衣</a></li>
+									<li><a href="${request.contextPath}?type=4">鞋品</a></li>
 								</ul>	
 							</div>							
 						</div>
@@ -28,18 +29,27 @@
 							<div class="h_nav">
 								<h4>居家</h4>
 								<ul>
-									<li><a href="product.html">家居</a></li>
-									<li><a href="product.html">健身按摩</a></li>
-									<li><a href="product.html">美容护理</a></li>
-									<li><a href="product.html">食品</a></li>
+									<li><a href="${request.contextPath}?type=7">家居</a></li>
+									<li><a href="${request.contextPath}?type=8">食品</a></li>
+									<li><a href="${request.contextPath}?type=10">箱包</a></li>
+									<li><a href="${request.contextPath}?type=11">美妆</a></li>
 								</ul>	
 							</div>							
 						</div>
 						<div class="col1">
 							<div class="h_nav">
+								<h4>母婴</h4>
+								<ul>
+									<li><a href="${request.contextPath}?type=5">儿童</a></li>
+									<li><a href="${request.contextPath}?type=6">母婴</a></li>
+								</ul>	
+							</div>												
+						</div>
+						<div class="col1">
+							<div class="h_nav">
 								<h4>数码</h4>
 								<ul>
-									<li><a href="product.html">数码</a></li>
+									<li><a href="${request.contextPath}?type=9">数码</a></li>
 								</ul>	
 							</div>												
 						</div>

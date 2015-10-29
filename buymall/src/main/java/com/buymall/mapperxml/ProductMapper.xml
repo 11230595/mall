@@ -260,6 +260,9 @@
     <if test="userType != null and userType !=''"  >
       and user_type = ${userType}
     </if>
+    <if test="type != null and type !=''"  >
+      and type = ${type}
+    </if>
     order by create_time desc
     <!-- 分页 -->
     <if test="page_sql != null and page_sql !=''"  >
