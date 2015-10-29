@@ -5,41 +5,39 @@ import java.util.Date;
 public class Product {
     private String id;
 
+    private String numIid;
+
     private String title;
 
-    private String productDesc;
-
-    private String itemUrl;
+    private String pictUrl;
 
     private String imgUrl;
 
-    private Double price;
+    private String smallImages;
 
-    private String buyCount;
+    private Double reservePrice;
 
-    private String collectCount;
+    private Double zkFinalPrice;
 
-    private String surplusCount;
+    private Integer userType;
 
-    private String score;
+    private String provcity;
 
-    private String actDesc;
+    private String itemUrl;
 
-    private String platform;
+    private Double sale;
+
+    private Integer saleCount;
 
     private Integer type;
 
     private Integer status;
 
-    private String bz1;
-
-    private String bz2;
-
-    private String bz3;
-
     private Date createTime;
 
     private Date expireTime;
+
+    private Date startTime;
 
     public String getId() {
         return id;
@@ -47,6 +45,14 @@ public class Product {
 
     public void setId(String id) {
         this.id = id == null ? null : id.trim();
+    }
+
+    public String getNumIid() {
+        return numIid;
+    }
+
+    public void setNumIid(String numIid) {
+        this.numIid = numIid == null ? null : numIid.trim();
     }
 
     public String getTitle() {
@@ -57,20 +63,12 @@ public class Product {
         this.title = title == null ? null : title.trim();
     }
 
-    public String getProductDesc() {
-        return productDesc;
+    public String getPictUrl() {
+        return pictUrl;
     }
 
-    public void setProductDesc(String productDesc) {
-        this.productDesc = productDesc == null ? null : productDesc.trim();
-    }
-
-    public String getItemUrl() {
-        return itemUrl;
-    }
-
-    public void setItemUrl(String itemUrl) {
-        this.itemUrl = itemUrl == null ? null : itemUrl.trim();
+    public void setPictUrl(String pictUrl) {
+        this.pictUrl = pictUrl == null ? null : pictUrl.trim();
     }
 
     public String getImgUrl() {
@@ -81,60 +79,68 @@ public class Product {
         this.imgUrl = imgUrl == null ? null : imgUrl.trim();
     }
 
-    public Double getPrice() {
-        return price;
+    public String getSmallImages() {
+        return smallImages;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setSmallImages(String smallImages) {
+        this.smallImages = smallImages == null ? null : smallImages.trim();
     }
 
-    public String getBuyCount() {
-        return buyCount;
+    public Double getReservePrice() {
+        return reservePrice;
     }
 
-    public void setBuyCount(String buyCount) {
-        this.buyCount = buyCount == null ? null : buyCount.trim();
+    public void setReservePrice(Double reservePrice) {
+        this.reservePrice = reservePrice;
     }
 
-    public String getCollectCount() {
-        return collectCount;
+    public Double getZkFinalPrice() {
+        return zkFinalPrice;
     }
 
-    public void setCollectCount(String collectCount) {
-        this.collectCount = collectCount == null ? null : collectCount.trim();
+    public void setZkFinalPrice(Double zkFinalPrice) {
+        this.zkFinalPrice = zkFinalPrice;
     }
 
-    public String getSurplusCount() {
-        return surplusCount;
+    public Integer getUserType() {
+        return userType;
     }
 
-    public void setSurplusCount(String surplusCount) {
-        this.surplusCount = surplusCount == null ? null : surplusCount.trim();
+    public void setUserType(Integer userType) {
+        this.userType = userType;
     }
 
-    public String getScore() {
-        return score;
+    public String getProvcity() {
+        return provcity;
     }
 
-    public void setScore(String score) {
-        this.score = score == null ? null : score.trim();
+    public void setProvcity(String provcity) {
+        this.provcity = provcity == null ? null : provcity.trim();
     }
 
-    public String getActDesc() {
-        return actDesc;
+    public String getItemUrl() {
+        return itemUrl;
     }
 
-    public void setActDesc(String actDesc) {
-        this.actDesc = actDesc == null ? null : actDesc.trim();
+    public void setItemUrl(String itemUrl) {
+        this.itemUrl = itemUrl == null ? null : itemUrl.trim();
     }
 
-    public String getPlatform() {
-        return platform;
+    public Double getSale() {
+        return sale;
     }
 
-    public void setPlatform(String platform) {
-        this.platform = platform == null ? null : platform.trim();
+    public void setSale(Double sale) {
+        this.sale = sale;
+    }
+
+    public Integer getSaleCount() {
+        return saleCount;
+    }
+
+    public void setSaleCount(Integer saleCount) {
+        this.saleCount = saleCount;
     }
 
     public Integer getType() {
@@ -153,30 +159,6 @@ public class Product {
         this.status = status;
     }
 
-    public String getBz1() {
-        return bz1;
-    }
-
-    public void setBz1(String bz1) {
-        this.bz1 = bz1 == null ? null : bz1.trim();
-    }
-
-    public String getBz2() {
-        return bz2;
-    }
-
-    public void setBz2(String bz2) {
-        this.bz2 = bz2 == null ? null : bz2.trim();
-    }
-
-    public String getBz3() {
-        return bz3;
-    }
-
-    public void setBz3(String bz3) {
-        this.bz3 = bz3 == null ? null : bz3.trim();
-    }
-
     public Date getCreateTime() {
         return createTime;
     }
@@ -191,5 +173,13 @@ public class Product {
 
     public void setExpireTime(Date expireTime) {
         this.expireTime = expireTime;
+    }
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
     }
 }

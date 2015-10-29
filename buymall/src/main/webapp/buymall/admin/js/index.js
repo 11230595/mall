@@ -19,7 +19,7 @@ $(function() {
 });
 //导入数据提交
 function doSubmit() {
-	var type = $("#type").val();
+	var type = $("#iType").val();
 	var url = $("#url").val();
 
 	if (type == "") {
@@ -32,7 +32,7 @@ function doSubmit() {
 		return;
 	}
 
-	$.post("product/add", {
+	$.post("product/add_itaobao", {
 		"type" : type,
 		"url" : url
 	}, function(data) {
@@ -51,7 +51,7 @@ function doAPISubmit(){
 		return;
 	}
 	
-	$.post("tp/add", $("#tpForm").serialize(), function(data) {
+	$.post("product/add", $("#tpForm").serialize(), function(data) {
 		if (data.respCode == 0) {
 			alert("导入成功");
 			window.location.reload(true);

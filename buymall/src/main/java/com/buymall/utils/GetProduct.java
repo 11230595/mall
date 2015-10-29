@@ -43,6 +43,9 @@ public class GetProduct {
 		map.put("scoreCount", doc.select(".left-score").select("a").text());//得分
 		map.put("price", doc.select(".price-promo").select("strong").text());//爱淘宝销量
 		map.put("actDesc", doc.select(".price-dic").text());//活动关键词
+		map.put("reservePrice", doc.select(".price-ori-num").text());//原价
+		map.put("zkFinalPrice", doc.select(".price-promo").select("strong").text());//折后价
+		
 		String platform = doc.select(".tmall-tag").text();
 		map.put("platform", StringUtils.isBlank(platform) ? "淘宝" : platform);//平台
 		

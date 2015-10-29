@@ -12,15 +12,16 @@ import com.buymall.service.ProductService;
 import com.framework.core.mybatis.BaseMybatisDao;
 import com.framework.core.page.Page;
 /**
- * 产品
+ * 
  * @author zhoudong
  *
  */
 @Service
 public class ProductServiceImpl extends BaseMybatisDao implements ProductService {
+
 	@Resource
 	private ProductMapper productMapper;
-
+	
 	public int deleteByPrimaryKey(String id) {
 		return productMapper.deleteByPrimaryKey(id);
 	}
@@ -33,7 +34,7 @@ public class ProductServiceImpl extends BaseMybatisDao implements ProductService
 		return productMapper.insertSelective(record);
 	}
 
-	public Product findProductById(String id) {
+	public Product selectByPrimaryKey(String id) {
 		return productMapper.selectByPrimaryKey(id);
 	}
 
@@ -44,18 +45,20 @@ public class ProductServiceImpl extends BaseMybatisDao implements ProductService
 	public int updateByPrimaryKey(Product record) {
 		return productMapper.updateByPrimaryKey(record);
 	}
-	/**
-	 * 分页查询，倒叙排列
-	 */
-	public Page<Product> findByPage(Map<String, Object> param,
-			int pageNo, int pageSize) {
-		return (Page<Product>) findByPageBySqlId("findProductByPage",param,pageNo,pageSize);
-	}
-	/**
-	 * 分页查询，根据类型，倒叙排列
-	 */
-	public Page<Product> findTypeByPage(Map<String, Object> param, int pageNo, int pageSize) {
-		return (Page<Product>) findByPageBySqlId("findProductTypeByPage",param,pageNo,pageSize);
-	}
 	
+	/**
+	 * 分页查询
+	 */
+	public Page<Product> findByPage(Map<String, Object> param, int pageNo,
+			int pageSize) {
+		return (Page<Product>) findByPageBySqlId("findTkProductByPage", param, pageNo, pageSize);
+	}
+	/**
+	 * 根据类型分页查询
+	 */
+	public Page<Product> findTypeByPage(Map<String, Object> param,
+			int pageNo, int pageSize) {
+		return (Page<Product>) findByPageBySqlId("findTkProductTypeByPage", param, pageNo, pageSize);
+	}
+
 }

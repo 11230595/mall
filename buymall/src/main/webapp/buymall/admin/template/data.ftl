@@ -56,12 +56,13 @@
     </form>
 	<!-- form end -->
 
+	<br><br><br>
 	<hr></hr>
     <h3>爱淘宝导入数据</h3>
     <!-- form start -->
     <form role="form" id="f">
 	   <div class="form-group">
-	      <select class="form-control" id="type">
+	      <select class="form-control" id="iType">
 	         <option value="0">请选择分类</option>
 	         <option value="1">女装</option>
 	         <option value="2">男装</option>

@@ -3,28 +3,28 @@
 <mapper namespace="com.buymall.mapper.ProductMapper" >
   <resultMap id="BaseResultMap" type="com.buymall.entity.Product" >
     <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="NUM_IID" property="numIid" jdbcType="VARCHAR" />
     <result column="TITLE" property="title" jdbcType="VARCHAR" />
-    <result column="PRODUCT_DESC" property="productDesc" jdbcType="VARCHAR" />
-    <result column="ITEM_URL" property="itemUrl" jdbcType="VARCHAR" />
+    <result column="PICT_URL" property="pictUrl" jdbcType="VARCHAR" />
     <result column="IMG_URL" property="imgUrl" jdbcType="VARCHAR" />
-    <result column="PRICE" property="price" jdbcType="DOUBLE" />
-    <result column="BUY_COUNT" property="buyCount" jdbcType="VARCHAR" />
-    <result column="COLLECT_COUNT" property="collectCount" jdbcType="VARCHAR" />
-    <result column="SURPLUS_COUNT" property="surplusCount" jdbcType="VARCHAR" />
-    <result column="SCORE" property="score" jdbcType="VARCHAR" />
-    <result column="ACT_DESC" property="actDesc" jdbcType="VARCHAR" />
-    <result column="PLATFORM" property="platform" jdbcType="VARCHAR" />
+    <result column="SMALL_IMAGES" property="smallImages" jdbcType="VARCHAR" />
+    <result column="RESERVE_PRICE" property="reservePrice" jdbcType="DOUBLE" />
+    <result column="ZK_FINAL_PRICE" property="zkFinalPrice" jdbcType="DOUBLE" />
+    <result column="USER_TYPE" property="userType" jdbcType="INTEGER" />
+    <result column="PROVCITY" property="provcity" jdbcType="VARCHAR" />
+    <result column="ITEM_URL" property="itemUrl" jdbcType="VARCHAR" />
+    <result column="SALE" property="sale" jdbcType="DOUBLE" />
+    <result column="SALE_COUNT" property="saleCount" jdbcType="INTEGER" />
     <result column="TYPE" property="type" jdbcType="INTEGER" />
     <result column="STATUS" property="status" jdbcType="INTEGER" />
-    <result column="BZ1" property="bz1" jdbcType="VARCHAR" />
-    <result column="BZ2" property="bz2" jdbcType="VARCHAR" />
-    <result column="BZ3" property="bz3" jdbcType="VARCHAR" />
     <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
     <result column="EXPIRE_TIME" property="expireTime" jdbcType="TIMESTAMP" />
+    <result column="START_TIME" property="startTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    ID, TITLE, PRODUCT_DESC, ITEM_URL, IMG_URL, PRICE, BUY_COUNT, COLLECT_COUNT, SURPLUS_COUNT, 
-    SCORE, ACT_DESC, PLATFORM, TYPE, STATUS, BZ1, BZ2, BZ3, CREATE_TIME, EXPIRE_TIME
+    ID, NUM_IID, TITLE, PICT_URL, IMG_URL, SMALL_IMAGES, RESERVE_PRICE, ZK_FINAL_PRICE, 
+    USER_TYPE, PROVCITY, ITEM_URL, SALE, SALE_COUNT, TYPE, STATUS, CREATE_TIME, EXPIRE_TIME, 
+    START_TIME
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -37,20 +37,20 @@
     where ID = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.buymall.entity.Product" >
-    insert into product (ID, TITLE, PRODUCT_DESC, 
-      ITEM_URL, IMG_URL, PRICE, 
-      BUY_COUNT, COLLECT_COUNT, SURPLUS_COUNT, 
-      SCORE, ACT_DESC, PLATFORM, 
-      TYPE, STATUS, BZ1, 
-      BZ2, BZ3, CREATE_TIME, 
-      EXPIRE_TIME)
-    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{productDesc,jdbcType=VARCHAR}, 
-      #{itemUrl,jdbcType=VARCHAR}, #{imgUrl,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, 
-      #{buyCount,jdbcType=VARCHAR}, #{collectCount,jdbcType=VARCHAR}, #{surplusCount,jdbcType=VARCHAR}, 
-      #{score,jdbcType=VARCHAR}, #{actDesc,jdbcType=VARCHAR}, #{platform,jdbcType=VARCHAR}, 
-      #{type,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{bz1,jdbcType=VARCHAR}, 
-      #{bz2,jdbcType=VARCHAR}, #{bz3,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{expireTime,jdbcType=TIMESTAMP})
+    insert into product (ID, NUM_IID, TITLE, 
+      PICT_URL, IMG_URL, SMALL_IMAGES, 
+      RESERVE_PRICE, ZK_FINAL_PRICE, USER_TYPE, 
+      PROVCITY, ITEM_URL, SALE, 
+      SALE_COUNT, TYPE, STATUS, 
+      CREATE_TIME, EXPIRE_TIME, START_TIME
+      )
+    values (#{id,jdbcType=VARCHAR}, #{numIid,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{pictUrl,jdbcType=VARCHAR}, #{imgUrl,jdbcType=VARCHAR}, #{smallImages,jdbcType=VARCHAR}, 
+      #{reservePrice,jdbcType=DOUBLE}, #{zkFinalPrice,jdbcType=DOUBLE}, #{userType,jdbcType=INTEGER}, 
+      #{provcity,jdbcType=VARCHAR}, #{itemUrl,jdbcType=VARCHAR}, #{sale,jdbcType=DOUBLE}, 
+      #{saleCount,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{expireTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.buymall.entity.Product" >
     insert into product
@@ -58,38 +58,41 @@
       <if test="id != null" >
         ID,
       </if>
+      <if test="numIid != null" >
+        NUM_IID,
+      </if>
       <if test="title != null" >
         TITLE,
       </if>
-      <if test="productDesc != null" >
-        PRODUCT_DESC,
-      </if>
-      <if test="itemUrl != null" >
-        ITEM_URL,
+      <if test="pictUrl != null" >
+        PICT_URL,
       </if>
       <if test="imgUrl != null" >
         IMG_URL,
       </if>
-      <if test="price != null" >
-        PRICE,
+      <if test="smallImages != null" >
+        SMALL_IMAGES,
       </if>
-      <if test="buyCount != null" >
-        BUY_COUNT,
+      <if test="reservePrice != null" >
+        RESERVE_PRICE,
       </if>
-      <if test="collectCount != null" >
-        COLLECT_COUNT,
+      <if test="zkFinalPrice != null" >
+        ZK_FINAL_PRICE,
       </if>
-      <if test="surplusCount != null" >
-        SURPLUS_COUNT,
+      <if test="userType != null" >
+        USER_TYPE,
       </if>
-      <if test="score != null" >
-        SCORE,
+      <if test="provcity != null" >
+        PROVCITY,
       </if>
-      <if test="actDesc != null" >
-        ACT_DESC,
+      <if test="itemUrl != null" >
+        ITEM_URL,
       </if>
-      <if test="platform != null" >
-        PLATFORM,
+      <if test="sale != null" >
+        SALE,
+      </if>
+      <if test="saleCount != null" >
+        SALE_COUNT,
       </if>
       <if test="type != null" >
         TYPE,
@@ -97,58 +100,55 @@
       <if test="status != null" >
         STATUS,
       </if>
-      <if test="bz1 != null" >
-        BZ1,
-      </if>
-      <if test="bz2 != null" >
-        BZ2,
-      </if>
-      <if test="bz3 != null" >
-        BZ3,
-      </if>
       <if test="createTime != null" >
         CREATE_TIME,
       </if>
       <if test="expireTime != null" >
         EXPIRE_TIME,
       </if>
+      <if test="startTime != null" >
+        START_TIME,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=VARCHAR},
       </if>
+      <if test="numIid != null" >
+        #{numIid,jdbcType=VARCHAR},
+      </if>
       <if test="title != null" >
         #{title,jdbcType=VARCHAR},
       </if>
-      <if test="productDesc != null" >
-        #{productDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="itemUrl != null" >
-        #{itemUrl,jdbcType=VARCHAR},
+      <if test="pictUrl != null" >
+        #{pictUrl,jdbcType=VARCHAR},
       </if>
       <if test="imgUrl != null" >
         #{imgUrl,jdbcType=VARCHAR},
       </if>
-      <if test="price != null" >
-        #{price,jdbcType=DOUBLE},
+      <if test="smallImages != null" >
+        #{smallImages,jdbcType=VARCHAR},
       </if>
-      <if test="buyCount != null" >
-        #{buyCount,jdbcType=VARCHAR},
+      <if test="reservePrice != null" >
+        #{reservePrice,jdbcType=DOUBLE},
       </if>
-      <if test="collectCount != null" >
-        #{collectCount,jdbcType=VARCHAR},
+      <if test="zkFinalPrice != null" >
+        #{zkFinalPrice,jdbcType=DOUBLE},
       </if>
-      <if test="surplusCount != null" >
-        #{surplusCount,jdbcType=VARCHAR},
+      <if test="userType != null" >
+        #{userType,jdbcType=INTEGER},
       </if>
-      <if test="score != null" >
-        #{score,jdbcType=VARCHAR},
+      <if test="provcity != null" >
+        #{provcity,jdbcType=VARCHAR},
       </if>
-      <if test="actDesc != null" >
-        #{actDesc,jdbcType=VARCHAR},
+      <if test="itemUrl != null" >
+        #{itemUrl,jdbcType=VARCHAR},
       </if>
-      <if test="platform != null" >
-        #{platform,jdbcType=VARCHAR},
+      <if test="sale != null" >
+        #{sale,jdbcType=DOUBLE},
+      </if>
+      <if test="saleCount != null" >
+        #{saleCount,jdbcType=INTEGER},
       </if>
       <if test="type != null" >
         #{type,jdbcType=INTEGER},
@@ -156,58 +156,55 @@
       <if test="status != null" >
         #{status,jdbcType=INTEGER},
       </if>
-      <if test="bz1 != null" >
-        #{bz1,jdbcType=VARCHAR},
-      </if>
-      <if test="bz2 != null" >
-        #{bz2,jdbcType=VARCHAR},
-      </if>
-      <if test="bz3 != null" >
-        #{bz3,jdbcType=VARCHAR},
-      </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="expireTime != null" >
         #{expireTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.buymall.entity.Product" >
     update product
     <set >
+      <if test="numIid != null" >
+        NUM_IID = #{numIid,jdbcType=VARCHAR},
+      </if>
       <if test="title != null" >
         TITLE = #{title,jdbcType=VARCHAR},
       </if>
-      <if test="productDesc != null" >
-        PRODUCT_DESC = #{productDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="itemUrl != null" >
-        ITEM_URL = #{itemUrl,jdbcType=VARCHAR},
+      <if test="pictUrl != null" >
+        PICT_URL = #{pictUrl,jdbcType=VARCHAR},
       </if>
       <if test="imgUrl != null" >
         IMG_URL = #{imgUrl,jdbcType=VARCHAR},
       </if>
-      <if test="price != null" >
-        PRICE = #{price,jdbcType=DOUBLE},
+      <if test="smallImages != null" >
+        SMALL_IMAGES = #{smallImages,jdbcType=VARCHAR},
       </if>
-      <if test="buyCount != null" >
-        BUY_COUNT = #{buyCount,jdbcType=VARCHAR},
+      <if test="reservePrice != null" >
+        RESERVE_PRICE = #{reservePrice,jdbcType=DOUBLE},
       </if>
-      <if test="collectCount != null" >
-        COLLECT_COUNT = #{collectCount,jdbcType=VARCHAR},
+      <if test="zkFinalPrice != null" >
+        ZK_FINAL_PRICE = #{zkFinalPrice,jdbcType=DOUBLE},
       </if>
-      <if test="surplusCount != null" >
-        SURPLUS_COUNT = #{surplusCount,jdbcType=VARCHAR},
+      <if test="userType != null" >
+        USER_TYPE = #{userType,jdbcType=INTEGER},
       </if>
-      <if test="score != null" >
-        SCORE = #{score,jdbcType=VARCHAR},
+      <if test="provcity != null" >
+        PROVCITY = #{provcity,jdbcType=VARCHAR},
       </if>
-      <if test="actDesc != null" >
-        ACT_DESC = #{actDesc,jdbcType=VARCHAR},
+      <if test="itemUrl != null" >
+        ITEM_URL = #{itemUrl,jdbcType=VARCHAR},
       </if>
-      <if test="platform != null" >
-        PLATFORM = #{platform,jdbcType=VARCHAR},
+      <if test="sale != null" >
+        SALE = #{sale,jdbcType=DOUBLE},
+      </if>
+      <if test="saleCount != null" >
+        SALE_COUNT = #{saleCount,jdbcType=INTEGER},
       </if>
       <if test="type != null" >
         TYPE = #{type,jdbcType=INTEGER},
@@ -215,48 +212,42 @@
       <if test="status != null" >
         STATUS = #{status,jdbcType=INTEGER},
       </if>
-      <if test="bz1 != null" >
-        BZ1 = #{bz1,jdbcType=VARCHAR},
-      </if>
-      <if test="bz2 != null" >
-        BZ2 = #{bz2,jdbcType=VARCHAR},
-      </if>
-      <if test="bz3 != null" >
-        BZ3 = #{bz3,jdbcType=VARCHAR},
-      </if>
       <if test="createTime != null" >
         CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="expireTime != null" >
         EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="startTime != null" >
+        START_TIME = #{startTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where ID = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.buymall.entity.Product" >
     update product
-    set TITLE = #{title,jdbcType=VARCHAR},
-      PRODUCT_DESC = #{productDesc,jdbcType=VARCHAR},
-      ITEM_URL = #{itemUrl,jdbcType=VARCHAR},
+    set NUM_IID = #{numIid,jdbcType=VARCHAR},
+      TITLE = #{title,jdbcType=VARCHAR},
+      PICT_URL = #{pictUrl,jdbcType=VARCHAR},
       IMG_URL = #{imgUrl,jdbcType=VARCHAR},
-      PRICE = #{price,jdbcType=DOUBLE},
-      BUY_COUNT = #{buyCount,jdbcType=VARCHAR},
-      COLLECT_COUNT = #{collectCount,jdbcType=VARCHAR},
-      SURPLUS_COUNT = #{surplusCount,jdbcType=VARCHAR},
-      SCORE = #{score,jdbcType=VARCHAR},
-      ACT_DESC = #{actDesc,jdbcType=VARCHAR},
-      PLATFORM = #{platform,jdbcType=VARCHAR},
+      SMALL_IMAGES = #{smallImages,jdbcType=VARCHAR},
+      RESERVE_PRICE = #{reservePrice,jdbcType=DOUBLE},
+      ZK_FINAL_PRICE = #{zkFinalPrice,jdbcType=DOUBLE},
+      USER_TYPE = #{userType,jdbcType=INTEGER},
+      PROVCITY = #{provcity,jdbcType=VARCHAR},
+      ITEM_URL = #{itemUrl,jdbcType=VARCHAR},
+      SALE = #{sale,jdbcType=DOUBLE},
+      SALE_COUNT = #{saleCount,jdbcType=INTEGER},
       TYPE = #{type,jdbcType=INTEGER},
       STATUS = #{status,jdbcType=INTEGER},
-      BZ1 = #{bz1,jdbcType=VARCHAR},
-      BZ2 = #{bz2,jdbcType=VARCHAR},
-      BZ3 = #{bz3,jdbcType=VARCHAR},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP}
+      EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP},
+      START_TIME = #{startTime,jdbcType=TIMESTAMP}
     where ID = #{id,jdbcType=VARCHAR}
   </update>
-  <!-- 分页查询所有属性 -->
-  <select id="findProductByPage" resultMap="BaseResultMap">
+  
+    <!-- 分页查询所有属性 -->
+  <select id="findTkProductByPage" resultMap="BaseResultMap">
 	select 
     <include refid="Base_Column_List" />
     from product
@@ -274,7 +265,7 @@
   </select>
   
   <!-- 分页查询根据类型 -->
-  <select id="findProductTypeByPage" resultMap="BaseResultMap">
+  <select id="findTkProductTypeByPage" resultMap="BaseResultMap">
 	select 
     <include refid="Base_Column_List" />
     from product
