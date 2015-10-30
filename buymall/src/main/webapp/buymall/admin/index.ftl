@@ -67,7 +67,7 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="${request.contextPath}/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
     <!-- index.js -->
-    <script src="${request.contextPath}/buymall/admin/js/index.js"></script>
+    <script src="${request.contextPath}/js/admin/index.js"></script>
     
   </body>
 </html>
