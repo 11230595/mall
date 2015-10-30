@@ -5,7 +5,7 @@
 	  <div class="head-t">
 		 <div class="logo">
 			  <!-- <a href="${request.contextPath}"><h1>囤货 <span>网</span></h1> </a> -->
-			  <a href="${request.contextPath}"><img src="${request.contextPath}/images/logo.png" style="width:300px;height:80px;"/></h1> </a>
+			  <a href="${request.contextPath}"><img src="${request.contextPath}/images/logo.png" style="width:290px;height:90px;"/></h1> </a>
 		  </div>
 		<div class="clearfix"></div>	
 	    </div>

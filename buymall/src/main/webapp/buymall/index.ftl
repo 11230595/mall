@@ -2,64 +2,12 @@
 <html>
 <head>
 <title>囤货网</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Nuevo Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<link rel="icon" href="${request.contextPath}/ico/mall_favicon.ico">
-<script type="applijegleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="${request.contextPath}/bootstrap/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-<!-- Custom Theme files -->
-<link href="${request.contextPath}/css/index/style.css" rel='stylesheet' type='text/css' />	
-<script src="${request.contextPath}/js/jquery/jquery-1.11.1.min.js"></script>
-<!-- start menu -->
-<link href="${request.contextPath}/css/index/megamenu.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="${request.contextPath}/js/index/megamenu.js"></script>
-<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
-<script src="${request.contextPath}/js/index/menu_jquery.js"></script>
-<script src="${request.contextPath}/js/index/simpleCart.min.js"> </script>
-
-<!--//web-fonts-->
-<script src="${request.contextPath}/js/index/scripts.js" type="text/javascript"></script>
-<script type="text/javascript" src="${request.contextPath}/js/index/move-top.js"></script>
-<script type="text/javascript" src="${request.contextPath}/js/index/easing.js"></script>
-<script type="text/javascript" src="${request.contextPath}/js/jquery.page.js"></script><!-- 分页 -->
-<!--/script-->
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){		
-			event.preventDefault();
-			$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
-		});
-	});
-</script>
+<#include "template/indexLink.ftl"><!-- meta -->
+<#include "template/ico.ftl"><!-- ico文件-->
+<#include "template/indexLink.ftl"><!-- 引入的css,js文件 -->
 </head>
 <body>
-<!--start-home-->
-<div class="top_bg" id="home">
-	<div class="container">
-		<div class="header_top">
-			<div class="top_right">
-				<ul>
-					<li><a href="#">帮助</a></li>
-					<li>
-						<#if user??>
-							<a href="${request.contextPath}/user/userHome/${user.userId!''}">您好：${user.userCode!''}</a>
-						<#else>
-							<a href="${request.contextPath}/user/login">登录/注册</a>
-						</#if>
-					</li>
-					<li><a href="#">签到</a></li>
-				</ul>
-			</div>
-			<div class="top_left">
-				<h6><span></span> 联系我 : 18511833392</h6>
-			</div>
-				<div class="clearfix"> </div>
-		</div>
-	</div>
-</div>
-
+		<#include "template/topBanner.ftl"><!-- 顶部条 -->
 		<#include "template/header.ftl"><!-- 导航模板 -->
 
  <!--start-content-->

@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="${request.contextPath}/ico/favicon.ico">
+    <#include "template/ico.ftl"><!-- ico文件-->
 
     <title>囤货网</title>
 
@@ -31,12 +31,14 @@
       <!-- 内容 -->
       <div class="jumbotron">
         <h1>关于本站</h1>
-        <p>1、本站非盈利，非商业性网站。</p>
-        <p>2、本站意在让更多人拥有自己的个性网站，降低拥有网站的门槛。</p>
-        <p>3、本站所有模板均有来自网络，欢迎大家投递模板。</p>
-        <p>4、所有在本站生成的网页均不得涉及攻击性，违法性言论。</p>
-        <p>5、所有会员资料均属于隐私，本站不会泄露任何会员资料。</p>
-        <p>6、联系站长:<code>chinazhoudong@gmail.com</code>。</p>
+        <p>1、质量保证，是我们宗旨；</p>
+        <p>2、用户满意，是我们的追求；</p>
+        <p>3、带个用户实实在在的优惠，是我们的追求；</p>
+        <p>4、不遗余力的让每个用户满意，是我们的未来；</p>
+        <p>5、所有会员资料均属于隐私，本站不会泄露任何会员资料；</p>
+        <p>6、我们欢迎每一位用户为我们提出您宝贵的意见；</p>
+        <p>7、联系我，email:<code>chinazhoudong@gmail.com</code>。</p>
+        <p>7、联系我，手机:<code>18511833392</code>。</p>
       </div>
       <!-- 地脚信息 -->
   	  <#include "template/foot.ftl">

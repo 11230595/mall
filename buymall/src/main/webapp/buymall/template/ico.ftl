@@ -1,0 +1,1 @@
+<link rel="icon" href="${request.contextPath}/ico/mall_favicon.ico">

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>囤货网-用户注册</title>
-<link rel="icon" href="${request.contextPath}/ico/favicon.ico">
+<#include "template/ico.ftl"><!-- ico文件-->
 
 <script type="text/javascript" src="${request.contextPath}/js/jquery/jquery-1.11.1.min.js"></script>
 
