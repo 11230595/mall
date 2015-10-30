@@ -59,14 +59,14 @@ jQuery(document).ready(function ($) {
 		
     });
     
-    $('.selectors_wrapper li').click(function() {
+/*    $('.selectors_wrapper li').click(function() {
 	    
 	    var selected = $(this).data('selector');
 	    
 	    if (!$('.standard[data-selector="' + selected + '"]').hasClass("active")) {
 	    
 	    	$('.selectors_wrapper').find('li.active').removeClass("active");
-	    	$('.standard.active').removeClass("active");
+	    	//$('.standard.active').removeClass("active");
 		    $('.selectors_wrapper li[data-selector="' + selected + '"]').addClass("active");
 		    $('.standard[data-selector="' + selected + '"]').addClass("active");
 		    
@@ -80,7 +80,7 @@ jQuery(document).ready(function ($) {
 		    
 	    }
 	     
-    });
+    });*/
     
     
     $(function() {
@@ -142,9 +142,6 @@ jQuery(document).ready(function ($) {
 			var self = jQuery(this);
 			var value = jQuery.trim(self.val());
 			if(value == '') self.val(self.attr('placeholder'));
-		});
-		
-		
+		});				
 	}
-
 });

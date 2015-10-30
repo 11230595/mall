@@ -8,13 +8,32 @@
 <div class="tcdPageCode"></div>
 
 <script>
-	var type = "${type!''}";	
-    $(".tcdPageCode").createPage({
-        pageCount:${page.totalPage},
-        current:${page.pageNo},
-        backFn:function(p){
-            window.location.href="${request.contextPath}/index/" + p  + (type == "" ? "" : "?type=" + type);
-        }
-    });
+	var type = "${type!''}";
+	var userType = "${userType!''}";
+	var totalCount = ${page.totalCount};
+	
+	var param;
+	
+	if(type != ""){
+		param = "?type=" + type;
+	}else if(type != "" && userType != ""){
+		param = "?type=" + type + "&userType=" +  userType;
+	}else if(userType != ""){
+		param = "?userType=" + userType;
+	}
+	
+	
+	if(totalCount == 0){
+		$(".tcdPageCode").append("暂无数据,请选择其他分类...");
+	}else{
+		$(".tcdPageCode").createPage({
+	        pageCount:${page.totalPage},
+	        current:${page.pageNo},
+	        backFn:function(p){
+	            window.location.href="${request.contextPath}/index/" + p  + param;
+	        }
+    	});
+	}
+    
 </script>
 								

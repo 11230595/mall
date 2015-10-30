@@ -613,7 +613,7 @@ ul.selectors_wrapper {
 li.selector {
     list-style-type: none;
     padding: 19px 0px 10px 27px;
-    background: url('../images/list-show.png') no-repeat 0px 21px;
+    background: url('../../images/list-show.png') no-repeat 0px 21px;
     cursor: pointer;
     color: #252525;
     font-size: 1em;
@@ -632,7 +632,7 @@ li.selector {
 }
 .selector.active {
 	color: #18C9D2;
-	background: url('../images/list-hover.png') no-repeat 0px 21px;
+	background: url('../../images/list-hover.png') no-repeat 0px 21px;
 }
 
 
@@ -1834,13 +1834,13 @@ ul.socials li {
     width: 51px!important;
 }
 .socials li .soc1 {
-    background: url(../images/social-1.png) 0 100% no-repeat;
+    background: url(../../images/social-1.png) 0 100% no-repeat;
 }
 .socials li .soc2 {
-    background: url(../images/social-2.png) 0 100% no-repeat;
+    background: url(../../images/social-2.png) 0 100% no-repeat;
 }
 .socials li .soc3 {
-    background: url(../images/social-3.png) 0 100% no-repeat;
+    background: url(../../images/social-3.png) 0 100% no-repeat;
 }
 .socials li .soc1:hover, .socials li .soc2:hover, .socials li .soc3:hover {
     background-position: 0 0%;
@@ -1961,7 +1961,7 @@ margin:0;
   height: 22px;
   border: none;
   text-indent: 100%;
-  background: url(../images/move-top.png) no-repeat 0px 0px;
+  background: url(../../images/move-top.png) no-repeat 0px 0px;
 }
 /*--responsive--*/
 @media(max-width:1280px){

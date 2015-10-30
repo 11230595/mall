@@ -49,9 +49,9 @@ public class IndexController {
 	 * @return
 	 */
 	@RequestMapping(value="index/{pageNo}",method={RequestMethod.GET,RequestMethod.POST})
-	public ModelAndView index(HttpServletRequest request,@PathVariable int pageNo,@RequestParam(required=false) String type) {
+	public ModelAndView index(HttpServletRequest request,@PathVariable int pageNo,
+			@RequestParam(required=false) String type,@RequestParam(required=false) String userType) {
 		ModelAndView mav = new ModelAndView("index");
-		//String ip = IPUtils.getIP(request);
 		//从cookie取数据
 		User user = getSessionAndCookie(request);
 		if(user != null){
@@ -68,6 +68,10 @@ public class IndexController {
 		if(StringUtils.isNotBlank(type)){
 			map.put("type", Integer.parseInt(type));
 			mav.addObject("type", type);
+		}
+		if(StringUtils.isNotBlank(userType)){
+			map.put("userType", Integer.parseInt(userType));
+			mav.addObject("userType", userType);
 		}
 		Page<Product> page = productService.findByPage(map, pageNo, 21);
 		

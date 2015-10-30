@@ -104,8 +104,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="standards">
 				   <h5>Tags<i class="glyphicon glyphicon-tag"></i></h5>
 					<ul class="selectors_wrapper">
-							<li class="selector active">全部</li>
-							<li class="selector">天猫</li>
+							<li class="selector active" id="platformAll" onclick="selectPlatform(0);">全部</li>
+							<li class="selector" id="platformTM" onclick="selectPlatform(1);">天猫</li>
 					</ul>
 					<!-- 内容 -->
 					<div class="standard_content">
@@ -113,7 +113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<#list page.list as page>
 								<div class="tag-grid">
 									<div class="tag-wrapper">		
-										<a href="${page.itemUrl!''}"><img src="${page.imgUrl!''}" class="img-responsive" style="width:100%;height: 218px"/></a>
+										<a target="_blank" href="${page.itemUrl!''}"><img src="${page.imgUrl!''}" class="img-responsive" style="width:100%;height: 218px"/></a>
 										<div class="r-title">
 											<h3>${page.title!''}</h3>
 											<h4>
@@ -244,16 +244,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  
 	<!--start-smooth-scrolling-->
 	<script type="text/javascript">
+		//滚动到页顶
 		$(document).ready(function() {
 			$().UItoTop({ easingType: 'easeOutQuart' });
 		});
 		
+		//进入页面后滚动到页面中部
 		$(function(){
 			var pageNo = ${page.pageNo};
-			if(pageNo != 1){
+			var s_type = "${type!''}";
+			var platformType = "${userType!''}";
+			if(pageNo != 1 || s_type != '' || platformType != ''){
 				window.scrollTo(100,1400);
 			}
+			
+			//选定tag
+			switch(platformType){
+			case "1":
+				$("#platformTM").parent().find("li").removeClass("active");
+				$("#platformTM").addClass("active");
+			  	break;
+			}
 		})
+		//跳转平台
+		function selectPlatform(flag){
+			if(flag != 0){
+				window.location.href = "${request.contextPath}/index/1?userType="+flag 
+			}else{
+				window.location.href = "${request.contextPath}";
+			}
+		}
+		
 	</script>
 	<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 </body>
