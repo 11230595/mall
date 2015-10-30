@@ -17,14 +17,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
 <script src="${request.contextPath}/js/index/menu_jquery.js"></script>
 <script src="${request.contextPath}/js/index/simpleCart.min.js"> </script>
-<!--字体-->
-<!--
-<link href='${request.contextPath}/css/index/fonts.css' rel='stylesheet' type='text/css'>
-<link href='${request.contextPath}/css/index/sofont.css' rel='stylesheet' type='text/css'>
--->
+
 <!--//web-fonts-->
 <script src="${request.contextPath}/js/index/scripts.js" type="text/javascript"></script>
-<script src="${request.contextPath}/js/index/modernizr.custom.js"></script>
 <script type="text/javascript" src="${request.contextPath}/js/index/move-top.js"></script>
 <script type="text/javascript" src="${request.contextPath}/js/index/easing.js"></script>
 <script type="text/javascript" src="${request.contextPath}/js/jquery.page.js"></script><!-- 分页 -->
@@ -48,7 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li><a href="#">帮助</a></li>
 					<li>
 						<#if user??>
-							<a href="${request.contextPath}/user/userHome/${user.userId!''}">${user.userCode!''}</a>
+							<a href="${request.contextPath}/user/userHome/${user.userId!''}">您好：${user.userCode!''}</a>
 						<#else>
 							<a href="${request.contextPath}/user/login">登录/注册</a>
 						</#if>
@@ -231,7 +226,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<li><a class="soc3" href="#"></a></li>
 	</ul>
 	<!-- /end 底部分享 -->
-	
 	 <!--/start-copyright-->
 	 <div class="copy">
 		<div class="container">

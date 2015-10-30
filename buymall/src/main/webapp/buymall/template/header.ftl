@@ -62,14 +62,11 @@
 					<div class="row">
 						<div class="col1">
 							<div class="h_nav">
-								<h4>Clothing</h4>
+								<h4>专区选择</h4>
 								<ul>
-									<li><a href="product.html">new arrivals</a></li>
-									<li><a href="product.html">men</a></li>
-									<li><a href="product.html">women</a></li>
-									<li><a href="product.html">accessories</a></li>
-									<li><a href="product.html">kids</a></li>
-									<li><a href="product.html">brands</a></li>
+									<li><a href="javascript:void(0);">9块9专区</a></li>
+									<li><a href="javascript:void(0);">20封顶</a></li>
+									<li><a href="javascript:void(0);">其他</a></li>
 								</ul>	
 							</div>							
 						</div>
