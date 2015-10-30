@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="${request.contextPath}/ico/favicon.ico">
 
-    <title>后台管理</title>
+    <title>囤货网-后台管理</title>
 
     <!-- Bootstrap core CSS -->
     <link href="${request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">

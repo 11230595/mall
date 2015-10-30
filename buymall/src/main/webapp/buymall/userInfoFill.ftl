@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="${request.contextPath}/ico/favicon.ico">
 
-    <title>开口示爱-表白，浪漫之家</title>
+    <title>囤货网</title>
 
     <!-- Bootstrap core CSS -->
     <link href="${request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">

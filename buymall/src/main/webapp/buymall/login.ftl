@@ -11,7 +11,7 @@
     
     <link rel="icon" href="${request.contextPath}/ico/favicon.ico">
 
-    <title>dovip.top-用户登陆</title>
+    <title>囤货网-用户登陆</title>
 
     <!-- Bootstrap core CSS -->
     <link href="${request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
