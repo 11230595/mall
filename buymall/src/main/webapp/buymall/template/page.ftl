@@ -12,14 +12,14 @@
 	var userType = "${userType!''}";
 	var totalCount = ${page.totalCount};
 	
-	var param;
+	var params = "";
 	
 	if(type != ""){
-		param = "?type=" + type;
+		params = "?type=" + type;
 	}else if(type != "" && userType != ""){
-		param = "?type=" + type + "&userType=" +  userType;
+		params = "?type=" + type + "&userType=" +  userType;
 	}else if(userType != ""){
-		param = "?userType=" + userType;
+		params = "?userType=" + userType;
 	}
 	
 	
@@ -30,7 +30,7 @@
 	        pageCount:${page.totalPage},
 	        current:${page.pageNo},
 	        backFn:function(p){
-	            window.location.href="${request.contextPath}/index/" + p  + param;
+	            window.location.href="${request.contextPath}/index/" + p  + params;
 	        }
     	});
 	}

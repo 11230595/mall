@@ -8,7 +8,7 @@
 			   </div>
 				<div class="jock-text">
 				  <h3 class="b-tittle">${bannerPage.list[0].title!''}</h3>
-				 <a class="collection" href="${bannerPage.list[0].itemUrl!''}">去看看 <i class="glyphicon glyphicon-arrow-right"></i></a>
+				 <a target="_blank" class="collection" href="${bannerPage.list[0].itemUrl!''}">去看看 <i class="glyphicon glyphicon-arrow-right"></i></a>
 			   </div>
 			   <div class="clearfix"> </div>
 		   </div>
@@ -19,14 +19,14 @@
 				   </div>
 					<div class="shoe-text">
 					   <h3 class="b-tittle">${bannerPage.list[1].title!''}</h3>
-					 <a class="collection" href="${bannerPage.list[1].itemUrl!''}">去看看 <i class="glyphicon glyphicon-arrow-right"></i></a>
+					 <a target="_blank" class="collection" href="${bannerPage.list[1].itemUrl!''}">去看看 <i class="glyphicon glyphicon-arrow-right"></i></a>
 				   </div>
 				   <div class="clearfix"> </div>
 			<div class="bottom-bags">
 				   <div class="col-md-6 pack">
 					  <div class="bag-text">
 						   <h3 class="b-tittle">${bannerPage.list[2].title!''}</h3>
-						 <a class="collection" href="${bannerPage.list[2].itemUrl!''}">去看看 <i class="glyphicon glyphicon-arrow-right"></i></a>
+						 <a target="_blank" class="collection" href="${bannerPage.list[2].itemUrl!''}">去看看 <i class="glyphicon glyphicon-arrow-right"></i></a>
 					   </div>
 					   <div class="bag-img"><!-- 图片宽176，高230-->
 						 <img src="${bannerPage.list[2].imgUrl!''}" class="img-responsive" alt="" style="width:176px;height:230px;">
@@ -38,7 +38,7 @@
 				   <div class="col-md-6 glass">
 					  <div class="glass-text">
 						   <h3 class="b-tittle">${bannerPage.list[3].title!''}</h3>
-					 <a class="collection" href="${bannerPage.list[3].itemUrl!''}">去看看 <i class="glyphicon glyphicon-arrow-right"></i></a>
+					 <a target="_blank" class="collection" href="${bannerPage.list[3].itemUrl!''}">去看看 <i class="glyphicon glyphicon-arrow-right"></i></a>
 					   </div>
 					   <div class="glass-img"><!-- 图片宽270，高241-->
 						 <img src="${bannerPage.list[3].imgUrl!''}" class="img-responsive" alt="" style="width:270px;height:241px;">
