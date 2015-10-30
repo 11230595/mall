@@ -50,6 +50,7 @@
 					<ul class="selectors_wrapper">
 							<li class="selector active" id="platformAll" onclick="selectPlatform(0);">全部</li>
 							<li class="selector" id="platformTM" onclick="selectPlatform(1);">天猫</li>
+							<li class="selector" id="platformITB" onclick="selectPlatform(2);">爱淘宝</li>
 					</ul>
 					<!-- 内容 -->
 					<div class="standard_content">
@@ -206,6 +207,10 @@
 			case "1":
 				$("#platformTM").parent().find("li").removeClass("active");
 				$("#platformTM").addClass("active");
+			  	break;
+			case "2":
+				$("#platformITB").parent().find("li").removeClass("active");
+				$("#platformITB").addClass("active");
 			  	break;
 			}
 		})

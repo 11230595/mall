@@ -48,6 +48,7 @@ public class GetProduct {
 		
 		String platform = doc.select(".tmall-tag").text();
 		map.put("platform", StringUtils.isBlank(platform) ? "淘宝" : platform);//平台
+		map.put("userType", 2);//平台类型 0-淘宝，1-天猫，2-爱淘宝
 		
 		return map;
 	}

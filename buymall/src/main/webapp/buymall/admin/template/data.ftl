@@ -38,6 +38,14 @@
 	   	  <label for="name">请输入抓取的页数，如：1</label>
 	      <input class="form-control" type="text" placeholder="请输入抓取的页数，如：1" name="pageNo" value="1" required >
 	   	</div>
+	   	<div class="form-group">
+	   	  <label for="name">价格下限</label>
+	      <input class="form-control" type="text" placeholder="请输入整数型的价格下限" name="startPrice" value="1" required >
+	   	</div>
+	   	<div class="form-group">
+	   	  <label for="name">价格上限</label>
+	      <input class="form-control" type="text" placeholder="请输入整数型的价格上限" name="endPrice" value="1" required >
+	   	</div>
 	   	
 	   	<div class="form-group">
 	   	  <label for="name">请选择抓取时的排序方式</label>
