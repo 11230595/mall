@@ -4,7 +4,7 @@
 		<div class="header_top">
 			<div class="top_right">
 				<ul>
-					<li><a href="#">帮助</a></li>
+					<li><a href="${request.contextPath}/help">帮助</a></li>
 					<li>
 						<#if user??>
 							<a href="${request.contextPath}/user/userHome/${user.userId!''}">您好：${user.userCode!''}</a>

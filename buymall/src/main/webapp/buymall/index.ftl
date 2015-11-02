@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>囤货网</title>
-<#include "template/indexLink.ftl"><!-- meta -->
+<#include "template/meta.ftl"><!-- meta -->
 <#include "template/ico.ftl"><!-- ico文件-->
 <#include "template/indexLink.ftl"><!-- 引入的css,js文件 -->
 </head>

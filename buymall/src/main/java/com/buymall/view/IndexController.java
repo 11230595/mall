@@ -132,4 +132,13 @@ public class IndexController {
 	public ModelAndView about() {
 		return new ModelAndView("about","url",Constants.config.getString("BASE_URL"));
 	}
+	
+	/**
+	 * 关于
+	 * @return
+	 */
+	@RequestMapping(value="help",method={RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView help() {
+		return new ModelAndView("help","url",Constants.config.getString("BASE_URL"));
+	}
 }
