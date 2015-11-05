@@ -5,13 +5,13 @@
 	  <div class="head-t">
 		 <div class="logo">
 			  <!-- <a href="${request.contextPath}"><h1>囤货 <span>网</span></h1> </a> -->
-			  <a href="${request.contextPath}"><img src="${request.contextPath}/images/logo.png" style="width:290px;height:90px;"/></h1> </a>
+			  <a href="${url!'${request.contextPath}'}"><img src="${request.contextPath}/images/logo.png" style="width:290px;height:90px;"/></h1> </a>
 		  </div>
 		<div class="clearfix"></div>	
 	    </div>
 		<!-- 导航start -->
 		<ul class="megamenu skyblue">
-			<li class="active grid"><a class="color1" href="${request.contextPath}">首页</a></li>
+			<li class="active grid"><a class="color1" href="${url!'${request.contextPath}'}">首页</a></li>
 			<li class="grid"><a class="color2" href="javascript:void(0)">分类</a>
 				<div class="megapanel">
 					<div class="row">

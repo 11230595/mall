@@ -78,6 +78,7 @@ public class IndexController {
 		mav.addObject("bannerPage", bannerPage);
 		mav.addObject("bPage", bPage);
 		mav.addObject("page", page);
+		mav.addObject("url",Constants.config.getString("BASE_URL"));
 		return mav;
 	}
 	

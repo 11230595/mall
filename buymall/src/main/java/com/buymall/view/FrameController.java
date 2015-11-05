@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.buymall.constants.Constants;
 import com.buymall.entity.FrameUrl;
 import com.buymall.service.FrameUrlService;
 /**
@@ -46,6 +47,7 @@ public class FrameController {
 		}
 		
 		mav.addObject("frameUrls",getHeight(list,userAgent) );
+		mav.addObject("url",Constants.config.getString("BASE_URL"));
 		return mav;
 	}
 	
