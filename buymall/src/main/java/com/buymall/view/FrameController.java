@@ -36,9 +36,9 @@ public class FrameController {
 	 * @return
 	 */
 	@RequestMapping("/index")
-	public ModelAndView index(HttpServletRequest request){
+	public ModelAndView index(@RequestParam int type,HttpServletRequest request){
 		ModelAndView mav = new ModelAndView("/prefecture/index");
-		List<FrameUrl> list = frameUrlService.selectAllUrl(0);
+		List<FrameUrl> list = frameUrlService.selectAllUrl(type);
 		String userAgent = request.getHeader("user-agent");  //请求从哪来的
 		
 		if(userAgent.contains("Android") || userAgent.contains("iPhone")){

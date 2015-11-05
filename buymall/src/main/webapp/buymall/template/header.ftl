@@ -63,11 +63,21 @@
 					<div class="row">
 						<div class="col1">
 							<div class="h_nav">
-								<h4>专区选择</h4>
+								<h4>专区优惠</h4>
 								<ul>
-									<li><a href="javascript:void(0);">9块9专区</a></li>
-									<li><a href="javascript:void(0);">20封顶</a></li>
-									<li><a href="javascript:void(0);">其他</a></li>
+									<li><a href="${request.contextPath}/pre/index?type=10">天天特价</a></li>
+									<li><a href="${request.contextPath}/pre/index?type=0">9块9专区</a></li>
+									<li><a href="${request.contextPath}/pre/index?type=1">20封顶</a></li>
+								</ul>	
+							</div>							
+						</div>
+						<div class="col1">
+							<div class="h_nav">
+								<h4>专区特卖</h4>
+								<ul>
+									<li><a href="${request.contextPath}/pre/index?type=2">品牌特卖</a></li>
+									<li><a href="${request.contextPath}/pre/index?type=3">精品疯抢季</a></li>
+									<li><a href="${request.contextPath}/pre/index?type=20">卷皮精选</a></li>
 								</ul>	
 							</div>							
 						</div>
