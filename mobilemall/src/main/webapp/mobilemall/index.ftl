@@ -30,9 +30,11 @@
 						</i>
 					</span> 
 					<span id="user">
-						<i class="ico10">
-							<img src="${request.contextPath}/images/jd1.png" width="20px" style="float: left;" />签到</i>
-						</i>
+						<#if user??>
+							<a href="${request.contextPath}/user/userHome/${user.userId!''}"><i class="ico10">${user.userCode!''}</i></a>
+						<#else>
+							<a href="${request.contextPath}/user/login"><i class="ico10">登录</i></a>
+						</#if>
 					</span>
 				</div>
 				<ul class="head-nav">

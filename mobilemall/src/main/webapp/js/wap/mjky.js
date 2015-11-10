@@ -142,10 +142,7 @@
             $('#alert_exchange_new').hide();
         }) 
 
-        $('#user').on('click', function(){
-            $('.alert_fullbg').show();
-            $('#alert_exchange_new').show();
-        })
+        
         $('.alert_black_bg .close').on('click', function(){
             $('.alert_black_bg').hide();
         })
