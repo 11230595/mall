@@ -58,7 +58,9 @@
 							<#list page.list as page>
 								<div class="tag-grid">
 									<div class="tag-wrapper">		
-										<a target="_blank" href="${page.itemUrl!''}"><img src="${page.imgUrl!''}" class="img-responsive" style="width:100%;height: 218px"/></a>
+										<a target="_blank" href="${page.itemUrl!''}">
+											<img src="${page.imgUrl!''}" class="img-responsive" style="width:100%;height: 218px"/>
+										</a>
 										<div class="r-title">
 											<h3>${page.title!''}</h3>
 											<h4>
