@@ -58,11 +58,6 @@ public class IndexController {
 			loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 10, user.getUserCode(), "", "", ""));
 		}
 		
-		//头部信息
-		Page<Banner> bannerPage = findBanner(0);
-		//中部信息
-		Page<Banner> bPage	= findBanner(2);
-		
 		Map<String, Object> map = new HashMap<String, Object>();
 		//分页查询产品
 		if(StringUtils.isNotBlank(type)){
@@ -75,23 +70,12 @@ public class IndexController {
 		}
 		Page<Product> page = productService.findByPage(map, pageNo, 21);
 		
-		mav.addObject("bannerPage", bannerPage);
-		mav.addObject("bPage", bPage);
 		mav.addObject("page", page);
 		mav.addObject("url",Constants.config.getString("BASE_URL"));
 		mav.addObject("pc_url",Constants.config.getString("PC_URL"));
 		return mav;
 	}
 	
-	/**
-	 * 查询海报
-	 * @param bannerType 
-	 * @return
-	 */
-	private Page<Banner> findBanner(int bannerType) {
-		return bannerService.findByPage(bannerType);
-	}
-
 	/**
 	 * 获取cookie和session
 	 * @param request
@@ -123,24 +107,5 @@ public class IndexController {
 			return null;
 		}
 		return user;
-	}
-	
-	
-	/**
-	 * 关于
-	 * @return
-	 */
-	@RequestMapping(value="about",method={RequestMethod.GET,RequestMethod.POST})
-	public ModelAndView about() {
-		return new ModelAndView("about","url",Constants.config.getString("BASE_URL"));
-	}
-	
-	/**
-	 * 关于
-	 * @return
-	 */
-	@RequestMapping(value="help",method={RequestMethod.GET,RequestMethod.POST})
-	public ModelAndView help() {
-		return new ModelAndView("help","url",Constants.config.getString("BASE_URL"));
 	}
 }

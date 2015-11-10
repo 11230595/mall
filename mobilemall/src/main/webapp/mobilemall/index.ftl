@@ -6,7 +6,7 @@
 <link href="${request.contextPath}/css/wap/global.css" rel="stylesheet"
 	type="text/css" />
 <title>囤货网</title>
-
+<script src="${request.contextPath}/js/jquery/jquery-1.11.1.min.js"></script>
 <script src="${request.contextPath}/js/wap/zepto.js"></script>
 <script src="${request.contextPath}/js/wap/underscore.js"></script>
 
@@ -36,10 +36,10 @@
 					</span>
 				</div>
 				<ul class="head-nav">
-					<a href="#"><li class="active">首页</li></a>
-					<a href="#"><li>明日预告</li></a>
-					<a href="#"><li>热卖专场</li></a>
-					<a href="#"><li>卷皮折扣</li></a>
+					<a href="${request.contextPath}"><li class="active" id="li0">全部</li></a>
+					<a href="${request.contextPath}/index/1?userType=1"><li id="li1">天猫</li></a>
+					<a href="${request.contextPath}/index/1?userType=2"><li id="li2">淘宝</li></a>
+					<a href="${request.contextPath}/index/1?userType=3"><li id="li3">爱淘宝</li></a>
 				</ul>
 				<div id="nav" class="view currents out">
 
@@ -84,48 +84,30 @@
 				<div id="cover"></div>
 				<div id="dwon"></div>
 
-
-
 				<ul class="goods-list clear">
-					<li>
-						<a target="_blank" href="#">
-							<img src="http://s1.juancdn.com/bao/140305/8/f/53171e5bdfe40_580x380.jpg_290x190.jpg" />
-						</a> 
-						<a target="_blank" href="jump/67939165">
-							<h1>
-								<i class="ico13">
-									<img src="${request.contextPath}/images/sdj.png">
-								</i>可爱时尚实用迷你照明电筒【包邮】
-							</h1>
-							<div class="list-price buy">
-								<i>￥</i><span class="price-new">9.9</span><i class="del">/￥19</i>
-								<span class="good-btn"> 
-									<i class="ico15">
-										<img src="images/sts.png" />
-									</i> 去抢购
-								</span>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a target="_blank" href="#"> 
-							<img src="http://s1.juancdn.com/bao/140307/e/4/53198186beb1a_580x380.jpg_290x190.jpg" />
-							
-						</a> 
-						<a target="_blank" href="jump/66939495">
-							<h1>
-								<i class="ico13">
-									<img src="images/sdj.png">
-								</i>男士全棉中筒运动袜（5双）【包邮】
-							</h1>
-							<div class="list-price end">
-								<i>￥</i>
-								<span class="price-new">9.9</span>
-								<i class="del">/￥98</i>
-								<span class="good-btn">抢光了</span>
-							</div>
-						</a>
-					</li>
+					<#list page.list as page>
+						<li>
+							<a target="_blank" href="${page.itemUrl!''}">
+								<img src="${page.imgUrl!''}" />
+							</a> 
+							<a target="_blank" href="jump/67939165">
+								<h1>
+									<i class="ico13">
+										<img src="${request.contextPath}/images/sdj.png">
+									</i>${page.title!''}
+								</h1>
+								<div class="list-price buy">
+									<i>￥</i><span class="price-new">${page.zkFinalPrice!'99.00'}</span>
+									<i class="del">${page.sale!''}折</i>
+									<span class="good-btn"> 
+										<i class="ico15">
+											<img src="${request.contextPath}/images/sts.png" />
+										</i> 去抢购
+									</span>
+								</div>
+							</a>
+						</li>
+					</#list>
 				</ul>
 				
 				<div class="paging">
@@ -191,9 +173,9 @@
 
 				<div id="foot">
 					<div class="foot-nav">
-						<a href="#">首页</a>
+						<a href="${request.contextPath}">首页</a>
 						<i></i>
-						<a href="app">客户端</a>
+						<a href="javascript:void(0);">客户端</a>
 						<i></i>
 						<a href="${pc_url!''}">电脑版</a>
 					</div>
@@ -201,102 +183,30 @@
 					<h2>©2015囤货网</h2>
 				</div>
 			</div>
-
-			<div id="alert_wrap" class="alert_black_bg">
-				<div class="alert_box">
-					<div class="alert_content">
-						<div class="message">
-							<i class="close"></i> 
-							<img class="icon" src="${request.contextPath}/images/cus_jqy.png">
-							<div class="jky_des">
-								<p class="f14">使用九块邮客户端</p>
-								<p class="f12 yellow">全场九块九包邮，</p>
-								<p class="f12 yellow">体验掌上的小幸福</p>
-							</div>
-						</div>
-						<a href="app" class="sub">立即使用</a>
-					</div>
-				</div>
-			</div>
-
+			
 			<div class="alert_fullbg"></div>
 
 			<!-- /*Download alert*/ -->
-			<div id="alert_exchange_new" class="alert_bg"
-				style="left: 50%; margin-left: -130px; top: 35px; position: fixed;">
+			<div id="alert_exchange_new" class="alert_bg" style="left: 50%; margin-left: -130px; top: 35px; position: fixed;">
 				<div class="alert_box">
 					<div class="alert_top">
 						<i id="close_box" class="close"></i>
 					</div>
-					<a href="app">
+					<a href="javascript:void(0);">
 						<div class="alert_content">
 							<div class="message">
-								<img class="icon" src="${request.contextPath}/images/cus_jqy.png" />
-								<p class="fontL">九块邮客户端</p>
-								<p class="fontS">体验更好，功能更全！</p>
+								<img class="icon" src="${request.contextPath}/images/tun_logo.png" />
+								<p class="fontL">签到功能尚在开发</p>
+								<p class="fontS">囤货网，最专业的打折网站！</p>
 							</div>
-							<button class="sub" value="">马上下载</button>
+							<!--<button class="sub" value="">马上下载</button>-->
 						</div>
 					</a>
 				</div>
-
 			</div>
-
 		</div>
 	</div>
-	<!-- 定义模板，将模板内容放到一个script标签中 -->
-	<script type="text/template" id="tpl">
-        <% for(var i = 0; i < list.length; i++) { %>
-            <% var goods = list[i] %>
-            <li>
-                <img src="<%= goods.picurl %>" />
-                <% if(goods.tag == "1") { %>
-                    <i class="ico05"><img src="${request.contextPath}/images/yugao1.png"><em>品牌</em> </i>
-                <% } %>
-                <% if(goods.tag == "2") { %>
-                    <i class="ico05"><img src="${request.contextPath}/images/yugao2.png"><em>专场</em> </i>
-                <% } %>
-                <h1>
-                    <% if(goods.hottag == "1") { %>
-                        <i class="ico13"><img src="${request.contextPath}/images/sdj.png"></i>
-                    <% } %>
-                    <%=goods.title%>
-                    <% if(goods.ismail != "0") { %> 包邮 <% } %>
-                </h1>
-                 <% if(goods.status == "1") { %>
-						 <div class="list-price start">
-                    		<i>￥</i><span class="price-new"><%=goods.cprice%></span><i class="del">/￥<%=goods.oprice%></i>
-                        	<span class="good-btn start"><i class="ico15"></i>10点开始</span>
- 						</div>
-                    <% } %>
-                    <% if(goods.status == "2") { %>
- 						<div class="list-price buy">
-                    		<i>￥</i><span class="price-new"><%=goods.cprice%></span><i class="del">/￥<%=goods.oprice%></i>
-                        	
-                        	<span class="good-btn"> 
-                       			 <% if(goods.taobao_flag == "1") { %>
-                            		<i class="ico15"><img src="${request.contextPath}/images/sts.png"/></i>
-                       			 <% } else {%>
-                           			 <i class="ico15"><img src="${request.contextPath}/images/sbs.png"/></i>
-                        		<% } %>
-                        		去抢购</span>
-						</div>
-                    <% } %>
-                    <% if(goods.status == "3") { %>
-						<div class="list-price end">
-                    		<i>￥</i><span class="price-new"><%=goods.cprice%></span><i class="del">/￥<%=goods.oprice%></i>
-                        	<span class="good-btn end"><i class="ico15"></i>抢光了</span>
- 						</div>
-                    <% } %>
-                    <% if(goods.status == "4") { %>
-						<div class="list-price end">
-                    		<i>￥</i><span class="price-new"><%=goods.cprice%></span><i class="del">/￥<%=goods.oprice%></i>
-                        	<span class="good-btn end"><i class="ico15"></i>已结束</span>
- 						</div>
-                    <% } %>
-            </li>
-        <% } %>
-    </script>
+	
 	<script type="text/javascript">
     function addLoadEvent(func) {
         var oldOnload = window.onload;
@@ -315,6 +225,25 @@
     function hideMenu() {
         setTimeout("window.scrollTo(0, 0)", 1);
     }
+    
+    $(function(){
+    	var userType = ${userType!0};
+    	if(userType != ''){
+    		$("#li0").removeClass("active");
+    		switch(userType){
+				case 1:
+				  $("#li1").addClass("active");
+				  break;
+				case 2:
+				  $("#li2").addClass("active");
+				  break;
+				case 3:
+				  $("#li3").addClass("active");
+				  break;
+			}
+    	}
+ 	   	
+    })
     </script>
 	<script type="text/javascript" src="${request.contextPath}/js/wap/mjky.js"></script>
 </body>

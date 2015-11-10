@@ -49,13 +49,13 @@
     .ico11{ display: inline-block; width: 19px; height: 19px; }
     .ico12{ display: inline-block; width: 30px; height: 25px; }
     .ico13{ display: inline-block; width: 31px; height: 18px;}
-    .ico14{ display: inline-block; width: 9px; height: 10px; background: url(../images/icons.png) no-repeat -61px -160px;}
+    .ico14{ display: inline-block; width: 9px; height: 10px; background: url(../../images/icons.png) no-repeat -61px -160px;}
     .ico15{ display: inline-block; width: 11px; height: 11px; }
     .ico16{ display: inline-block; width: 20px; height: 20px; }
     .ico17{ display: inline-block; width: 27px; height: 28px; }
     .ico18{ display: inline-block; width: 12px; height: 22px; }
     .ico19{ display: inline-block; width: 29px; height: 25px; }
-    .ico20{ display: inline-block; width: 18px; height: 18px; background: url(../images/icons.png) no-repeat -34px -381px;}
+    .ico20{ display: inline-block; width: 18px; height: 18px; background: url(../../images/icons.png) no-repeat -34px -381px;}
     /*clear by:wukong start*/
     .clearfix {
         clear: both;
@@ -129,10 +129,10 @@
     .fixtop{
         width: 100%;
         height: 44px;
-        background: rgba(250,143,55,1);
+        background: #18c9d2;
         z-index: 999;
         position: absolute;
-        border-bottom:1px solid rgba(228,117,31,1);
+        border-bottom:1px solid rgba(24,201,210,1);
     }
 
     .fixtop span{
@@ -172,8 +172,8 @@
     }
 
     .head-nav li.active{
-        color: rgba(163,55,15,1);
-        border-bottom: 2px solid rgba(250,143,55,1);
+        color: rgba(24,201,210,1);
+        border-bottom: 2px solid rgba(24,201,210,1);
     }
 
     #goods{
@@ -304,7 +304,7 @@
     }
 
     .buy .price-new{
-        color: rgba(255,102,0,1);
+        color: rgba(24,201,210,1);
     }
     .start .price-new{
         color: rgba(80,131,11,1);
@@ -445,7 +445,7 @@
         height: 25px;
         line-height: 25px;
         margin: 0 auto;
-        width: 33.33%;
+        width: 32.33%;
         text-align: center;
     }
     .foot-nav i:after {
@@ -609,7 +609,7 @@
         width: 100%;
         top: 52px;
         background: rgba(255,255,255,1);
-        padding-bottom: 10px;
+        /*padding-bottom: 10px;*/
     }
     
     .nav-list li{
@@ -775,7 +775,7 @@
         width:100%;
     }
     .alert_bg .alert_box .alert_top .close{
-        background: url(../images/xx.png) no-repeat;
+        background: url(../../images/xx.png) no-repeat;
         display: block;
         float: right;
         width: 8%;
@@ -838,7 +838,7 @@
         z-index:100009;
     }
     #alert_wrap .close{
-        background: url(../images/xx.png) no-repeat;
+        background: url(../../images/xx.png) no-repeat;
         display: block;
         width: 8%;
         height: 18px;

@@ -1,6 +1,6 @@
 <script type="text/javascript" src="${request.contextPath}/js/jquery.page.js"></script><!-- 分页 -->
 <style>
-	.tcdPageCode{padding: 15px 20px;text-align: left;color: #ccc;text-align:center;}
+	.tcdPageCode{padding: 0px 10px;text-align: left;color: #ccc;text-align:center;} /*padding: 15px 20px;*/
 	.tcdPageCode a{display: inline-block;color: #428bca;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #ddd;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
 	.tcdPageCode a:hover{text-decoration: none;border: 1px solid #428bca;}
 	.tcdPageCode span.current{display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;color: #fff;background-color: #428bca;	border: 1px solid #428bca;border-radius: 4px;vertical-align: middle;}
