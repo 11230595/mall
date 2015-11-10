@@ -1,3 +1,4 @@
+<script type="text/javascript" src="${request.contextPath}/js/jquery.page.js"></script><!-- 分页 -->
 <style>
 	.tcdPageCode{padding: 15px 20px;text-align: left;color: #ccc;text-align:center;}
 	.tcdPageCode a{display: inline-block;color: #428bca;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #ddd;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}

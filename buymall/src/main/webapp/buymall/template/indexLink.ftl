@@ -14,7 +14,6 @@
 <script src="${request.contextPath}/js/index/scripts.js" type="text/javascript"></script>
 <script type="text/javascript" src="${request.contextPath}/js/index/move-top.js"></script>
 <script type="text/javascript" src="${request.contextPath}/js/index/easing.js"></script>
-<script type="text/javascript" src="${request.contextPath}/js/jquery.page.js"></script><!-- 分页 -->
 <!--/script-->
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
