@@ -72,7 +72,7 @@
 						   </#list>
 							<div class="clearfix"></div>
 							<div style="width:100%;text-align:center;margin-top:20px;">
-								<#include "template/page.ftl"><!-- 导航模板 -->
+								<#include "template/page.ftl"><!-- 分页模板 -->
 							</div>
 						</div>
 					</div>
