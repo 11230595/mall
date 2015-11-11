@@ -130,7 +130,7 @@
 
         $("#cover").bind('click', F_side);
         $("#find").bind("click", F_side);
-        $("#search-submit").bind('click', F_render_tpl);
+        //$("#search-submit").bind('click', F_render_tpl);
         $("#p-search-submit").bind('click', F_p_render_tpl);
         $("#p-find").bind("click", F_search_submit);
         $("#delete-search").bind("click",F_search_delete);

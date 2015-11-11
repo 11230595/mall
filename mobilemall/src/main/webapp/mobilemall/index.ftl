@@ -56,7 +56,7 @@
 										</i>
 									</span>
 							</div>
-							<button type="submit" id="search-submit">
+							<button type="submit" id="search-submit" onclick="searchProduct();">
 								<i class="ico01"> 
 									<img src="${request.contextPath}/images/search-w.png" /> 
 									<img class="active" src="${request.contextPath}/images/search-o.png" style="display: none;" />
@@ -246,6 +246,16 @@
     	}
  	   	
     })
+    
+    function searchProduct(){
+    	var searchInput = $("#keyword").val();
+    	if($.trim(searchInput) == ""){
+    		alert("请输入关键字搜索");
+    		return;
+    	}
+    	
+    	window.location.href = "${url!''}?keyword=" + searchInput;
+    }
     </script>
 	<script type="text/javascript" src="${request.contextPath}/js/wap/mjky.js"></script>
 </body>
