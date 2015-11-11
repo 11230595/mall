@@ -108,14 +108,12 @@ public class IndexController {
 		
 		if (cookies != null) {
 			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("dovip_user")) {
+				if (cookie.getName().equals(Constants.config.getString("COOKIE_DOMAIN"))) {
 					userId = cookie.getValue();
 					user = userService.findUserByUserId(userId);
 					if(user != null){
 						request.getSession().setAttribute("user", user);
 					}
-				}else {
-					return null;
 				}
 			}
 		} else {

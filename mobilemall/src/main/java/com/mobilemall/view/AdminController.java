@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.framework.core.utils.IPUtils;
+import com.mobilemall.constants.Constants;
 import com.mobilemall.entity.LoginLog;
 import com.mobilemall.entity.User;
 import com.mobilemall.service.LoginLogService;
@@ -64,7 +65,7 @@ public class AdminController {
 		
 		if (cookies != null) {
 			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("dovip_user")) {
+				if (cookie.getName().equals(Constants.config.getString("COOKIE_DOMAIN"))) {
 					userId = cookie.getValue();
 					user = userService.findUserByUserId(userId);
 					if(user != null){

@@ -205,7 +205,7 @@ public class UserController {
 	 * @param userId
 	 */
 	private void addCookie(HttpServletResponse response,String userId){
-		Cookie cookie = new Cookie("dovip_user", userId);       //(key,value)  
+		Cookie cookie = new Cookie(Constants.config.getString("COOKIE_DOMAIN"), userId);       //(key,value)  
 	    cookie.setPath("/");// 这个要设置  
 	    cookie.setDomain(".dovip.top");//这样设置，能实现两个网站共用  
 	    cookie.setMaxAge(365 * 24 * 60 * 60);// 不设置的话，则cookies不写入硬盘,而是写在内存,只在当前页面有用,以秒为单位  

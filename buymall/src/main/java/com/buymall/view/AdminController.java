@@ -9,11 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.buymall.constants.Constants;
 import com.buymall.entity.LoginLog;
 import com.buymall.entity.User;
 import com.buymall.service.LoginLogService;
 import com.buymall.service.UserService;
-import com.framework.core.utils.IPUtils;
 /**
  * 后台管理部分
  * @author zhoudong
@@ -63,7 +64,7 @@ public class AdminController {
 		
 		if (cookies != null) {
 			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("dovip_user")) {
+				if (cookie.getName().equals(Constants.config.getString("COOKIE_DOMAIN"))) {
 					userId = cookie.getValue();
 					user = userService.findUserByUserId(userId);
 					if(user != null){
