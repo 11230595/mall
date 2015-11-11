@@ -38,7 +38,7 @@
 					</span>
 				</div>
 				<ul class="head-nav">
-					<a href="${request.contextPath}"><li class="active" id="li0">全部</li></a>
+					<a href="${url!''}"><li class="active" id="li0">全部</li></a>
 					<a href="${request.contextPath}/index/1?userType=1"><li id="li1">天猫</li></a>
 					<a href="${request.contextPath}/index/1?userType=2"><li id="li2">淘宝</li></a>
 					<a href="${request.contextPath}/index/1?userType=3"><li id="li3">爱淘宝</li></a>
@@ -66,7 +66,7 @@
 					</div>
 
 					<ul class="nav-list">
-						<a href="${request.contextPath}"><li>全部</li></a>
+						<a href="${url!''}"><li>全部</li></a>
 						<a href="${request.contextPath}?type=1&userType=${userType!''}"><li>女装</li></a>
 						<a href="${request.contextPath}?type=2&userType=${userType!''}"><li>男装</li></a>
 						<a href="${request.contextPath}?type=3&userType=${userType!''}"><li>内衣</li></a>
@@ -125,7 +125,7 @@
 
 			<div id="foot">
 				<div class="foot-nav">
-					<a href="default.htm">首页</a>
+					<a href="${url!''}">首页</a>
 					<i>
 						</i>
 							<a href="app">客户端</a>
@@ -175,7 +175,7 @@
 
 				<div id="foot">
 					<div class="foot-nav">
-						<a href="${request.contextPath}">首页</a>
+						<a href="${url!''}">首页</a>
 						<i></i>
 						<a href="javascript:void(0);">客户端</a>
 						<i></i>
@@ -187,25 +187,6 @@
 			</div>
 			
 			<div class="alert_fullbg"></div>
-
-			<!-- /*Download alert*/ -->
-			<div id="alert_exchange_new" class="alert_bg" style="left: 50%; margin-left: -130px; top: 35px; position: fixed;">
-				<div class="alert_box">
-					<div class="alert_top">
-						<i id="close_box" class="close"></i>
-					</div>
-					<a href="javascript:void(0);">
-						<div class="alert_content">
-							<div class="message">
-								<img class="icon" src="${request.contextPath}/images/tun_logo.png" />
-								<p class="fontL">签到功能尚在开发</p>
-								<p class="fontS">囤货网，最专业的打折网站！</p>
-							</div>
-							<!--<button class="sub" value="">马上下载</button>-->
-						</div>
-					</a>
-				</div>
-			</div>
 		</div>
 	</div>
 	
