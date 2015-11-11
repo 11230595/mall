@@ -60,4 +60,5 @@
 	<mvc:resources mapping="/bootstrap/**" location="/bootstrap/" /> 
 	<mvc:resources mapping="/ico/**" location="/ico/" /> 
 	<mvc:resources mapping="/login/**" location="/login/" /> 
+	<mvc:resources mapping="/common/**" location="/common/" /> 
 </beans>
