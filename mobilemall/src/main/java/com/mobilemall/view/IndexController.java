@@ -1,5 +1,6 @@
 package com.mobilemall.view;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.framework.core.page.Page;
+import com.framework.core.utils.DateUtils;
 import com.framework.core.utils.IPUtils;
 import com.mobilemall.constants.Constants;
 import com.mobilemall.entity.Banner;
@@ -68,7 +70,9 @@ public class IndexController {
 			map.put("userType", Integer.parseInt(userType));
 			mav.addObject("userType", userType);
 		}
-		Page<Product> page = productService.findByPage(map, pageNo, 21);
+		map.put("expireTime", DateUtils.getDate(new Date()));
+		int pageSize = 20;
+		Page<Product> page = productService.findByPage(map, pageNo, pageSize);
 		
 		mav.addObject("page", page);
 		mav.addObject("url",Constants.config.getString("BASE_URL"));

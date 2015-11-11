@@ -1,5 +1,6 @@
 package com.buymall.view;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,6 +27,7 @@ import com.buymall.service.LoginLogService;
 import com.buymall.service.ProductService;
 import com.buymall.service.UserService;
 import com.framework.core.page.Page;
+import com.framework.core.utils.DateUtils;
 import com.framework.core.utils.IPUtils;
 /**
  * 首页部分功能
@@ -73,7 +75,9 @@ public class IndexController {
 			map.put("userType", Integer.parseInt(userType));
 			mav.addObject("userType", userType);
 		}
-		Page<Product> page = productService.findByPage(map, pageNo, 21);
+		map.put("expireTime", DateUtils.getDate(new Date()));
+		int pageSize = 21;
+		Page<Product> page = productService.findByPage(map, pageNo, pageSize);
 		
 		mav.addObject("bannerPage", bannerPage);
 		mav.addObject("bPage", bPage);
