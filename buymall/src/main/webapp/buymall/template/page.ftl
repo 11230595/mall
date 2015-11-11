@@ -9,10 +9,6 @@
 <div class="tcdPageCode"></div>
 
 <script>
-	var type = "${type!''}";
-	var userType = "${userType!''}";
-	var totalCount = ${page.totalCount};
-	
 	var params = "";
 	
 	if(type != ""){

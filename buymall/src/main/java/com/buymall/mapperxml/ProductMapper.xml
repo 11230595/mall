@@ -263,6 +263,9 @@
     <if test="type != null and type !=''"  >
       and type = ${type}
     </if>
+    <if test="keyword != null and keyword !=''"  >
+      and title like '%${keyword}%'
+    </if>
     order by create_time desc
     <!-- 分页 -->
     <if test="page_sql != null and page_sql !=''"  >

@@ -14,8 +14,15 @@
 <script src="${request.contextPath}/js/index/scripts.js" type="text/javascript"></script>
 <script type="text/javascript" src="${request.contextPath}/js/index/move-top.js"></script>
 <script type="text/javascript" src="${request.contextPath}/js/index/easing.js"></script>
+<script type="text/javascript" src="${request.contextPath}/js/search.js"></script><!-- 搜索 -->
 <!--/script-->
 <script type="text/javascript">
+	var BASE_URL = "${url!''}"; //项目路径
+	var type = "${type!''}";
+	var userType = "${userType!''}";
+	var totalCount = ${page.totalCount};
+	var keyword = "${keyword!''}";
+	
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
 			event.preventDefault();
