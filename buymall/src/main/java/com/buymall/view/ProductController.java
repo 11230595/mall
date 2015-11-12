@@ -115,7 +115,7 @@ public class ProductController {
 			e.printStackTrace();
 		} 
 		product.setPictUrl(productVO.getImgUrl());
-		product.setUserType(productVO.getPlatform().equals("天猫") ? 1 : 0);
+		//product.setUserType(productVO.getPlatform().equals("天猫") ? 1 : 0);
 		product.setSale(product.getZkFinalPrice()/(product.getReservePrice()/10));
 		try {
 			productService.insert(product);
