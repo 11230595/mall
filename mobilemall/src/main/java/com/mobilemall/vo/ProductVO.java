@@ -41,6 +41,8 @@ public class ProductVO {
 
     private Date expireTime;
     
+    private Date startTime;
+    
     private String reservePrice;
 
     private String zkFinalPrice;
@@ -212,6 +214,12 @@ public class ProductVO {
 	public void setZkFinalPrice(String zkFinalPrice) {
 		this.zkFinalPrice = zkFinalPrice;
 	}
-    
-    
+
+	public Date getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
+	}
 }

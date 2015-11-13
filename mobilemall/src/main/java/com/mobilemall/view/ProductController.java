@@ -73,6 +73,7 @@ public class ProductController {
 			product.setZkFinalPrice(beanJson.optDouble("zk_final_price"));
 			product.setSale(product.getZkFinalPrice()/(product.getReservePrice()/10));
 			product.setExpireTime(DateUtils.addDay(new Date(), 3));
+			product.setStartTime(new Date());
 			product.setType(itemRequest.getType());
 			product.setId(UUID.randomUUID().toString());
 			productService.insert(product);
@@ -100,7 +101,7 @@ public class ProductController {
 		productVO.setStatus(0);
 		productVO.setItemUrl(url); //因为跳转不到淘宝，暂时跳转到爱淘宝
 		productVO.setExpireTime(DateUtils.addDay(new Date(), 3));
-		productVO.setCreateTime(new Date());
+		productVO.setStartTime(new Date());
 		productVO.setScore(String.valueOf(map.get("scoreCount")));
 		
 		return addTkProduct(productVO);
