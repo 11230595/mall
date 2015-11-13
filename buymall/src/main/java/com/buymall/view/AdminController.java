@@ -23,10 +23,6 @@ import com.buymall.service.UserService;
 @Controller
 public class AdminController {
 	private static Logger logger = Logger.getLogger(AdminController.class);
-	@Resource
-	private UserService userService;
-	@Resource
-	private LoginLogService loginLogService;
 	
 	/**
 	 * 后台首页
@@ -34,49 +30,6 @@ public class AdminController {
 	 */
 	@RequestMapping(value="admin",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView index(HttpServletRequest request) {
-		//从cookie取数据
-		//String ip = IPUtils.getIP(request);
-		
-		User user = getSessionAndCookie(request);
-		
-		if(user == null){
-			logger.info("Cookie不存在,跳转登录..");
-			redirect: return new ModelAndView("redirect:/user/login?returnUrl=../admin");
-		}
-		loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 10, user.getUserCode(), "", "", ""));
 		return new ModelAndView("admin/index");
-	}
-	
-	/**
-	 * 获取cookie和session
-	 * @param request
-	 * @return
-	 */
-	private User getSessionAndCookie(HttpServletRequest request){
-		User user = (User) request.getSession().getAttribute("user");
-		String userId = "";
-		
-		//先从session取数据
-		if(request.getSession().getAttribute("user") != null){
-			return user;
-		}
-		Cookie cookies[] = request.getCookies();
-		
-		if (cookies != null) {
-			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals(Constants.config.getString("COOKIE_DOMAIN"))) {
-					userId = cookie.getValue();
-					user = userService.findUserByUserId(userId);
-					if(user != null){
-						request.getSession().setAttribute("user", user);
-					}
-				}else {
-					return null;
-				}
-			}
-		} else {
-			return null;
-		}
-		return user;
 	}
 }

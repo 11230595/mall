@@ -123,6 +123,12 @@
 						<li><a href="javascript:void(0);">zhoudong611@163.com</a></li>
 					</ul>
 				</div>
+				<div class="col-md-2 footer-left">
+					<h3>商户中心</h3>
+					<ul>
+						<li><a href="${request.contextPath}/member/index">登录商户中心</a></li>
+					</ul>
+				</div>
 			</div>
 			
 		</div>
