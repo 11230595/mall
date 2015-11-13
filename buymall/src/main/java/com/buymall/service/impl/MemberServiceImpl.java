@@ -41,4 +41,8 @@ public class MemberServiceImpl implements MemberService {
 		return memberMapper.updateByPrimaryKey(record);
 	}
 
+	public Member findMemberByUserId(String userId) {
+		return memberMapper.findMemberByUserId(userId);
+	}
+
 }

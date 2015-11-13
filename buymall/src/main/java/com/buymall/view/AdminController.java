@@ -30,6 +30,6 @@ public class AdminController {
 	 */
 	@RequestMapping(value="admin",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView index(HttpServletRequest request) {
-		return new ModelAndView("admin/index");
+		return new ModelAndView("admin/index","url",Constants.config.getString("BASE_URL"));
 	}
 }

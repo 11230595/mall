@@ -126,7 +126,8 @@
 				<div class="col-md-2 footer-left">
 					<h3>商户中心</h3>
 					<ul>
-						<li><a href="${request.contextPath}/member/index">登录商户中心</a></li>
+						<li><a href="${request.contextPath}/member/exist">登录商户中心</a></li>
+						<li><a href="">&nbsp;</a></li>
 					</ul>
 				</div>
 			</div>

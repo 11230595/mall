@@ -33,13 +33,32 @@ public class MemberController {
 	@Resource
 	private MemberService memberService;
 	/**
-	 * 后台首页
+	 * 商户首页
 	 * @return
 	 */
 	@RequestMapping(value="index",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView index(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView("member/index");
+		mav.addObject("url", Constants.config.getString("BASE_URL"));
+		return mav;
+	}
+	
+	/**
+	 * 商户中间页
+	 * 是否已经开通商户
+	 * @return
+	 */
+	@RequestMapping(value="exist",method={RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView exist(HttpServletRequest request) {
+		User user = (User) request.getSession().getAttribute("user");
+		Member member = memberService.findMemberByUserId(user.getUserId());
 		
-		return new ModelAndView("member/index");
+		if(member == null){
+			//跳转到创建会员ftl
+			return new ModelAndView("member/create","url",Constants.config.getString("BASE_URL"));
+		}
+		//跳转到首页
+		redirect:return new ModelAndView("redirect:/member/index");
 	}
 	
 	/**
@@ -48,7 +67,7 @@ public class MemberController {
 	 */
 	@RequestMapping(value="create",method={RequestMethod.GET,RequestMethod.POST})
 	public String createMember(HttpServletRequest request,@RequestParam String userId) {
-		memberService.insert(new Member(UUID.randomUUID().toString(),userId));
-		return "redirect:member/index";
+		memberService.insert(new Member(UUID.randomUUID().toString(),userId,0,0));
+		return "redirect:/member/index";
 	}
 }

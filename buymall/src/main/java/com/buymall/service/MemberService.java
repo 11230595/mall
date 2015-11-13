@@ -18,4 +18,6 @@ public interface MemberService {
     int updateByPrimaryKeySelective(Member record);
 
     int updateByPrimaryKey(Member record);
+
+	Member findMemberByUserId(String userId);
 }

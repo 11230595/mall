@@ -19,7 +19,7 @@
 
     <script src="${request.contextPath}/js/jquery/jquery-1.11.1.min.js"></script>
     <script src="${request.contextPath}/bootstrap/js/ie-emulation-modes-warning.js"></script>
-  	<script src="${request.contextPath}/js/common/common.js"></script>
+    <script src="${request.contextPath}/js/common/common.js"></script>
   </head>
 
   <body>
@@ -38,9 +38,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="${request.contextPath}/admin">导入数据</a></li>
-            <li><a href="#about">模板管理</a></li>
-            <li><a href="javascript:void(0);" onclick="toBannerPage(this);">Banner管理</a></li>
+            <li class="active"><a href="${request.contextPath}/member/index">推广中产品</a></li>
+            <li><a href="#about">推广产品</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="../navbar/">欢迎您：${user.userCode!"管理员"}</a></li>
@@ -50,15 +49,38 @@
       </div>
     </nav>
 
-    <div class="container">
-
-      <!-- Main component for a primary marketing message or call to action -->
-      <#include "template/data.ftl"><!-- 导入数据 -->
-      <#include "template/template.ftl"><!-- 模板管理 -->
-      <#include "template/banner_insert.ftl"><!-- Banner管理 -->
-
-    </div> <!-- /container -->
-
+	<!-- 内容start -->
+	<div class="container">
+			<table class="table table-bordered">
+			   <caption>在推广商品</caption>
+			   <thead>
+			      <tr>
+			         <th>名称</th>
+			         <th>城市</th>
+			         <th>密码</th>
+			      </tr>
+			   </thead>
+			   <tbody>
+			      <tr>
+			         <td>Tanmay</td>
+			         <td>Bangalore</td>
+			         <td>560001</td>
+			      </tr>
+			      <tr>
+			         <td>Sachin</td>
+			         <td>Mumbai</td>
+			         <td>400003</td>
+			      </tr>
+			      <tr>
+			         <td>Uma</td>
+			         <td>Pune</td>
+			         <td>411027</td>
+			      </tr>
+			   </tbody>
+			</table>
+	</div>
+	<!-- 内容end -->
+	
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -67,8 +89,5 @@
     <script src="${request.contextPath}/bootstrap/js/holder.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="${request.contextPath}/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
-    <!-- index.js -->
-    <script src="${request.contextPath}/js/admin/index.js"></script>
-    
   </body>
 </html>

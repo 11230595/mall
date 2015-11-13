@@ -79,11 +79,11 @@ public class Member {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Member(String id, String userId) {
+	public Member(String id, String userId, Integer status, Integer level) {
 		super();
 		this.id = id;
 		this.userId = userId;
+		this.status = status;
+		this.level = level;
 	}
-    
-    
 }

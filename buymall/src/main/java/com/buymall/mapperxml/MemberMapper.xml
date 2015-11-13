@@ -103,4 +103,12 @@
       MEMBER_DESC = #{memberDesc,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=VARCHAR}
   </update>
+  
+  <!-- 根据userId查询会员 -->
+  <select id="findMemberByUserId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from member
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </select>
 </mapper>
