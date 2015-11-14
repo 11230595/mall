@@ -8,9 +8,10 @@
     <result column="LEVEL" property="level" jdbcType="INTEGER" />
     <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
     <result column="MEMBER_DESC" property="memberDesc" jdbcType="VARCHAR" />
+    <result column="PHONE_NUM" property="phoneNum" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    ID, USER_ID, STATUS, LEVEL, CREATE_TIME, MEMBER_DESC
+    ID, USER_ID, STATUS, LEVEL, CREATE_TIME, MEMBER_DESC, PHONE_NUM
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -24,11 +25,11 @@
   </delete>
   <insert id="insert" parameterType="com.buymall.entity.Member" >
     insert into member (ID, USER_ID, STATUS, 
-      LEVEL, CREATE_TIME, MEMBER_DESC
-      )
+      LEVEL, CREATE_TIME, MEMBER_DESC, 
+      PHONE_NUM)
     values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
-      #{level,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{memberDesc,jdbcType=VARCHAR}
-      )
+      #{level,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{memberDesc,jdbcType=VARCHAR}, 
+      #{phoneNum,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.buymall.entity.Member" >
     insert into member
@@ -51,6 +52,9 @@
       <if test="memberDesc != null" >
         MEMBER_DESC,
       </if>
+      <if test="phoneNum != null" >
+        PHONE_NUM,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -70,6 +74,9 @@
       </if>
       <if test="memberDesc != null" >
         #{memberDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNum != null" >
+        #{phoneNum,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -91,6 +98,9 @@
       <if test="memberDesc != null" >
         MEMBER_DESC = #{memberDesc,jdbcType=VARCHAR},
       </if>
+      <if test="phoneNum != null" >
+        PHONE_NUM = #{phoneNum,jdbcType=VARCHAR},
+      </if>
     </set>
     where ID = #{id,jdbcType=VARCHAR}
   </update>
@@ -100,15 +110,30 @@
       STATUS = #{status,jdbcType=INTEGER},
       LEVEL = #{level,jdbcType=INTEGER},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      MEMBER_DESC = #{memberDesc,jdbcType=VARCHAR}
+      MEMBER_DESC = #{memberDesc,jdbcType=VARCHAR},
+      PHONE_NUM = #{phoneNum,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=VARCHAR}
   </update>
   
-  <!-- 根据userId查询会员 -->
-  <select id="findMemberByUserId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    <!-- 根据userId查询会员 -->
+  <select id="findMemberByUserId" resultMap="BaseResultMap" parameterType="com.buymall.entity.Member" >
     select 
     <include refid="Base_Column_List" />
     from member
-    where USER_ID = #{userId,jdbcType=VARCHAR}
+    where USER_ID = #{userId,jdbcType=VARCHAR} 
+    and STATUS=#{status,jdbcType=INTEGER}
   </select>
+  <!-- 逻辑删除 -->
+  <update id="updateMemberStatus" parameterType="com.buymall.entity.Member" >
+    update member
+    <set >
+    	<if test="status != null" >
+	    	STATUS = #{status,jdbcType=INTEGER},
+	    </if>
+	    <if test="phoneNum != null" >
+	       PHONE_NUM = #{phoneNum,jdbcType=VARCHAR},
+	    </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
 </mapper>

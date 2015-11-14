@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <#include "../template/ico.ftl"><!-- ico文件-->
 
-    <title>囤货网-后台管理</title>
+    <title>囤货网-商户中心</title>
 
     <!-- Bootstrap core CSS -->
     <link href="${request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +42,8 @@
             <li><a href="#about">推广产品</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar/">欢迎您：${user.userCode!"管理员"}</a></li>
+            <li><a href="javascript:void(0);">欢迎您：${user.userCode!"管理员"}</a></li>
+            <li><a href="${request.contextPath}/member/close/${user.userId}">关闭商户功能</a></li>
             <li><a href="javascript:void(0);" onclick="loginOut();">退出</a></li>
           </ul>
         </div><!--/.nav-collapse -->

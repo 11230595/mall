@@ -19,5 +19,11 @@ public interface MemberService {
 
     int updateByPrimaryKey(Member record);
 
-	Member findMemberByUserId(String userId);
+	Member findMemberByUserId(String userId, int status);
+	/**
+	 * 更新商户状态
+	 * @param userId
+	 * @param i
+	 */
+	void updateMemberStatus(Member member);
 }

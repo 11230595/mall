@@ -15,6 +15,8 @@ public class Member {
 
     private String memberDesc;
 
+    private String phoneNum;
+
     public String getId() {
         return id;
     }
@@ -63,27 +65,40 @@ public class Member {
         this.memberDesc = memberDesc == null ? null : memberDesc.trim();
     }
 
-	public Member(String id, String userId, Integer status, Integer level,
-			Date createTime, String memberDesc) {
-		super();
-		this.id = id;
-		this.userId = userId;
-		this.status = status;
-		this.level = level;
-		this.createTime = createTime;
-		this.memberDesc = memberDesc;
-	}
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum == null ? null : phoneNum.trim();
+    }
 
 	public Member() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Member(String id, String userId, Integer status, Integer level) {
+	public Member(String id, String userId, Integer status, Integer level,
+			String phoneNum) {
 		super();
 		this.id = id;
 		this.userId = userId;
 		this.status = status;
 		this.level = level;
+		this.phoneNum = phoneNum;
 	}
+
+	public Member(String userId, Integer status) {
+		super();
+		this.userId = userId;
+		this.status = status;
+	}
+
+	public Member(String userId, Integer status, String phoneNum) {
+		super();
+		this.userId = userId;
+		this.status = status;
+		this.phoneNum = phoneNum;
+	}
+    
+	
 }

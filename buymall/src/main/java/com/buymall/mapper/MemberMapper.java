@@ -14,10 +14,8 @@ public interface MemberMapper {
     int updateByPrimaryKeySelective(Member record);
 
     int updateByPrimaryKey(Member record);
-    /**
-     * 根据userId查询会员
-     * @param userId
-     * @return
-     */
-	Member findMemberByUserId(String userId);
+
+	Member findMemberByUserId(Member member);
+
+	void updateMemberStatus(Member member);
 }

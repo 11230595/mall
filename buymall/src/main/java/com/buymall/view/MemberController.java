@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -51,7 +52,7 @@ public class MemberController {
 	@RequestMapping(value="exist",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView exist(HttpServletRequest request) {
 		User user = (User) request.getSession().getAttribute("user");
-		Member member = memberService.findMemberByUserId(user.getUserId());
+		Member member = memberService.findMemberByUserId(user.getUserId(),0);
 		
 		if(member == null){
 			//跳转到创建会员ftl
@@ -66,8 +67,23 @@ public class MemberController {
 	 * @return
 	 */
 	@RequestMapping(value="create",method={RequestMethod.GET,RequestMethod.POST})
-	public String createMember(HttpServletRequest request,@RequestParam String userId) {
-		memberService.insert(new Member(UUID.randomUUID().toString(),userId,0,0));
+	public String createMember(HttpServletRequest request,@RequestParam String userId,@RequestParam String phoneNum) {
+		Member member = memberService.findMemberByUserId(userId,1);
+		if(member == null)
+			memberService.insert(new Member(UUID.randomUUID().toString(),userId,0,0,phoneNum));
+		else {
+			memberService.updateMemberStatus(new Member(userId,0,phoneNum));
+		}
 		return "redirect:/member/index";
+	}
+	
+	/**
+	 * 关闭商户
+	 * @return
+	 */
+	@RequestMapping(value="close/{userId}",method={RequestMethod.GET,RequestMethod.POST})
+	public String closeMember(HttpServletRequest request,@PathVariable String userId) {
+		memberService.updateMemberStatus(new Member(userId,1));
+		return "redirect:" + Constants.config.getString("BASE_URL");
 	}
 }
