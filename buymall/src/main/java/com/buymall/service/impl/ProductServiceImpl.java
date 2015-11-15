@@ -61,4 +61,10 @@ public class ProductServiceImpl extends BaseMybatisDao implements ProductService
 		return (Page<Product>) findByPageBySqlId("findProductByPage", param, pageNo, pageSize);
 	}
 
+	@Override
+	public Page<Product> findProductByMemberId(Map<String, Object> param,
+			int pageNo, int pageSize) {
+		return (Page<Product>) findByPageBySqlId("findProductByMemberId", param, pageNo, pageSize);
+	}
+
 }

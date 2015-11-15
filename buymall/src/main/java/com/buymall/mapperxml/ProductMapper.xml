@@ -272,4 +272,25 @@
        ${page_sql}
     </if>
   </select>
+  
+  <!-- 分页查询，根据会员ID查询正在推广的产品 -->
+  <select id="findProductByMemberId" resultMap="BaseResultMap">
+	select 
+    p.*
+    from product p
+    LEFT JOIN mem_product m
+    on m.PRODUCT_ID=p.ID
+    where 1=1
+    <if test="expireTime != null and expireTime !=''"  >
+      and p.expire_Time &gt; '${expireTime}'
+    </if>
+    <if test="memberId != null and memberId !=''"  >
+      and m.MEMBER_ID='${memberId}'
+    </if>
+    order by p.create_time desc
+    <!-- 分页 -->
+    <if test="page_sql != null and page_sql !=''"  >
+       ${page_sql}
+    </if>
+  </select>
 </mapper>

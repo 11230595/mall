@@ -53,30 +53,28 @@
 	<!-- 内容start -->
 	<div class="container">
 			<table class="table table-bordered">
-			   <caption>在推广商品</caption>
+			   <caption>正在推广的商品</caption>
 			   <thead>
 			      <tr>
-			         <th>名称</th>
-			         <th>城市</th>
-			         <th>密码</th>
+			         <th>产品名称</th>
+			         <th>产品地址</th>
+			         <th>操作</th>
 			      </tr>
 			   </thead>
 			   <tbody>
-			      <tr>
-			         <td>Tanmay</td>
-			         <td>Bangalore</td>
-			         <td>560001</td>
-			      </tr>
-			      <tr>
-			         <td>Sachin</td>
-			         <td>Mumbai</td>
-			         <td>400003</td>
-			      </tr>
-			      <tr>
-			         <td>Uma</td>
-			         <td>Pune</td>
-			         <td>411027</td>
-			      </tr>
+			   	 <#if (page.list?size > 0)>
+				   	 <#list page.list as products>
+					      <tr>
+					         <td>${products.title}</td>
+					         <td>${products.pictUrl}</td>
+					         <td><a href="javascript:void(0);" onclick="deleteProduct('${products.id}');">删除</a></td>
+					      </tr>
+				     </#list>
+				 <#else>
+				 	<tr>
+				 		<td colspan=3 style="text-align:center;">您暂未推广产品</td>
+				 	</tr>
+				 </#if>
 			   </tbody>
 			</table>
 	</div>
@@ -90,5 +88,22 @@
     <script src="${request.contextPath}/bootstrap/js/holder.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="${request.contextPath}/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+    
+    <sctipt>
+    
+    	//删除
+    	function deleteProduct(productId){
+    		$.post("${request.contextPath}/member/delete",{
+    			"productId":productId
+    		},function(data){
+    			if(data.respCode == 0){
+    				alert("删除成功");
+    				window.location.reload();
+    			}else{
+    				alert("删除失败，请稍后重试");
+    			}
+    		});	
+    	}
+    </sctipt>
   </body>
 </html>

@@ -59,4 +59,13 @@ public interface ProductService {
 	 */
 	Page<Product> findTypeByPage(Map<String, Object> param, int pageNo,
 			int pageSize);
+	/**
+	 * 根据会员ID查询推广的商品
+	 * @param param
+	 * @param pageNo
+	 * @param pageSize
+	 * @return
+	 */
+	Page<Product> findProductByMemberId(Map<String, Object> param, int pageNo,
+			int pageSize);
 }
