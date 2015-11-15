@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,8 @@ import com.buymall.service.MemProductService;
 import com.buymall.service.MemberService;
 import com.buymall.service.ProductService;
 import com.buymall.service.UserService;
+import com.buymall.utils.GetProduct;
+import com.buymall.vo.ProductVO;
 import com.framework.core.page.Page;
 import com.framework.core.utils.DateUtils;
 /**
@@ -133,8 +136,46 @@ public class MemberController {
 		} catch (Exception e) {
 			map.put("respCode", 1);
 		}
-		
-		
 		return map;
+	}
+	
+	/**
+	 * 跳转到新加推广产品页面
+	 * @return
+	 */
+	@RequestMapping(value="add",method={RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView saveProduct(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView("member/save_product");
+		mav.addObject("url", Constants.config.getString("BASE_URL"));
+		
+		return mav;
+	}
+	
+	/**
+	 * 保存产品，商家推广
+	 * @return
+	 */
+	@RequestMapping(value="add_member_product",method={RequestMethod.GET,RequestMethod.POST})
+	public @ResponseBody Map<String, Object> saveMemberProduct(HttpServletRequest request,
+			@RequestParam String url, @RequestParam String type,
+			@RequestParam Integer userType) {
+		Member member = (Member) request.getSession().getAttribute("member");
+		//TODO 商户关关联表未保存，下一步写这里
+		
+		Map<String, Object> map = GetProduct.autoSaveProduct(url,userType);
+		ProductVO productVO = new ProductVO();
+		try {
+			BeanUtils.populate(productVO, map);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		productVO.setId(UUID.randomUUID().toString());
+		productVO.setType(Integer.parseInt(type));
+		productVO.setStatus(0);
+		productVO.setExpireTime(DateUtils.addDay(new Date(), 3));
+		productVO.setStartTime(new Date());
+		productVO.setScore(String.valueOf(map.get("scoreCount")));
+		
+		return new ProductController().addTkProduct(productVO);
 	}
 }

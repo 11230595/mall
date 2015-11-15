@@ -22,7 +22,7 @@ function doSubmit() {
 	var type = $("#iType").val();
 	var url = $("#url").val();
 
-	if (type == "") {
+	if (type == "0") {
 		alert("请选择类型");
 		return;
 	}
@@ -46,7 +46,7 @@ function doSubmit() {
 function doAPISubmit(){
 	var type = $("#tpType").val();
 	
-	if (type == "") {
+	if (type == "0") {
 		alert("请选择类型");
 		return;
 	}

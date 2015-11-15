@@ -52,4 +52,71 @@ public class GetProduct {
 		
 		return map;
 	}
+	/**
+	 * 根据平台类型，自动抓取产品并返回信息用于业务保存
+	 * @param url
+	 * @param userType
+	 * @return
+	 */
+	public static Map<String, Object> autoSaveProduct(String url,
+			Integer userType) {
+		
+		switch (userType) {
+		case 0: //淘宝
+			return autoSaveTaoBao(url);
+		case 1: //天猫
+			return autoSaveTmall(url);
+		case 3: //京东
+			return autoSaveJd(url);
+		default:
+			break;
+		}
+		return null;
+	}
+	/**
+	 * 天猫自动京东
+	 * @param url
+	 * @return 
+	 */
+	public static Map<String, Object> autoSaveJd(String url) {
+		
+		return null;
+	}
+
+	/**
+	 * 天猫自动保存
+	 * @param url
+	 * @return 
+	 */
+	public static Map<String, Object> autoSaveTmall(String url) {
+		
+		return null;
+	}
+
+	/**
+	 * 淘宝自动保存
+	 * @param url
+	 * @return 
+	 */
+	public static Map<String, Object> autoSaveTaoBao(String url) {
+		Document doc = null;
+		Map<String, Object> map = new HashMap<String, Object>();
+		try {
+			doc = Jsoup.connect(url).timeout(4000).get();
+			map.put("error", "0");//错误信息
+		} catch (IOException e) {
+			e.printStackTrace();
+			map.put("error", "1");//错误信息  0,简介成功，1，连接失败
+		}
+		map.put("itemUrl", url);
+		map.put("title", doc.select("#J_Title").select(".tb-main-title").text());//淘宝标题
+		map.put("imgUrl", doc.select("#J_ImgBooth").attr("src"));//淘宝图片
+		map.put("zkFinalPrice", doc.select("#J_PromoPriceNum").text());//价格
+		map.put("reservePrice", doc.select(".J_StrPrice").select(".tb-rmb-num").text());//原价
+		
+		map.put("platform", "淘宝");//平台
+		map.put("userType", 0);//平台类型 0-淘宝，1-天猫，2-爱淘宝
+		
+		return map;
+	}
 }

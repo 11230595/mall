@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.buymall.entity.Member;
 import com.buymall.entity.Product;
 import com.buymall.service.ProductService;
 import com.buymall.utils.GetProduct;
@@ -106,7 +107,7 @@ public class ProductController {
 		
 		return addTkProduct(productVO);
 	}
-	private Map<String, Object> addTkProduct(ProductVO productVO) {
+	public Map<String, Object> addTkProduct(ProductVO productVO) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		Product product = new Product();
 		productVO.setReservePrice(productVO.getReservePrice().substring(1,productVO.getReservePrice().length()));

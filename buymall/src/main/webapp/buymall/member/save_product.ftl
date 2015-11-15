@@ -38,8 +38,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="${request.contextPath}/member/index">推广中产品</a></li>
-            <li><a href="${request.contextPath}/member/add">推广产品</a></li>
+            <li><a href="${request.contextPath}/member/index">推广中产品</a></li>
+            <li class="active"><a href="#about">推广产品</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="javascript:void(0);">欢迎您：${user.userCode!"管理员"}</a></li>
@@ -52,31 +52,45 @@
 
 	<!-- 内容start -->
 	<div class="container">
-			<table class="table table-bordered">
-			   <caption>正在推广的商品</caption>
-			   <thead>
-			      <tr>
-			         <th>产品名称</th>
-			         <th>产品地址</th>
-			         <th>操作</th>
-			      </tr>
-			   </thead>
-			   <tbody>
-			   	 <#if (page.list?size > 0)>
-				   	 <#list page.list as products>
-					      <tr>
-					         <td>${products.title}</td>
-					         <td>${products.pictUrl}</td>
-					         <td><a href="javascript:void(0);" onclick="deleteProduct('${products.id}');">删除</a></td>
-					      </tr>
-				     </#list>
-				 <#else>
-				 	<tr>
-				 		<td colspan=3 style="text-align:center;">您暂未推广产品</td>
-				 	</tr>
-				 </#if>
-			   </tbody>
-			</table>
+		<h3>产品导入</h3>
+	    <!-- form start -->
+	    <form role="form" id="f">
+	       <div class="form-group">
+		      <select class="form-control" id="userType">
+		         <option value="-1">请选择平台</option>
+		         <option value="0">淘宝</option>
+		         <option value="1">天猫</option>
+		         <option value="3">京东</option>
+		      </select>
+		   </div>
+	    
+		   <div class="form-group">
+		      <select class="form-control" id="type">
+		         <option value="0">请选择分类</option>
+		         <option value="1">女装</option>
+		         <option value="2">男装</option>
+		         <option value="3">内衣</option>
+		         <option value="4">鞋品</option>
+		         <option value="5">儿童</option>
+		         <option value="6">母婴</option>
+		         <option value="7">居家</option>
+		         <option value="8">食品</option>
+		         <option value="9">数码</option>
+		         <option value="10">箱包</option>
+		         <option value="11">美妆</option>
+		      </select>
+		   </div>
+		
+		   <div class="form-group">
+		      <div class="form-group">
+			    <label for="name">商品地址</label>
+			    <textarea class="form-control" rows="3" id="url"></textarea>
+			  </div>
+		   </div>
+		   
+		   <button type="button" class="btn btn-primary" onclick="doSubmit();" style="width:100%;">提交</button>
+		</form>
+		<!-- form end -->
 	</div>
 	<!-- 内容end -->
 	
@@ -103,6 +117,39 @@
     			}
     		});	
     	}
+    	
+    	//导入数据提交
+		function doSubmit() {
+			var type = $("#type").val();
+			var url = $("#url").val();
+			var userType = $("#userType").val();
+		
+			if (type == "0") {
+				alert("请选择类型");
+				return;
+			}
+			if (userType == "-1") {
+				alert("请选择平台");
+				return;
+			}
+		
+			if ($.trim(url) == "") {
+				alert("请输入商品地址");
+				return;
+			}
+		
+			$.post("${request.contextPath}/member/add_member_product", {
+				"type" : type,
+				"userType" : userType,
+				"url" : url
+			}, function(data) {
+				if (data.respCode == 0) {
+					window.location.reload(true);
+				} else {
+					alert("网络繁忙，请稍后再试..");
+				}
+			});
+		}
     </script>
   </body>
 </html>
