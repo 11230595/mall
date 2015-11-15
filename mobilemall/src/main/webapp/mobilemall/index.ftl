@@ -3,8 +3,7 @@
 <head>
 <#include "template/meta.ftl" > <#include "template/ico.ftl" >
 
-<link href="${request.contextPath}/css/wap/global.css" rel="stylesheet"
-	type="text/css" />
+<link href="${request.contextPath}/css/wap/global.css" rel="stylesheet"	type="text/css" />
 <title>囤货网</title>
 <script src="${request.contextPath}/js/jquery/jquery-1.11.1.min.js"></script>
 <script src="${request.contextPath}/js/wap/zepto.js"></script>
@@ -191,6 +190,7 @@
 	</div>
 	
 	<script type="text/javascript">
+	var BASE_URL = "${url!''}";
     function addLoadEvent(func) {
         var oldOnload = window.onload;
         if (typeof window.onload != 'function') {

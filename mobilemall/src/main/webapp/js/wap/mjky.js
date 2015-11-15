@@ -65,7 +65,7 @@
                 $("#nav").removeClass('out');
                 
                 $("#find").addClass('active').find('i').removeClass("ico08").addClass('ico19').find('img').attr({
-                    src: 'images/ss2.png'
+                    src: BASE_URL + '/images/ss2.png'
                 });
                 $("#cover").css({
                     display: 'block'
@@ -73,7 +73,7 @@
                 
             }else{
                 $("#find").removeClass('active').find('i').removeClass("ico19").addClass('ico08').find('img').attr({
-                    src: 'images/ss1.png'
+                    src: BASE_URL + '/images/ss1.png'
                 });
                 $("#nav").addClass('out');
                 $("#cover").css({
