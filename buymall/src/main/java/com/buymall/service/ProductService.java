@@ -3,6 +3,7 @@ package com.buymall.service;
 import java.util.Map;
 
 import com.buymall.entity.Product;
+import com.buymall.vo.ProductVO;
 import com.framework.core.page.Page;
 
 public interface ProductService {
@@ -68,4 +69,10 @@ public interface ProductService {
 	 */
 	Page<Product> findProductByMemberId(Map<String, Object> param, int pageNo,
 			int pageSize);
+	/**
+	 * 保存产品
+	 * @param productVO
+	 * @return
+	 */
+	Map<String, Object> addTkProduct(ProductVO productVO);
 }

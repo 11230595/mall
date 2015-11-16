@@ -15,8 +15,8 @@ import org.jsoup.nodes.Document;
 public class GetProduct {
 
 	public static void main(String[] args) {
-		String url = "http://ai.taobao.com/auction/edetail.htm?e=QSGVxzzyfvi6k0Or%2B%2BH4tJV4TNWlht7Cm7kUtxZzUh2LltG5xFicOdXrTUTgh9sMDPIwxrc30rgxfUmn3z%2FE3AqJIJEX%2BikKLakP2cazicSjGvRGGdqoum3abJM7sDg2tjS618V%2BwtOdDV%2FJ%2F%2Fm36w%3D%3D&ptype=100010&from=basic&clk1=c309c3ce21cd5f4b56af491971697601&upsid=c309c3ce21cd5f4b56af491971697601";
-		Map<String, Object> map = autoSaveAiTaoBao(url);
+		String url = "https://item.taobao.com/item.htm?spm=a217m.1726276.1998705584.1.fah1IZ&id=523144171774";
+		Map<String, Object> map = autoSaveProduct(url,0);
 		
 		for(Map.Entry<String, Object> entry : map.entrySet()){
 			System.out.println(entry.getKey() + "---->" + entry.getValue());
@@ -108,6 +108,7 @@ public class GetProduct {
 			e.printStackTrace();
 			map.put("error", "1");//错误信息  0,简介成功，1，连接失败
 		}
+		System.out.println(doc.toString());
 		map.put("itemUrl", url);
 		map.put("title", doc.select("#J_Title").select(".tb-main-title").text());//淘宝标题
 		map.put("imgUrl", doc.select("#J_ImgBooth").attr("src"));//淘宝图片

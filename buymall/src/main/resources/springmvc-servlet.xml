@@ -61,5 +61,8 @@
 	<mvc:resources mapping="/ico/**" location="/ico/" /> 
 	<mvc:resources mapping="/login/**" location="/login/" /> 
 	<mvc:resources mapping="/common/**" location="/common/" /> 
-	<mvc:resources mapping="/root.txt" location="/root.txt" /> 
+	<mvc:resources mapping="/root.txt" location="/root.txt" /><!-- 阿里妈妈验证文件 -->
+	<mvc:resources mapping="/jd_root.txt" location="/jd_root.txt" /><!-- 京东联盟验证文件 -->
+	<mvc:resources mapping="/suning-501651.txt" location="/suning-501651.txt" /><!-- 苏宁联盟验证文件 -->
+	<mvc:resources mapping="/gome_8373.txt" location="/gome_8373.txt" /><!-- 国美联盟验证文件 -->
 </beans>

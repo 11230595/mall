@@ -56,7 +56,7 @@
 	    <!-- form start -->
 	    <form role="form" id="f">
 	       <div class="form-group">
-		      <select class="form-control" id="userType">
+		      <select class="form-control" id="userType" name="userType">
 		         <option value="-1">请选择平台</option>
 		         <option value="0">淘宝</option>
 		         <option value="1">天猫</option>
@@ -65,7 +65,7 @@
 		   </div>
 	    
 		   <div class="form-group">
-		      <select class="form-control" id="type">
+		      <select class="form-control" id="type" name="type">
 		         <option value="0">请选择分类</option>
 		         <option value="1">女装</option>
 		         <option value="2">男装</option>
@@ -80,14 +80,26 @@
 		         <option value="11">美妆</option>
 		      </select>
 		   </div>
-		
 		   <div class="form-group">
 		      <div class="form-group">
 			    <label for="name">商品地址</label>
-			    <textarea class="form-control" rows="3" id="url"></textarea>
+			    <textarea class="form-control" rows="3" id="url" name="url"></textarea>
 			  </div>
 		   </div>
-		   
+		   <div id="price">
+			   <div class="form-group">
+			      <div class="form-group">
+				    <label for="name">商品地址</label>
+				    <input type="text" class="form-control" id="reservePrice" name="reservePrice" placeholder="请输入原价">
+				  </div>
+			   </div>
+			   <div class="form-group">
+			      <div class="form-group">
+				    <label for="name">商品地址</label>
+				    <input type="text" class="form-control" id="zkFinalPrice" name="zkFinalPrice" placeholder="请输入现价">
+				  </div>
+			   </div>
+		   </div>
 		   <button type="button" class="btn btn-primary" onclick="doSubmit();" style="width:100%;">提交</button>
 		</form>
 		<!-- form end -->
@@ -138,11 +150,7 @@
 				return;
 			}
 		
-			$.post("${request.contextPath}/member/add_member_product", {
-				"type" : type,
-				"userType" : userType,
-				"url" : url
-			}, function(data) {
+			$.post("${request.contextPath}/member/add_member_product", $("#f").serialize(), function(data) {
 				if (data.respCode == 0) {
 					window.location.reload(true);
 				} else {

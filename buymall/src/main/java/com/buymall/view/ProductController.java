@@ -105,28 +105,7 @@ public class ProductController {
 		productVO.setStartTime(new Date());
 		productVO.setScore(String.valueOf(map.get("scoreCount")));
 		
-		return addTkProduct(productVO);
-	}
-	public Map<String, Object> addTkProduct(ProductVO productVO) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		Product product = new Product();
-		productVO.setReservePrice(productVO.getReservePrice().substring(1,productVO.getReservePrice().length()));
-		try {
-			BeanUtils.copyProperties(product, productVO);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} 
-		product.setPictUrl(productVO.getImgUrl());
-		//product.setUserType(productVO.getPlatform().equals("天猫") ? 1 : 0);
-		product.setSale(product.getZkFinalPrice()/(product.getReservePrice()/10));
-		try {
-			productService.insert(product);
-			map.put("respCode", 0);
-		} catch (Exception e) {
-			e.printStackTrace();
-			map.put("respCode", 1);
-		}
-		return map;
+		return productService.addTkProduct(productVO);
 	}
 	
 	/**

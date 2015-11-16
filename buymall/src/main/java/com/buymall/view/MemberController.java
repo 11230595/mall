@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.buymall.constants.Constants;
 import com.buymall.entity.FrameUrl;
 import com.buymall.entity.LoginLog;
+import com.buymall.entity.MemProduct;
 import com.buymall.entity.Member;
 import com.buymall.entity.Product;
 import com.buymall.entity.User;
@@ -159,9 +160,6 @@ public class MemberController {
 	public @ResponseBody Map<String, Object> saveMemberProduct(HttpServletRequest request,
 			@RequestParam String url, @RequestParam String type,
 			@RequestParam Integer userType) {
-		Member member = (Member) request.getSession().getAttribute("member");
-		//TODO 商户关关联表未保存，下一步写这里
-		
 		Map<String, Object> map = GetProduct.autoSaveProduct(url,userType);
 		ProductVO productVO = new ProductVO();
 		try {
@@ -169,13 +167,29 @@ public class MemberController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		String zkFinalPrice = request.getParameter("zkFinalPrice");//现价
+		String reservePrice = request.getParameter("reservePrice");//原价
+		
+		if(StringUtils.isNotBlank(zkFinalPrice)){
+			productVO.setZkFinalPrice(zkFinalPrice);
+		}
+		if(StringUtils.isNotBlank(reservePrice)){
+			productVO.setReservePrice(reservePrice);
+		}
+		
 		productVO.setId(UUID.randomUUID().toString());
 		productVO.setType(Integer.parseInt(type));
 		productVO.setStatus(0);
 		productVO.setExpireTime(DateUtils.addDay(new Date(), 3));
 		productVO.setStartTime(new Date());
+		productVO.setCreateTime(new Date());
 		productVO.setScore(String.valueOf(map.get("scoreCount")));
 		
-		return new ProductController().addTkProduct(productVO);
+		//保存商户退关产品
+		Member member = (Member) request.getSession().getAttribute("member");
+		memProductService.insert(new MemProduct(UUID.randomUUID().toString(),member.getId(),productVO.getId(),new Date()));
+		
+		return productService.addTkProduct(productVO);//保存产品
 	}
 }

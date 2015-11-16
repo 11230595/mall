@@ -72,4 +72,19 @@ public class MemProduct {
     public void setBz3(String bz3) {
         this.bz3 = bz3 == null ? null : bz3.trim();
     }
+
+	public MemProduct() {
+		super();
+	}
+
+	public MemProduct(String id, String memberId, String productId,
+			Date createTime) {
+		super();
+		this.id = id;
+		this.memberId = memberId;
+		this.productId = productId;
+		this.createTime = createTime;
+	}
+    
+    
 }

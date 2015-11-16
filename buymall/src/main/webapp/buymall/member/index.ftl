@@ -66,7 +66,7 @@
 				   	 <#list page.list as products>
 					      <tr>
 					         <td>${products.title}</td>
-					         <td>${products.pictUrl}</td>
+					         <td><a target="_blank" href="${products.itemUrl}">${products.itemUrl}</a></td>
 					         <td><a href="javascript:void(0);" onclick="deleteProduct('${products.id}');">删除</a></td>
 					      </tr>
 				     </#list>
