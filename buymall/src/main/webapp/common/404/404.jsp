@@ -1,4 +1,5 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@page import="com.buymall.constants.Constants"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -24,7 +25,7 @@
 	<div id="text">
 		<strong>
 			<span></span>
-			<a href="<%=request.getContextPath() %>">返回首页</a>
+			<a href="http://tunhuowang.cn/">返回首页</a>
 			<a href="javascript:history.back()">返回上一页</a>
 		</strong>
 	</div>

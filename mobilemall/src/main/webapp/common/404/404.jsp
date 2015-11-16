@@ -24,7 +24,7 @@
 	<div id="text">
 		<strong>
 			<span></span>
-			<a href="<%=request.getContextPath() %>">返回首页</a>
+			<a href="http://tunhuowang.cn/">返回首页</a>
 			<a href="javascript:history.back()">返回上一页</a>
 		</strong>
 	</div>

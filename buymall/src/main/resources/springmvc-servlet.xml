@@ -61,4 +61,5 @@
 	<mvc:resources mapping="/ico/**" location="/ico/" /> 
 	<mvc:resources mapping="/login/**" location="/login/" /> 
 	<mvc:resources mapping="/common/**" location="/common/" /> 
+	<mvc:resources mapping="/root.txt" location="/root.txt" /> 
 </beans>
