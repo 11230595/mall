@@ -207,7 +207,7 @@ public class UserController {
 	private void addCookie(HttpServletResponse response,String userId){
 		Cookie cookie = new Cookie(Constants.config.getString("COOKIE_DOMAIN"), userId);       //(key,value)  
 	    cookie.setPath("/");// 这个要设置  
-	    cookie.setDomain(".dovip.top");//这样设置，能实现两个网站共用  
+	    cookie.setDomain(".tunhuowang.cn");//这样设置，能实现两个网站共用  
 	    cookie.setMaxAge(365 * 24 * 60 * 60);// 不设置的话，则cookies不写入硬盘,而是写在内存,只在当前页面有用,以秒为单位  
 	    response.addCookie(cookie);         //添加第一个Cookie  
 	}
@@ -269,10 +269,10 @@ public class UserController {
 		//删除cookie
 		Cookie[] cookies = request.getCookies();
 		if (cookies != null){  
-		  //删除.dovip.top下面的cookie
+		  //删除.tunhuowang.cn下面的cookie
 		  for (Cookie cookie : cookies){  
 		      cookie.setPath("/");//设置成跟写入cookies一样的  
-		      cookie.setDomain(".dovip.top");//设置成跟写入cookies一样的  
+		      cookie.setDomain(".tunhuowang.cn");//设置成跟写入cookies一样的  
 		      cookie.setMaxAge(0);  
 		      response.addCookie(cookie);  
 		  }
