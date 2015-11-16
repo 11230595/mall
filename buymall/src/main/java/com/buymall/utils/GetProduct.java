@@ -15,8 +15,8 @@ import org.jsoup.nodes.Document;
 public class GetProduct {
 
 	public static void main(String[] args) {
-		String url = "https://item.taobao.com/item.htm?spm=a217m.1726276.1998705584.1.fah1IZ&id=523144171774";
-		Map<String, Object> map = autoSaveProduct(url,0);
+		String url = "https://detail.tmall.com/item.htm?id=523336834104";
+		Map<String, Object> map = autoSaveProduct(url,1);
 		
 		for(Map.Entry<String, Object> entry : map.entrySet()){
 			System.out.println(entry.getKey() + "---->" + entry.getValue());
@@ -89,8 +89,25 @@ public class GetProduct {
 	 * @return 
 	 */
 	public static Map<String, Object> autoSaveTmall(String url) {
+		Document doc = null;
+		Map<String, Object> map = new HashMap<String, Object>();
+		try {
+			doc = Jsoup.connect(url).timeout(4000).get();
+			map.put("error", "0");//错误信息
+		} catch (IOException e) {
+			e.printStackTrace();
+			map.put("error", "1");//错误信息  0,简介成功，1，连接失败
+		}
+		map.put("itemUrl", url);
+		map.put("title", doc.select(".tb-detail-hd").select("h1").text());//淘宝标题
+		map.put("imgUrl", doc.select("#J_ImgBooth").attr("src"));//淘宝图片
+		map.put("zkFinalPrice", doc.select(".tm-price").text());//价格
+		map.put("reservePrice", doc.select(".J_StrPrice").select(".tb-rmb-num").text());//原价
 		
-		return null;
+		map.put("platform", "天猫");//平台
+		map.put("userType", 1);//平台类型 0-淘宝，1-天猫，2-爱淘宝
+		
+		return map;
 	}
 
 	/**
@@ -108,7 +125,6 @@ public class GetProduct {
 			e.printStackTrace();
 			map.put("error", "1");//错误信息  0,简介成功，1，连接失败
 		}
-		System.out.println(doc.toString());
 		map.put("itemUrl", url);
 		map.put("title", doc.select("#J_Title").select(".tb-main-title").text());//淘宝标题
 		map.put("imgUrl", doc.select("#J_ImgBooth").attr("src"));//淘宝图片

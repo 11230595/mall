@@ -5,7 +5,7 @@
 	  <div class="head-t">
 		 <div class="logo">
 			  <!-- <a href="${request.contextPath}"><h1>囤货 <span>网</span></h1> </a> -->
-			  <a href="${url!'${request.contextPath}'}"><img src="${request.contextPath}/images/logo.png" style="width:290px;height:90px;"/></h1> </a>
+			  <a href="${url!'${request.contextPath}'}"><img src="${request.contextPath}/images/logo.png" style="width:290px;height:110px;"/></h1> </a>
 		  </div>
 		  
 		  <div style="margin: 2.5em 0;float:right;">
