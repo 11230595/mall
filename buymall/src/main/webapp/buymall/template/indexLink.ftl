@@ -15,6 +15,7 @@
 <script type="text/javascript" src="${request.contextPath}/js/index/move-top.js"></script>
 <script type="text/javascript" src="${request.contextPath}/js/index/easing.js"></script>
 <script type="text/javascript" src="${request.contextPath}/js/search.js"></script><!-- 搜索 -->
+<script src="${request.contextPath}/js/common/common.js"></script><!-- 公共js，有退出等方法 -->
 <!--/script-->
 <script type="text/javascript">
 	var type = "${type!''}";

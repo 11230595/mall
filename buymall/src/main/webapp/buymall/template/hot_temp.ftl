@@ -15,7 +15,7 @@
 	border:1px solid #CCC; 
 	border-bottom:1px solid #DDDDDD;
 	border-left: 1px solid #D7D7D7;
-	background:none repeat scroll 0 0 #FFF;
+	background:none repeat scroll 0 0 #f5f5f5;
 	background-position: left top;
     background-repeat: repeat-x;
     left: 0;
@@ -27,9 +27,10 @@
     z-index: 9999;
     _position:absolute;
     cursor: pointer;
-    font-size:12px;
+    font-size:13px;
     text-align: center;
-    color:#000;
+    color:#3f3d3d;
+	font-family:Calibri,Arial;
 }
 .optCursor{
 	background-color: #18c9d2;

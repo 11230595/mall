@@ -10,9 +10,11 @@
     <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
     <result column="EXPIRE_TIME" property="expireTime" jdbcType="TIMESTAMP" />
     <result column="START_TIME" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="ACTIVITY_DESC" property="activityDesc" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    ID, ITEM_URL, TITLE, CLIENT_TYPE, PLATFORM, CREATE_TIME, EXPIRE_TIME, START_TIME
+    ID, ITEM_URL, TITLE, CLIENT_TYPE, PLATFORM, CREATE_TIME, EXPIRE_TIME, START_TIME, 
+    ACTIVITY_DESC
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -27,10 +29,12 @@
   <insert id="insert" parameterType="com.buymall.entity.PlatformActivity" >
     insert into platform_activity (ID, ITEM_URL, TITLE, 
       CLIENT_TYPE, PLATFORM, CREATE_TIME, 
-      EXPIRE_TIME, START_TIME)
+      EXPIRE_TIME, START_TIME, ACTIVITY_DESC
+      )
     values (#{id,jdbcType=VARCHAR}, #{itemUrl,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
       #{clientType,jdbcType=INTEGER}, #{platform,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{expireTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP})
+      #{expireTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, #{activityDesc,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.buymall.entity.PlatformActivity" >
     insert into platform_activity
@@ -59,6 +63,9 @@
       <if test="startTime != null" >
         START_TIME,
       </if>
+      <if test="activityDesc != null" >
+        ACTIVITY_DESC,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -84,6 +91,9 @@
       </if>
       <if test="startTime != null" >
         #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activityDesc != null" >
+        #{activityDesc,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -111,6 +121,9 @@
       <if test="startTime != null" >
         START_TIME = #{startTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="activityDesc != null" >
+        ACTIVITY_DESC = #{activityDesc,jdbcType=VARCHAR},
+      </if>
     </set>
     where ID = #{id,jdbcType=VARCHAR}
   </update>
@@ -122,7 +135,8 @@
       PLATFORM = #{platform,jdbcType=INTEGER},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP},
-      START_TIME = #{startTime,jdbcType=TIMESTAMP}
+      START_TIME = #{startTime,jdbcType=TIMESTAMP},
+      ACTIVITY_DESC = #{activityDesc,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

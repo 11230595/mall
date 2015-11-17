@@ -41,7 +41,8 @@
   <filter-mapping>  
      <filter-name>loginFilter</filter-name>  
      <url-pattern>/admin/*</url-pattern>  
-     <url-pattern>/member/*</url-pattern>  
+     <url-pattern>/member/*</url-pattern>
+     <url-pattern>/hd/admin/*</url-pattern>  
   </filter-mapping> 
   
   <listener>

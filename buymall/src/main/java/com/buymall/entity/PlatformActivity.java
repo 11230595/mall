@@ -2,6 +2,8 @@ package com.buymall.entity;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class PlatformActivity {
     private String id;
 
@@ -12,12 +14,14 @@ public class PlatformActivity {
     private Integer clientType;
 
     private Integer platform;
-
+    
     private Date createTime;
-
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date expireTime;
-
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date startTime;
+
+    private String activityDesc;
 
     public String getId() {
         return id;
@@ -81,5 +85,13 @@ public class PlatformActivity {
 
     public void setStartTime(Date startTime) {
         this.startTime = startTime;
+    }
+
+    public String getActivityDesc() {
+        return activityDesc;
+    }
+
+    public void setActivityDesc(String activityDesc) {
+        this.activityDesc = activityDesc == null ? null : activityDesc.trim();
     }
 }

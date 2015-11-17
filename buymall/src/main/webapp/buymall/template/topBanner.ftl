@@ -12,6 +12,9 @@
 							<a href="${request.contextPath}/user/login">登录/注册</a>
 						</#if>
 					</li>
+					<#if user??>
+					<li><a href="javascript:void(0);" onclick="loginOut();">退出</a></li>
+					</#if>
 					<li><a href="#">签到</a></li>
 				</ul>
 			</div>

@@ -41,6 +41,7 @@
             <li class="active"><a href="${request.contextPath}/admin">导入数据</a></li>
             <li><a href="#about">模板管理</a></li>
             <li><a href="javascript:void(0);" onclick="toBannerPage(this);">Banner管理</a></li>
+            <li><a href="javascript:void(0);" onclick="window.location.href='${request.contextPath}/hd/admin/add'">平台活动管理</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="../navbar/">欢迎您：${user.userCode!"管理员"}</a></li>
