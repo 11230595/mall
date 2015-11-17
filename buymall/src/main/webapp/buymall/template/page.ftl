@@ -10,6 +10,7 @@
 
 <script>
 	var params = "";
+	var totalCount = ${page.totalCount!''};
 	
 	if(type != ""){
 		params = "?type=" + type;

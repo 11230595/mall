@@ -9,7 +9,7 @@
 <body>
 		<#include "template/topBanner.ftl"><!-- 顶部条 -->
 		<#include "template/header.ftl"><!-- 导航模板 -->
-
+		<#include "template/hot_temp.ftl"><!-- 竖条橱窗模板 -->
  <!--start-content-->
 		<#include "template/banner.ftl"><!-- banner模板 -->
 		
@@ -48,10 +48,12 @@
 				<div class="standards">
 				   <h5>Tags<i class="glyphicon glyphicon-tag"></i></h5>
 					<ul class="selectors_wrapper">
-							<li class="selector active" id="platformAll" onclick="selectPlatform(0);">全部</li>
-							<li class="selector" id="platformTM" onclick="selectPlatform(1);">天猫</li>
-							<li class="selector" id="platformITB" onclick="selectPlatform(2);">爱淘宝</li>
+						<li class="selector active" id="platformAll" onclick="selectPlatform(0);">全部</li>
+						<li class="selector" id="platformTM" onclick="selectPlatform(1);">天猫</li>
+						<li class="selector" id="platformITB" onclick="selectPlatform(2);">爱淘宝</li>
+						<#include "template/showcase.ftl"><!-- 橱窗推荐 -->
 					</ul>
+					
 					<!-- 内容 -->
 					<div class="standard_content">
 						<div class="standard active">
@@ -64,7 +66,7 @@
 										<div class="r-title">
 											<h3>${page.title!''}</h3>
 											<h4>
-												￥${page.zkFinalPrice!'99.00'}&nbsp;&nbsp;
+												￥${page.zkFinalPrice!'19.00'}&nbsp;&nbsp;
 												<span style="color:red;">${page.sale!''}折</spa>
 											</h4>
 										</div>
@@ -85,24 +87,19 @@
 		</div>
 	</div>
 		<!-- //end-产品 -->
-	  <!-- /start-底图图片 -->
-	  
-	  <!--
-	  <div class="mid-content"> 
-		<div class="container"> 
-		  <div class="middle">
-			<div class="mid-top"> 
-			  <h3>Discover a huge assortment of</h3>
-			  <p>women`s handbags at the lowest prices</p>
-			</div>
-		 </div>
+	 
+	<!-- /start-底图图片 -->
+	<div class="mid-content"> 
+	   <div class="container"> 
+			<!-- 橱窗推荐start -->
+			<script type="text/javascript">var jd_union_unid="76994695",jd_ad_ids="505:6",jd_union_pid="CJykyZ+RKhCHsdskGgAgteOVrQEqAA==";var jd_width=960;var jd_height=90;var jd_union_euid="";var p="ABUFVRxeFAsTNwpfBkgyTUMIRmtKRk9aZV8ETVxNNwpfBkgyYXNXRkVqUm9nB186ZX9zUFdEM2cCRAtZK1kSAhEFUB1YHTIUAF0TXhIKFjdlRB9IXyJMOxprSkZPWmUbXhAEFAVcHFgSBhoPZRo%3D";</script><script type="text/javascript" charset="utf-8" src="http://u.x.jd.com/static/js/auto.js"></script>
+			<!-- 橱窗推荐end -->
 	   </div>
 	 </div>
-	 -->
 	 <!-- //end-底图图片 -->
 	 
-      <!-- 图片旋转start -->
-   <#include "template/rotate.ftl"><!-- 导航模板 -->
+   <!-- 图片旋转start -->
+   <#include "template/rotate.ftl"><!-- 图片旋转模板 -->
    <!-- 图片旋转end -->
 	
 	<!--start-footer-->

@@ -19,7 +19,6 @@
 <script type="text/javascript">
 	var type = "${type!''}";
 	var userType = "${userType!''}";
-	var totalCount = ${page.totalCount};
 	var keyword = "${keyword!''}";
 	
 	jQuery(document).ready(function($) {
