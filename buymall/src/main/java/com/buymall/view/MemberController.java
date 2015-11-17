@@ -105,11 +105,14 @@ public class MemberController {
 	@RequestMapping(value="create",method={RequestMethod.GET,RequestMethod.POST})
 	public String createMember(HttpServletRequest request,@RequestParam String userId,@RequestParam String phoneNum) {
 		Member member = memberService.findMemberByUserId(userId,1);
-		if(member == null)
-			memberService.insert(new Member(UUID.randomUUID().toString(),userId,0,0,phoneNum));
-		else {
+		if(member == null){
+			member = new Member(UUID.randomUUID().toString(),userId,0,0,phoneNum);
+			memberService.insert(member);
+		} else {
 			memberService.updateMemberStatus(new Member(userId,0,phoneNum));
 		}
+		
+		request.getSession().setAttribute("member", member);
 		return "redirect:/member/index";
 	}
 	
