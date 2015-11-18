@@ -7,7 +7,7 @@
 <!-- 热门商城活动专区end -->
 <style>
 .hotTempDiv{
-	padding:15px 10px 15px 5px;
+	padding:10px 10px 10px 5px;
 	border-top:1px solid #CCC;
 }
 
@@ -21,8 +21,8 @@
     left: 0;
     padding: 0;
     position: fixed;
-    top: 240px;
-    _top: expression(documentElement.scrollTop + 240 + "px");
+    top: 260px;
+    _top: expression(documentElement.scrollTop + 260 + "px");
     width: 70px;
     z-index: 9999;
     _position:absolute;
@@ -36,6 +36,10 @@
 	background-color: #18c9d2;
 	color:#fff;
 }
+.hotTmp a{
+	color:#3f3d3d
+}
+.hotTmp a:hover{color:#3f3d3d}
 </style>
 <script>
 /**
@@ -60,9 +64,12 @@ function getActivity(){
 	$.post("${request.contextPath}/hd/findByPage/5/1",function(data){
 		$("#hotData").empty();
 		$.each(data.page.list,function(i,activity){
-			var str = '<div class="hotTempDiv" onmouseover="showColor(this);" onmouseout="hideColor(this);" onclick="window.open(\''+activity.itemUrl+'\')">'+activity.title+'</div>';
+			var str = '<a href="'+activity.itemUrl+'" data-toggle="tooltip" title="'+activity.activityDesc+'">\
+					   	<div class="hotTempDiv" onmouseover="showColor(this);" onmouseout="hideColor(this);">'+activity.title+'</div>\
+					   </a>';
 			$("#hotData").append(str);
 		})
+		$("[data-toggle='tooltip']").tooltip({html : true });
 	});
 }
 </script>

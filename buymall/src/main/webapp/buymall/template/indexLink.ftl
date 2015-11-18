@@ -3,6 +3,7 @@
 <!-- Custom Theme files -->
 <link href="${request.contextPath}/css/index/style.css" rel='stylesheet' type='text/css' />	
 <script src="${request.contextPath}/js/jquery/jquery-1.11.1.min.js"></script>
+<script src="${request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 <!-- start menu -->
 <link href="${request.contextPath}/css/index/megamenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="${request.contextPath}/js/index/megamenu.js"></script>
