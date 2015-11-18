@@ -1,4 +1,4 @@
-<div class="jumbotron" style="display:none" id="bannerTemplate">
+<div class="jumbotron" id="bannerTemplate">
 	<table class="table">
 	   <caption>已存在的banner</caption>
 	   <thead>
@@ -31,13 +31,17 @@
 	      <input class="form-control" type="text" placeholder="跳转地址" name="itemUrl" required >
 	   </div>
 	   <div class="form-group">
-	      <input class="form-control" type="text" placeholder="所属页面" name="page">
+	      <input class="form-control" type="text" placeholder="所属页面，如首页" name="page">
 	   </div>
 	   <div class="form-group">
-	      <input class="form-control" type="text" placeholder="顺序" name="position">
+	      <input class="form-control" type="text" placeholder="顺序，请填写数字" name="position">
 	   </div>
 	   <div class="form-group">
-	      <input class="form-control" type="text" placeholder="类型" name="type">
+	   	  <select class="form-control" name="type" id="type">
+	         <option value="-1">请选择banner类型</option>
+	         <option value="0">首页上部4个大图</option>
+	         <option value="2">上部下方的三个小图</option>
+	      </select>
 	   </div>
 	   
 	   <button type="button" class="btn btn-primary" onclick="doSubmitBanner();" style="width:100%;">提交</button>

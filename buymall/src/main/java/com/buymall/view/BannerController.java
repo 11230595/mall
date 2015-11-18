@@ -15,9 +15,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.buymall.constants.Constants;
 import com.buymall.entity.Banner;
 import com.buymall.service.BannerService;
+import com.buymall.vo.ItemListRequestVO;
 /**
  * 产品类
  * @author zhoudong
@@ -29,11 +32,23 @@ public class BannerController {
 	private static Logger logger = Logger.getLogger(BannerController.class);
 	@Resource
 	private BannerService bannerService;
+	
+	/**
+	 * 跳转到banner添加页面
+	 * @return
+	 */
+	@RequestMapping(value="admin/toAdd",method={RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView toBannerAdd(ItemListRequestVO itemRequest) {
+		ModelAndView mav = new ModelAndView("admin/banner_add");
+		mav.addObject("url", Constants.config.getString("BASE_URL"));
+		return mav;
+	}
+	
 	/**
 	 * 保存banner
 	 * @return
 	 */
-	@RequestMapping(value="add",method={RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value="admin/add",method={RequestMethod.GET,RequestMethod.POST})
 	public @ResponseBody Map<String, Object> saveBanner(HttpServletRequest request,Banner banner) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
@@ -63,7 +78,7 @@ public class BannerController {
 	 * 删除banner
 	 * @return
 	 */
-	@RequestMapping(value="del/{id}",method={RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value="admin/del/{id}",method={RequestMethod.GET,RequestMethod.POST})
 	public @ResponseBody Map<String, Object> deleteBanner(HttpServletRequest request,@PathVariable String id) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {

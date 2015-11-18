@@ -38,9 +38,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="${request.contextPath}/admin">导入数据</a></li>
+            <li><a href="${request.contextPath}/admin">导入数据</a></li>
             <li><a href="#about">模板管理</a></li>
-            <li><a href="${request.contextPath}/banner/admin/toAdd">Banner管理</a></li>
+            <li class="active"><a href="${request.contextPath}/banner/admin/toAdd">Banner管理</a></li>
             <li><a href="${request.contextPath}/hd/admin/add">平台活动管理</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -54,9 +54,7 @@
     <div class="container">
 
       <!-- Main component for a primary marketing message or call to action -->
-      <#include "template/data.ftl"><!-- 导入数据 -->
-      <#include "template/template.ftl"><!-- 模板管理 -->
-
+		<#include "template/banner_insert.ftl"><!-- Banner管理 -->
     </div> <!-- /container -->
 
     <!-- Bootstrap core JavaScript
@@ -68,7 +66,7 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="${request.contextPath}/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
     <!-- index.js -->
-    <script src="${request.contextPath}/js/admin/index.js"></script>
+    <script src="${request.contextPath}/js/admin/banner.js"></script>
     
   </body>
 </html>
