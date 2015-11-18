@@ -79,5 +79,6 @@
 	      		window.location.href = "${url}";
 	      	})
 	    });
+	    
     </script>
 </html>
