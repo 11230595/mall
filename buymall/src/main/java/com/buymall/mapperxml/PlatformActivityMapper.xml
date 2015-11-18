@@ -11,10 +11,11 @@
     <result column="EXPIRE_TIME" property="expireTime" jdbcType="TIMESTAMP" />
     <result column="START_TIME" property="startTime" jdbcType="TIMESTAMP" />
     <result column="ACTIVITY_DESC" property="activityDesc" jdbcType="VARCHAR" />
+    <result column="LEVEL" property="level" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
     ID, ITEM_URL, TITLE, CLIENT_TYPE, PLATFORM, CREATE_TIME, EXPIRE_TIME, START_TIME, 
-    ACTIVITY_DESC
+    ACTIVITY_DESC, LEVEL
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -29,12 +30,12 @@
   <insert id="insert" parameterType="com.buymall.entity.PlatformActivity" >
     insert into platform_activity (ID, ITEM_URL, TITLE, 
       CLIENT_TYPE, PLATFORM, CREATE_TIME, 
-      EXPIRE_TIME, START_TIME, ACTIVITY_DESC
-      )
+      EXPIRE_TIME, START_TIME, ACTIVITY_DESC, 
+      LEVEL)
     values (#{id,jdbcType=VARCHAR}, #{itemUrl,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
       #{clientType,jdbcType=INTEGER}, #{platform,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{expireTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, #{activityDesc,jdbcType=VARCHAR}
-      )
+      #{expireTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, #{activityDesc,jdbcType=VARCHAR}, 
+      #{level,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.buymall.entity.PlatformActivity" >
     insert into platform_activity
@@ -66,6 +67,9 @@
       <if test="activityDesc != null" >
         ACTIVITY_DESC,
       </if>
+      <if test="level != null" >
+        LEVEL,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -94,6 +98,9 @@
       </if>
       <if test="activityDesc != null" >
         #{activityDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -124,6 +131,9 @@
       <if test="activityDesc != null" >
         ACTIVITY_DESC = #{activityDesc,jdbcType=VARCHAR},
       </if>
+      <if test="level != null" >
+        LEVEL = #{level,jdbcType=INTEGER},
+      </if>
     </set>
     where ID = #{id,jdbcType=VARCHAR}
   </update>
@@ -136,7 +146,27 @@
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP},
       START_TIME = #{startTime,jdbcType=TIMESTAMP},
-      ACTIVITY_DESC = #{activityDesc,jdbcType=VARCHAR}
+      ACTIVITY_DESC = #{activityDesc,jdbcType=VARCHAR},
+      LEVEL = #{level,jdbcType=INTEGER}
     where ID = #{id,jdbcType=VARCHAR}
   </update>
+  
+  <!-- 分页查询 -->
+  <select id="findActivityByPage" resultMap="BaseResultMap">
+	select 
+    <include refid="Base_Column_List" />
+    from platform_activity
+    where 1=1
+    
+    <if test="nowTime != null and nowTime !=''"  >
+      and start_time &lt; '${nowTime}' 
+      and expire_Time &gt; '${nowTime}'
+    </if>
+    order by create_time desc
+    <!-- 分页 -->
+    <if test="page_sql != null and page_sql !=''"  >
+       ${page_sql}
+    </if>
+  </select>
+  
 </mapper>

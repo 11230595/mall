@@ -20,10 +20,12 @@ import org.springframework.web.servlet.ModelAndView;
 import com.buymall.constants.Constants;
 import com.buymall.entity.Banner;
 import com.buymall.entity.LoginLog;
+import com.buymall.entity.PlatformActivity;
 import com.buymall.entity.Product;
 import com.buymall.entity.User;
 import com.buymall.service.BannerService;
 import com.buymall.service.LoginLogService;
+import com.buymall.service.PlatformActivityService;
 import com.buymall.service.ProductService;
 import com.buymall.service.UserService;
 import com.framework.core.page.Page;
@@ -45,7 +47,8 @@ public class IndexController {
 	private ProductService productService;
 	@Resource
 	private BannerService bannerService;
-	
+	@Resource
+	private PlatformActivityService platformActivityService;
 	/**
 	 * 首页
 	 * @return

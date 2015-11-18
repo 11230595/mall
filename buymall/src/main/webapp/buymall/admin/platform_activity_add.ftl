@@ -103,6 +103,13 @@
 				  </div>
 			   </div>
 			   
+			   <div class="form-group">
+			      <div class="form-group">
+				    <label for="name">活动描述</label>
+				    <textarea class="form-control" rows="3" name="activityDesc" id="activityDesc" placeholder="非必填"></textarea>
+				  </div>
+			   </div>
+			   
 			   <button type="button" class="btn btn-primary" onclick="doSubmit();" style="width:100%;">提交</button>
 			</form>
 			<!-- form end -->

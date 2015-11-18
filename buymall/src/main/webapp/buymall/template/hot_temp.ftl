@@ -1,8 +1,8 @@
 <!-- 热门商城活动专区start -->
-<div class="hotTmp">
+<div class="hotTmp" id="hotTmp">
 	<div style="padding:15px 0 10px 5px;color:red;">热门活动</div>
-	<div class="hotTempDiv" id="i_index" onmouseover="showColor(this);" onmouseout="hideColor(this);" onclick="window.open('http://sucs.suning.com/visitor.htm?userId=14500059&webSiteId=0&adInfoId=499&adBookId=0&channel=11&vistURL=http://sale.suning.com/cs/chaoshilydc11/index.html')">苏宁超市粮油节</div>
-	<div class="hotTempDiv" onmouseover="showColor(this);" onmouseout="hideColor(this);" onclick="window.open('http://sucs.suning.com/visitor.htm?userId=14500059&webSiteId=0&adInfoId=492&adBookId=0&channel=11&vistURL=http://cuxiao.suning.com/city/tx00109.htm')">全民购机节 天天一元秒</div>
+	<div id="hotData">
+	</div>
 </div>
 <!-- 热门商城活动专区end -->
 <style>
@@ -21,8 +21,8 @@
     left: 0;
     padding: 0;
     position: fixed;
-    top: 260px;
-    _top: expression(documentElement.scrollTop + 260 + "px");
+    top: 240px;
+    _top: expression(documentElement.scrollTop + 240 + "px");
     width: 70px;
     z-index: 9999;
     _position:absolute;
@@ -39,21 +39,30 @@
 </style>
 <script>
 /**
-
  * 鼠标放到分类上，显示阴影
-
  * @param obj
-
  */
 function showColor(obj){
 	$(obj).addClass("optCursor");
 }
 /**
-
  * 鼠标离开，解除阴影
-
  */
 function hideColor(obj){
 	$(obj).removeClass("optCursor");
+}
+
+$(function(){
+	getActivity();
+});
+//分页查询活动数据
+function getActivity(){
+	$.post("${request.contextPath}/hd/findByPage/5/1",function(data){
+		$("#hotData").empty();
+		$.each(data.page.list,function(i,activity){
+			var str = '<div class="hotTempDiv" onmouseover="showColor(this);" onmouseout="hideColor(this);" onclick="window.open(\''+activity.itemUrl+'\')">'+activity.title+'</div>';
+			$("#hotData").append(str);
+		})
+	});
 }
 </script>

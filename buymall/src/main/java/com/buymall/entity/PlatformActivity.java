@@ -14,7 +14,7 @@ public class PlatformActivity {
     private Integer clientType;
 
     private Integer platform;
-    
+
     private Date createTime;
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date expireTime;
@@ -22,6 +22,8 @@ public class PlatformActivity {
     private Date startTime;
 
     private String activityDesc;
+
+    private Integer level;
 
     public String getId() {
         return id;
@@ -93,5 +95,13 @@ public class PlatformActivity {
 
     public void setActivityDesc(String activityDesc) {
         this.activityDesc = activityDesc == null ? null : activityDesc.trim();
+    }
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
     }
 }

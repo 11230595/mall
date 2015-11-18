@@ -63,6 +63,7 @@ public class PlatformActivityController {
 	public @ResponseBody Map<String, Object> addPlatformActivity(PlatformActivity platformActivity) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		platformActivity.setCreateTime(new Date());
+		platformActivity.setExpireTime(DateUtils.addDay(platformActivity.getExpireTime(), 1));
 		platformActivity.setId(UUID.randomUUID().toString());
 		
 		try {
@@ -72,6 +73,22 @@ public class PlatformActivityController {
 			e.printStackTrace();
 			map.put("respCode", 1);
 		}
+		return map;
+	}
+	
+	/**
+	 * 分页查询(时间倒叙排列)
+	 * @return
+	 */
+	@RequestMapping(value="findByPage/{pageSize}/{pageNo}",method={RequestMethod.GET,RequestMethod.POST})
+	public @ResponseBody Map<String, Object> findByPage(@PathVariable int pageSize, @PathVariable int pageNo) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		Map<String, Object> param = new HashMap<String, Object>();
+		//分页参数
+		param.put("nowTime", DateUtils.DateToString(new Date(), "yyyy-MM-dd HH:mm:ss"));
+		
+		Page<PlatformActivity> page = platformActivityService.findByPage(param,pageNo,pageSize);
+		map.put("page", page);
 		return map;
 	}
 }

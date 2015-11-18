@@ -1,12 +1,17 @@
 package com.buymall.service.impl;
 
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
 import com.buymall.entity.PlatformActivity;
+import com.buymall.entity.Product;
 import com.buymall.mapper.PlatformActivityMapper;
 import com.buymall.service.PlatformActivityService;
+import com.framework.core.mybatis.BaseMybatisDao;
+import com.framework.core.page.Page;
 
 /**
  * 各平台活动
@@ -14,7 +19,7 @@ import com.buymall.service.PlatformActivityService;
  *
  */
 @Service
-public class PlatformActivityServiceImpl implements PlatformActivityService {
+public class PlatformActivityServiceImpl extends BaseMybatisDao implements PlatformActivityService {
 	@Resource
 	private PlatformActivityMapper platformActivityMapper;
 
@@ -46,6 +51,12 @@ public class PlatformActivityServiceImpl implements PlatformActivityService {
 	@Override
 	public int updateByPrimaryKey(PlatformActivity record) {
 		return platformActivityMapper.updateByPrimaryKey(record);
+	}
+
+	@Override
+	public	Page<PlatformActivity> findByPage(Map<String, Object> param, int pageNo,
+			int pageSize) {
+		return (Page<PlatformActivity>) findByPageBySqlId("findActivityByPage", param, pageNo, pageSize);
 	}
 	
 }
