@@ -12,7 +12,6 @@
 		<#include "template/hot_temp.ftl"><!-- 竖条橱窗模板 -->
  <!--start-content-->
 		<#include "template/banner.ftl"><!-- banner模板 -->
-		
         <!--/start-中部产品-fashion-->
 		<div class="fashion-section">
 		 <div class="container"> 
@@ -60,7 +59,7 @@
 							<#list page.list as page>
 								<div class="tag-grid">
 									<div class="tag-wrapper">		
-										<a target="_blank" href="${page.itemUrl!''}">
+										<a target="_blank" href="${request.contextPath}/product/out/${page.id!''}">
 											<img src="${page.imgUrl!''}" class="img-responsive" style="width:100%;height: 218px"/>
 										</a>
 										<div class="r-title">
@@ -71,7 +70,7 @@
 											</h4>
 										</div>
 									</div>
-									<div class="atc"><a target="_blank" href="${page.itemUrl!''}">去看看</a></div>
+									<div class="atc"><a target="_blank" href="${request.contextPath}/product/out/${page.id!''}">去看看</a></div>
 							   </div>
 						   </#list>
 							<div class="clearfix"></div>
@@ -136,7 +135,7 @@
 	 <!--/start-copyright-->
 	 <div class="copy">
 		<div class="container">
-			<p>Copyright &copy; 2015.一周科技 All rights reserved.</p>
+			<p>Copyright &copy; 2015.一周科技 All rights reserved.鲁ICP备15020019号-2</p>
 		</div>
 	</div>
 	 <!--//end-copyright-->
@@ -182,6 +181,5 @@
 		
 	</script>
 	<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-	<#include "template/taodianjin.ftl"><!-- 淘点点模板 -->
 </body>
 </html>

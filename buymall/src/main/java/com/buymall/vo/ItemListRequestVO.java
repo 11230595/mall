@@ -53,11 +53,11 @@ public class ItemListRequestVO {
 	/**
 	 * appkey
 	 */
-	public static final String APPKEY = "23165118";
+	public static final String APPKEY = "23271271";
 	/**
 	 * secret
 	 */
-	public static final String SECRET = "3cdf63b4863445584ed88b70d98ecbe7";
+	public static final String SECRET = "657e60d240d51ff5129c4875547ac51e";
 	
 	//排序_des（降序），排序_asc（升序），销量（total_sales），淘客佣金比率（tk_rate）， 累计推广量（tk_total_sales），总支出佣金（tk_total_commi）
 	/**

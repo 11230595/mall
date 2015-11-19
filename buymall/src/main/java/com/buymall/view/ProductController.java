@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.buymall.entity.Member;
 import com.buymall.entity.Product;
@@ -65,7 +66,7 @@ public class ProductController {
 			Product product = (Product) JSONObject.toBean(beanJson, Product.class);
 			
 			product.setImgUrl(imgUrl);
-			product.setItemUrl(beanJson.optString("item_url")+"&ali_trackid=2:mm_18774322_6466308_22486110");
+			product.setItemUrl(beanJson.optString("item_url")+"&ali_trackid=2:mm_18774322_11774819_41742628&pvid=200_10.98.16.176_77082_1447942174662&pid=mm_18774322_11774819_41732376");
 			product.setNumIid(beanJson.optString("num_iid"));
 			product.setPictUrl(beanJson.optString("pict_url"));
 			product.setReservePrice(beanJson.optDouble("reserve_price"));
@@ -139,5 +140,17 @@ public class ProductController {
 		Page<Product> page = productService.findTypeByPage(param,pageNo,pageSize);
 		map.put("page", page);
 		return map;
+	}
+	
+	/**
+	 * 分页查询(时间倒叙排列)
+	 * @return
+	 */
+	@RequestMapping(value="out/{id}",method={RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView tbOut(@PathVariable String id) {
+		ModelAndView mav = new ModelAndView("out");
+		Product product = productService.selectByPrimaryKey(id);
+		mav.addObject("product", product);
+		return mav;
 	}
 }
