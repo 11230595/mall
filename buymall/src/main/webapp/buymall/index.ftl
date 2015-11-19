@@ -133,13 +133,6 @@
 			
 		</div>
 	</div>
-	<!-- /start 底部分享 -->
-	<ul class="socials">
-		<li><a class="soc1" href="#"></a></li>
-		<li><a class="soc2" href="#"></a></li>
-		<li><a class="soc3" href="#"></a></li>
-	</ul>
-	<!-- /end 底部分享 -->
 	 <!--/start-copyright-->
 	 <div class="copy">
 		<div class="container">

@@ -8,6 +8,8 @@
 <script src="${request.contextPath}/js/jquery/jquery-1.11.1.min.js"></script>
 <script src="${request.contextPath}/js/wap/zepto.js"></script>
 <script src="${request.contextPath}/js/wap/underscore.js"></script>
+<script src="${request.contextPath}/js/count.js"></script>
+<script src="${request.contextPath}/js/share.js"></script>
 
 </head>
 
