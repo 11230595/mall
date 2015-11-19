@@ -182,5 +182,6 @@
 		
 	</script>
 	<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	<#include "template/taodianjin.ftl"><!-- 淘点点模板 -->
 </body>
 </html>
