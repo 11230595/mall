@@ -85,7 +85,7 @@ public class IndexController {
 			mav.addObject("keyword", keyword);
 		}
 		
-		map.put("expireTime", DateUtils.getDate(new Date()));
+		map.put("expireTime", DateUtils.DateToString(new Date(),"yyyy-MM-dd HH:mm:ss"));
 		int pageSize = 21;
 		Page<Product> page = productService.findByPage(map, pageNo, pageSize);
 		
