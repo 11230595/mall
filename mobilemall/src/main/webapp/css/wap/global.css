@@ -45,7 +45,7 @@
     .ico07{ display: inline-block; width: 78px; height: 23px; }
     .ico08{ display: inline-block; width: 29px; height: 25px; }
     .ico09{ display: inline-block; width: 34px; height: 39px; }
-    .ico10{ display: inline-block; width: 52px; height: 23px;}
+    .ico10{ display: inline-block; width: 99px; height: 23px;}/*width: 52px;*/
     .ico11{ display: inline-block; width: 19px; height: 19px; }
     .ico12{ display: inline-block; width: 30px; height: 25px; }
     .ico13{ display: inline-block; width: 31px; height: 18px;}
@@ -146,7 +146,7 @@
     #find {width: 52px;float: left;}
     #find.active {background: rgba(253,248,242,1);border-bottom: 1px solid rgba(253,248,242,1);}
     #index {width:120px;margin-left: 50%;left: -60px;position: absolute;}
-    #user {width:70px;float: right;}
+    #user {float: right;}/*width:70px;*/
 
     #find i{ display: block; margin: 10px auto;}
     #index i{ display: block; margin: 12px auto;}

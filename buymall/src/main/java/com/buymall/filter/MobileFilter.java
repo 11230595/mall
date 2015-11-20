@@ -35,7 +35,8 @@ public class MobileFilter implements Filter{
 		logger.info("filter拦截访问的URI---》" + uri);
 		
 		String userAgent = request.getHeader("user-agent");  //请求从哪来的
-		if(userAgent.contains("Android") || userAgent.contains("iPhone")){
+		if(userAgent.contains("Android") || userAgent.contains("iPhone") || 
+				userAgent.contains("Windows Phone")){
 			List<String> uris = Constants.config.getList("GO_URI");
 			for(String goUri : uris){
 				if(uri.contains(goUri)){
