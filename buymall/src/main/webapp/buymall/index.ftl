@@ -175,7 +175,7 @@
 			if(flag != 0){
 				window.location.href = "${request.contextPath}/index/1?userType="+flag 
 			}else{
-				window.location.href = "${request.contextPath}";
+				window.location.href = "${url}";
 			}
 		}
 		

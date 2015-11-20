@@ -41,8 +41,8 @@
 				<ul class="head-nav">
 					<a href="${url!''}"><li class="active" id="li0">全部</li></a>
 					<a href="${request.contextPath}/index/1?userType=1"><li id="li1">天猫</li></a>
-					<a href="${request.contextPath}/index/1?userType=2"><li id="li2">淘宝</li></a>
-					<a href="${request.contextPath}/index/1?userType=3"><li id="li3">爱淘宝</li></a>
+					<a href="${request.contextPath}/index/1?userType=0"><li id="li2">淘宝</li></a>
+					<a href="${request.contextPath}/index/1?userType=2"><li id="li3">爱淘宝</li></a>
 				</ul>
 				<div id="nav" class="view currents out">
 
@@ -212,17 +212,17 @@
     }
     
     $(function(){
-    	var userType = ${userType!0};
-    	if(userType != ''){
+    	var userType = ${userType!-1};
+    	if(userType != -1){
     		$("#li0").removeClass("active");
     		switch(userType){
 				case 1:
 				  $("#li1").addClass("active");
 				  break;
-				case 2:
+				case 0:
 				  $("#li2").addClass("active");
 				  break;
-				case 3:
+				case 2:
 				  $("#li3").addClass("active");
 				  break;
 			}
