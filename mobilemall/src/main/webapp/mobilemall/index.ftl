@@ -93,7 +93,7 @@
 							<a target="_blank" href="${page.itemUrl!''}">
 								<img src="${page.imgUrl!''}" />
 							</a> 
-							<a target="_blank" href="jump/67939165">
+							<a target="_blank" href="${page.imgUrl!''}">
 								<h1>
 									<i class="ico13">
 										<img src="${request.contextPath}/images/sdj.png">
