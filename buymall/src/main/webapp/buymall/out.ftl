@@ -9,7 +9,11 @@
 	<#include "template/taodianjin.ftl"><!-- 淘点金模板 -->
 	
 	<script>
-		document.getElementById("alink").click();
+		function skip(){
+			document.getElementById("alink").click();
+		}
+		
+		window.onload=skip;
 	</script>
 </body>
 </html>
