@@ -4,21 +4,18 @@
 <!-- 热门商城活动专区end -->
 <style>
 .hotTempDiv{
-	padding:10px 10px 10px 5px;
-	border-top:1px solid #CCC;
+	padding:7px 5px 5px 5px;
+	color:#fff;
 }
 
 .hotTmp{
-	border:1px solid #CCC; 
-	border-bottom:1px solid #DDDDDD;
-	border-left: 1px solid #D7D7D7;
-	background:none repeat scroll 0 0 #f5f5f5;
+	background:none repeat scroll 0 0 #c81623;
 	background-position: left top;
     background-repeat: repeat-x;
     left: 0;
     padding: 0;
     position: fixed;
-    top: 260px;
+    bottom: 0px;
     _top: expression(documentElement.scrollTop + 260 + "px");
     width: 70px;
     z-index: 9999;
@@ -26,12 +23,12 @@
     cursor: pointer;
     font-size:13px;
     text-align: center;
-    color:#3f3d3d;
+    color:#fff;
 	font-family:Calibri,Arial;
 }
 .optCursor{
-	background-color: #c40000;
-	color:#fff;
+	background-color: #fff;
+	color:#c81623;
 }
 .hotTmp a{
 	color:#3f3d3d
