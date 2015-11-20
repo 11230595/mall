@@ -1,5 +1,5 @@
 <#if product??>
-<a data-type="0" id="alink" biz-itemid="${product.numIid!''}" data-tmpl="470x190" data-tmplid="635" data-rd="2" data-style="2" data-border="1" href="${product.itemUrl!''}"></a>
+<a data-type="0" id="alink" biz-itemid="${product.numIid!''}" style="display:none;" data-tmpl="470x190" data-tmplid="1111" data-rd="2" data-style="2" data-border="1" href="${product.itemUrl!''}"></a>
 <script type="text/javascript">
     (function(win,doc){
         var s = doc.createElement("script"), h = doc.getElementsByTagName("head")[0];
