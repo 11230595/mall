@@ -257,7 +257,7 @@
     <if test="expireTime != null and expireTime !=''"  >
       and expire_Time &gt; '${expireTime}'
     </if>
-    <if test="userType != null and userType !=''"  >
+    <if test="userType != null and userType !='' or userType==0"  >
       and user_type = ${userType}
     </if>
     <if test="type != null and type !=''"  >
