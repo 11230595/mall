@@ -47,7 +47,8 @@
 				<div class="standards">
 				   <h5>Tags<i class="glyphicon glyphicon-tag"></i></h5>
 					<ul class="selectors_wrapper">
-						<li class="selector active" id="platformAll" onclick="selectPlatform(0);">全部</li>
+						<li class="selector active" id="platformAll" onclick="selectPlatform(-1);">全部</li>
+						<li class="selector" id="platformTB" onclick="selectPlatform(0);">淘宝</li>
 						<li class="selector" id="platformTM" onclick="selectPlatform(1);">天猫</li>
 						<li class="selector" id="platformITB" onclick="selectPlatform(2);">爱淘宝</li>
 						<#include "template/showcase.ftl"><!-- 橱窗推荐 -->
@@ -160,6 +161,10 @@
 			
 			//选定tag
 			switch(platformType){
+			case "0":
+				$("#platformTB").parent().find("li").removeClass("active");
+				$("#platformTB").addClass("active");
+			  	break;
 			case "1":
 				$("#platformTM").parent().find("li").removeClass("active");
 				$("#platformTM").addClass("active");
@@ -172,7 +177,7 @@
 		})
 		//跳转平台
 		function selectPlatform(flag){
-			if(flag != 0){
+			if(flag != -1){
 				window.location.href = "${request.contextPath}/index/1?userType="+flag 
 			}else{
 				window.location.href = "${url}";
