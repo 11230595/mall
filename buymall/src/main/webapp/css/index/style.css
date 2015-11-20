@@ -91,7 +91,7 @@ label{
 	transition: all 0.3s ease-in-out;
 }
 .top_right ul li a:hover{
-	color:#18C9D2;
+	color:#c40000;
 	text-decoration: none;
 }
 .logo {
@@ -105,7 +105,7 @@ label{
 .logo  a h1{
  font-size: 2.7em;
  font-weight:400;
- color: #18C9D2;
+ color: #c40000;
  font-family: 'Roboto Slab', serif;
 }
 .logo  a h1:hover{
@@ -133,7 +133,7 @@ label{
 .total {
   display: inline-block;
   vertical-align: middle;
-  color:#18C9D2;
+  color:#c40000;
 }
 .box_1 a img {
   margin: 3px 0 0 0px;
@@ -150,7 +150,7 @@ a.simpleCart_empty {
  color:#242424;
 }
 .box_1 i:hover{
- color:#18C9D2;
+ color:#c40000;
 }
 .products {
     padding: 1em 0 4em 0;
@@ -386,7 +386,7 @@ a.collection i {
     vertical-align: middle;
     font-size: 1em;
     margin: 0 0.3em;
-    color: #18C9D2;
+    color: #c40000;
 }
 .jock-img {
     padding: 0;
@@ -583,7 +583,7 @@ figure.effect-bubba p {
 }
 	.mid-top p {
     font-size: 1.8em;
-    color: #18C9D2;
+    color: #c40000;
     text-transform: uppercase;
     font-weight:300;
 	    margin-top: 0.5em;
@@ -631,7 +631,7 @@ li.selector {
     font-size: 0.8em;
 }
 .selector.active {
-	color: #18C9D2;
+	color: #c40000;
 	background: url('../../images/list-hover.png') no-repeat 0px 21px;
 }
 
@@ -683,7 +683,7 @@ li.selector {
     font-size: 1.1em;
     font-weight: 400;
     margin-top: 5px;
-	color: #18C9D2;
+	color: #c40000;
 }
 .recommand-section-grids {
 	margin-top: 4em;
@@ -735,7 +735,7 @@ h3.tittle.con {
     color: #fff;
 }
 .tag-grid:hover .atc a{
-   background:#18C9D2;
+   background:#c40000;
 }
 .tag-grid:hover .atc{
  display:block;
@@ -854,7 +854,7 @@ border: 1px solid #555;
 	font-weight: 500;
 }
 .address input[type="submit"] {
-	background:#18C9D2;
+	background:#c40000;
 	color: #FFF;
 	font-size: 1em;
 	padding: 0.5em 1.2em;
@@ -942,7 +942,7 @@ span.valsa {
 }
 .p-one h4 {
         margin: 1em 0 0.5em 0;
-    color: #18C9D2;
+    color: #c40000;
     font-size: 1em;
 }
 .mask span {
@@ -1001,7 +1001,7 @@ span.valsa {
 }
 .w_nav1 h4{
 	text-transform: uppercase;
-    color: #18C9D2;
+    color: #c40000;
     font-size: 1.2em;
     margin-bottom: 5px;
 }
@@ -1381,7 +1381,7 @@ span.valsa {
 	position: relative;
 }
 .jspDrag{
-	    background: #18C9D2;
+	    background: #c40000;
 	position: relative;
 	top: 0;
 	left: 0;
@@ -1392,7 +1392,7 @@ span.valsa {
 	height: 100%;
 }
 .jspArrow{
-	    background: #18C9D2;
+	    background: #c40000;
 	text-indent: -20000px;
 	display: block;
 	cursor: pointer;
@@ -1460,7 +1460,7 @@ span.reducedfrom {
 	font-weight: 500;
 }
 span.actual {
-	color: #18C9D2;
+	color: #c40000;
     font-size: 1em;
     margin-right: 5%;
     font-weight: 400;
@@ -1560,12 +1560,12 @@ ul.size li a {
 	margin-top: 1em;
 }
 ul.size li a:hover {
-	    background: #18C9D2;
+	    background: #c40000;
 	color: #fff;
 	text-decoration: none;
 }
 .single-but input[type="submit"] {
-	background: #18C9D2;
+	background: #c40000;
 	color: #FFF;
 	font-size: 0.8em;
 	padding: 0.5em 1em;
@@ -1597,8 +1597,8 @@ h4.panel-title a {
 }
 .panel-default > .panel-heading {
   color: #fff;
-  background-color:#18C9D2;
-    border-color:#18C9D2;
+  background-color:#c40000;
+    border-color:#c40000;
 }
 .collpse{
 	    padding: 4em 0 0 0em;
@@ -1638,7 +1638,7 @@ p.comment-form-author {
 .contact-form label {
     display: block;
     font-size: 1em;
-    color: #18C9D2;
+    color: #c40000;
     text-transform: uppercase;
     font-weight: 400;
     margin-bottom: 0.5em;
@@ -1683,7 +1683,7 @@ p.comment-form-author {
 	-o-transition: 0.2s;
 }
 .contact-form input[type="submit"]:hover{
-	background:#18C9D2;
+	background:#c40000;
 }
 .contact_grid {
 	display: block;
@@ -1693,7 +1693,7 @@ p.comment-form-author {
 .span_2_of_contact_right h3 {
 	     font-size: 1.2em;
     font-weight: 400;
-    color: #18C9D2;
+    color: #c40000;
     margin-bottom: 1em;
     text-transform: uppercase;
 }
@@ -1710,7 +1710,7 @@ p.comment-form-author {
 	text-decoration:none;
 }
 .contact_email a:hover{
-	  color:#18C9D2;
+	  color:#c40000;
 	transition: 0.2s;
 	-webkit-transition: 0.2s;
 	-moz-transition: 0.2s;
@@ -1799,7 +1799,7 @@ display:none;
     color: #999;
 }
 .footer-left ul li a:hover{
-	color:#18C9D2;
+	color:#c40000;
 	text-decoration:none;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
@@ -1945,7 +1945,7 @@ margin:0;
     text-align: center;
 }
 .copy p a{
-   color:#18C9D2;
+   color:#c40000;
 }
 .copy p a:hover{
   text-decoration:underline;

@@ -1,8 +1,5 @@
 <!-- 热门商城活动专区start -->
 <div class="hotTmp" id="hotTmp">
-	<div style="padding:15px 0 10px 5px;color:red;">热门活动</div>
-	<div id="hotData">
-	</div>
 </div>
 <!-- 热门商城活动专区end -->
 <style>
@@ -33,7 +30,7 @@
 	font-family:Calibri,Arial;
 }
 .optCursor{
-	background-color: #18c9d2;
+	background-color: #c40000;
 	color:#fff;
 }
 .hotTmp a{
@@ -62,12 +59,12 @@ $(function(){
 //分页查询活动数据
 function getActivity(){
 	$.post("${request.contextPath}/hd/findByPage/5/1",function(data){
-		$("#hotData").empty();
+		$("#hotTmp").empty();
 		$.each(data.page.list,function(i,activity){
 			var str = '<a href="'+activity.itemUrl+'" data-toggle="tooltip" title="'+activity.activityDesc+'">\
 					   	<div class="hotTempDiv" onmouseover="showColor(this);" onmouseout="hideColor(this);">'+activity.title+'</div>\
 					   </a>';
-			$("#hotData").append(str);
+			$("#hotTmp").append(str);
 		})
 		$("[data-toggle='tooltip']").tooltip({html : true });
 	});
