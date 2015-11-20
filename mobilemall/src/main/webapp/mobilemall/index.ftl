@@ -90,10 +90,10 @@
 				<ul class="goods-list clear">
 					<#list page.list as page>
 						<li>
-							<a target="_blank" href="${page.itemUrl!''}">
+							<a target="_blank" href="${pc_url}/product/out/${page.id!''}">
 								<img src="${page.imgUrl!''}" />
 							</a> 
-							<a target="_blank" href="${page.imgUrl!''}">
+							<a target="_blank" href="${pc_url}/product/out/${page.id!''}">
 								<h1>
 									<i class="ico13">
 										<img src="${request.contextPath}/images/sdj.png">
