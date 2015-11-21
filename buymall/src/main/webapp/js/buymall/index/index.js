@@ -16,7 +16,8 @@ $(function() {
 			});
 		} else if (scroH < navH) {
 			$(".skyblue").css({
-				"position" : "static"
+				"position" : "absolute",
+				"top":''
 			});
 		}
 	})

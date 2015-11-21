@@ -23,10 +23,10 @@
 							<div class="h_nav">
 								<h4>穿着</h4>
 								<ul>
-									<li><a href="${request.contextPath}?type=1&userType=${userType!''}">女装</a></li>
-									<li><a href="${request.contextPath}?type=2&userType=${userType!''}">男装</a></li>
-									<li><a href="${request.contextPath}?type=3&userType=${userType!''}">内衣</a></li>
-									<li><a href="${request.contextPath}?type=4&userType=${userType!''}">鞋品</a></li>
+									<li><a href="${url!''}?type=1&userType=${userType!''}">女装</a></li>
+									<li><a href="${url!''}?type=2&userType=${userType!''}">男装</a></li>
+									<li><a href="${url!''}?type=3&userType=${userType!''}">内衣</a></li>
+									<li><a href="${url!''}?type=4&userType=${userType!''}">鞋品</a></li>
 								</ul>	
 							</div>							
 						</div>
@@ -34,10 +34,10 @@
 							<div class="h_nav">
 								<h4>居家</h4>
 								<ul>
-									<li><a href="${request.contextPath}?type=7&userType=${userType!''}">家居</a></li>
-									<li><a href="${request.contextPath}?type=8&userType=${userType!''}">食品</a></li>
-									<li><a href="${request.contextPath}?type=10&userType=${userType!''}">箱包</a></li>
-									<li><a href="${request.contextPath}?type=11&userType=${userType!''}">美妆</a></li>
+									<li><a href="${url!''}?type=7&userType=${userType!''}">家居</a></li>
+									<li><a href="${url!''}?type=8&userType=${userType!''}">食品</a></li>
+									<li><a href="${url!''}?type=10&userType=${userType!''}">箱包</a></li>
+									<li><a href="${url!''}?type=11&userType=${userType!''}">美妆</a></li>
 								</ul>	
 							</div>							
 						</div>
@@ -45,8 +45,8 @@
 							<div class="h_nav">
 								<h4>母婴</h4>
 								<ul>
-									<li><a href="${request.contextPath}?type=5&userType=${userType!''}">儿童</a></li>
-									<li><a href="${request.contextPath}?type=6&userType=${userType!''}">母婴</a></li>
+									<li><a href="${url!''}?type=5&userType=${userType!''}">儿童</a></li>
+									<li><a href="${url!''}?type=6&userType=${userType!''}">母婴</a></li>
 								</ul>	
 							</div>												
 						</div>
@@ -54,7 +54,7 @@
 							<div class="h_nav">
 								<h4>数码</h4>
 								<ul>
-									<li><a href="${request.contextPath}?type=9&userType=${userType!''}">数码</a></li>
+									<li><a href="${url!''}?type=9&userType=${userType!''}">数码</a></li>
 								</ul>	
 							</div>												
 						</div>
@@ -69,9 +69,9 @@
 							<div class="h_nav">
 								<h4>专区优惠</h4>
 								<ul>
-									<li><a href="${request.contextPath}/pre/index?type=10">天天特价</a></li>
-									<li><a href="${request.contextPath}/pre/index?type=0">9块9专区</a></li>
-									<li><a href="${request.contextPath}/pre/index?type=1">20封顶</a></li>
+									<li><a href="${url!''}/pre/index?type=10">天天特价</a></li>
+									<li><a href="${url!''}/pre/index?type=0">9块9专区</a></li>
+									<li><a href="${url!''}/pre/index?type=1">20封顶</a></li>
 								</ul>	
 							</div>							
 						</div>
@@ -79,9 +79,9 @@
 							<div class="h_nav">
 								<h4>专区特卖</h4>
 								<ul>
-									<li><a href="${request.contextPath}/pre/index?type=2">品牌特卖</a></li>
-									<li><a href="${request.contextPath}/pre/index?type=3">精品疯抢季</a></li>
-									<li><a href="${request.contextPath}/pre/index?type=20">卷皮精选</a></li>
+									<li><a href="${url!''}/pre/index?type=2">品牌特卖</a></li>
+									<li><a href="${url!''}/pre/index?type=3">精品疯抢季</a></li>
+									<li><a href="${url!''}/pre/index?type=20">卷皮精选</a></li>
 								</ul>	
 							</div>							
 						</div>
