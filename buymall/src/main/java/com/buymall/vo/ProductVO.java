@@ -22,6 +22,8 @@ public class ProductVO {
     private String surplusCount;
 
     private String score;
+    
+    private int userType;
 
     private String actDesc;
 
@@ -222,4 +224,14 @@ public class ProductVO {
 	public void setStartTime(Date startTime) {
 		this.startTime = startTime;
 	}
+
+	public int getUserType() {
+		return userType;
+	}
+
+	public void setUserType(int userType) {
+		this.userType = userType;
+	}
+	
+	
 }

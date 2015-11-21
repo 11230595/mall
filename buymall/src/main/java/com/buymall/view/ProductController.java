@@ -105,6 +105,7 @@ public class ProductController {
 		productVO.setExpireTime(DateUtils.addDay(new Date(), 3));
 		productVO.setStartTime(new Date());
 		productVO.setCreateTime(new Date());
+		productVO.setUserType(2);
 		productVO.setScore(String.valueOf(map.get("scoreCount")));
 		
 		return productService.addTkProduct(productVO);
