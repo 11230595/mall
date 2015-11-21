@@ -62,3 +62,45 @@ function doAPISubmit(){
 		}
 	});
 }
+
+//导入数据提交
+function submit_jd() {
+	var type = $("#type").val();
+	var itemUrl = $("#itemUrl").val();
+	var catchUrl = $("#catchUrl").val();
+	var reservePrice = $("#reservePrice").val();
+	var zkFinalPrice = $("#zkFinalPrice").val();
+
+	if (type == "0") {
+		alert("请选择类型");
+		return;
+	}
+
+	if ($.trim(itemUrl) == "") {
+		alert("请输入商品地址");
+		return;
+	}
+	
+	if ($.trim(catchUrl) == "") {
+		alert("请输入原价");
+		return;
+	}
+	
+	if ($.trim(reservePrice) == "") {
+		alert("请输入现价");
+		return;
+	}
+	
+	if ($.trim(zkFinalPrice) == "") {
+		alert("请输入商品推广地址");
+		return;
+	}
+	//TODO
+	$.post("../product/add_jd?catchUrl="+catchUrl, $("#f").serialize(), function(data) {
+		if (data.respCode == 0) {
+			window.location.reload(true);
+		} else {
+			alert("网络繁忙，请稍后再试..");
+		}
+	});
+}

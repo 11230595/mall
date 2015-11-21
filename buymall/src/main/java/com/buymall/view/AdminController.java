@@ -32,4 +32,13 @@ public class AdminController {
 	public ModelAndView index(HttpServletRequest request) {
 		return new ModelAndView("admin/index","url",Constants.config.getString("BASE_URL"));
 	}
+	
+	/**
+	 * 京东导入产品
+	 * @return
+	 */
+	@RequestMapping(value="admin/jd",method={RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView jd(HttpServletRequest request) {
+		return new ModelAndView("admin/jd_add","url",Constants.config.getString("BASE_URL"));
+	}
 }

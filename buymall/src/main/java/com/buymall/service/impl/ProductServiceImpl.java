@@ -76,7 +76,8 @@ public class ProductServiceImpl extends BaseMybatisDao implements ProductService
 	public Map<String, Object> addTkProduct(ProductVO productVO) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		Product product = new Product();
-		productVO.setReservePrice(productVO.getReservePrice().substring(1,productVO.getReservePrice().length()));
+		if(productVO.getUserType() == 2)
+			productVO.setReservePrice(productVO.getReservePrice().substring(1,productVO.getReservePrice().length()));
 		try {
 			BeanUtils.copyProperties(product, productVO);
 		} catch (Exception e) {

@@ -51,6 +51,7 @@
 						<li class="selector" id="platformTB" onclick="selectPlatform(0);">淘宝</li>
 						<li class="selector" id="platformTM" onclick="selectPlatform(1);">天猫</li>
 						<li class="selector" id="platformITB" onclick="selectPlatform(2);">爱淘宝</li>
+						<li class="selector" id="platformJD" onclick="selectPlatform(3);">京东</li>
 						<#include "template/showcase.ftl"><!-- 橱窗推荐 -->
 					</ul>
 					
@@ -64,7 +65,7 @@
 											<img src="${page.imgUrl!''}" class="img-responsive" style="width:100%;height: 218px"/>
 										</a>
 										<div class="r-title">
-											<h3>${page.title!''}</h3>
+											<h3><#if page.title?length gt 37>${page.title?substring(0,36)}...<#else>${page.title}</#if></h3>
 											<h4>
 												￥${page.zkFinalPrice!'19.00'}&nbsp;&nbsp;
 												<span style="color:red;">${page.sale!''}折</spa>
@@ -173,6 +174,10 @@
 			case "2":
 				$("#platformITB").parent().find("li").removeClass("active");
 				$("#platformITB").addClass("active");
+			  	break;
+			case "3":
+				$("#platformJD").parent().find("li").removeClass("active");
+				$("#platformJD").addClass("active");
 			  	break;
 			}
 		})

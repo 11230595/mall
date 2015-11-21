@@ -89,13 +89,13 @@
 		   <div id="price">
 			   <div class="form-group">
 			      <div class="form-group">
-				    <label for="name">商品地址</label>
+				    <label for="name">原价</label>
 				    <input type="text" class="form-control" id="reservePrice" name="reservePrice" placeholder="请输入原价">
 				  </div>
 			   </div>
 			   <div class="form-group">
 			      <div class="form-group">
-				    <label for="name">商品地址</label>
+				    <label for="name">现价</label>
 				    <input type="text" class="form-control" id="zkFinalPrice" name="zkFinalPrice" placeholder="请输入现价">
 				  </div>
 			   </div>

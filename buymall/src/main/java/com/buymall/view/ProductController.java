@@ -117,6 +117,28 @@ public class ProductController {
 	}
 	
 	/**
+	 * 保存商品(京东，单个保存)
+	 * @return
+	 */
+	@RequestMapping(value="add_jd",method={RequestMethod.GET,RequestMethod.POST})
+	public @ResponseBody Map<String, Object> saveJdProdecut(HttpServletRequest request,ProductVO productVO, @RequestParam String catchUrl) {
+		Map<String, Object> map = GetProduct.autoSaveJd(catchUrl);
+		try {
+			BeanUtils.populate(productVO, map);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		productVO.setId(UUID.randomUUID().toString());
+		productVO.setStatus(0);
+		productVO.setExpireTime(DateUtils.addDay(new Date(), 3));
+		productVO.setStartTime(new Date());
+		productVO.setCreateTime(new Date());
+		productVO.setScore(String.valueOf(map.get("scoreCount")));
+		
+		return productService.addTkProduct(productVO);
+	}
+	
+	/**
 	 * 分页查询(时间倒叙排列)
 	 * @return
 	 */

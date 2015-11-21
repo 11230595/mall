@@ -15,8 +15,8 @@ import org.jsoup.nodes.Document;
 public class GetProduct {
 
 	public static void main(String[] args) {
-		String url = "https://detail.tmall.com/item.htm?id=523336834104";
-		Map<String, Object> map = autoSaveProduct(url,1);
+		String url = "http://item.jd.com/1582914476.html";
+		Map<String, Object> map = autoSaveProduct(url,3);
 		
 		for(Map.Entry<String, Object> entry : map.entrySet()){
 			System.out.println(entry.getKey() + "---->" + entry.getValue());
@@ -79,8 +79,22 @@ public class GetProduct {
 	 * @return 
 	 */
 	public static Map<String, Object> autoSaveJd(String url) {
+		Document doc = null;
+		Map<String, Object> map = new HashMap<String, Object>();
+		try {
+			doc = Jsoup.connect(url).timeout(4000).get();
+			map.put("error", "0");//错误信息
+		} catch (IOException e) {
+			e.printStackTrace();
+			map.put("error", "1");//错误信息  0,简介成功，1，连接失败
+		}
+		map.put("title", doc.select("#name").select("h1").text());//京东标题
+		map.put("imgUrl", doc.select("#spec-n1").select("img").attr("src"));//淘宝图片
 		
-		return null;
+		map.put("platform", "京东");//平台
+		map.put("userType", 3);//平台类型 0-淘宝，1-天猫，2-爱淘宝
+		
+		return map;
 	}
 
 	/**
