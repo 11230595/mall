@@ -10,7 +10,7 @@
 			   </div>
 				<div class="jock-text">
 				  <!--<h3 class="b-tittle">${bannerPage.list[0].title!''}</h3>-->
-				 <a target="_blank" class="collection" href="${bannerPage.list[0].itemUrl!''}">&nbsp;&nbsp;浏览 <i class="glyphicon glyphicon-arrow-right"></i></a>
+				 <a target="_blank" class="collection" href="${bannerPage.list[0].itemUrl}">&nbsp;&nbsp;浏览 <i class="glyphicon glyphicon-arrow-right"></i></a>
 			   </div>
 			   <div class="clearfix"> </div>
 		   </div>
@@ -44,10 +44,10 @@
 				   <div class="col-md-6 glass">
 					  <div class="glass-text">
 						   <!--<h3 class="b-tittle">${bannerPage.list[3].title!''}</h3>-->
-					 <a target="_blank" class="collection" href="${bannerPage.list[3].itemUrl!''}">浏览 <i class="glyphicon glyphicon-arrow-right"></i></a>
+					 	   <a target="_blank" class="collection" href="${bannerPage.list[3].itemUrl!''}">浏览 <i class="glyphicon glyphicon-arrow-right"></i></a>
 					   </div>
 					   <div class="glass-img"><!-- 图片宽270，高241-->
-						 <a target="_blank" class="collection" href="${bannerPage.list[3].itemUrl!''}">
+						 	<a target="_blank" class="collection" href="${bannerPage.list[3].itemUrl!''}">
 						 	<img src="${bannerPage.list[3].imgUrl!''}" class="img-responsive" alt="" style="width:270px;height:241px;">
 					   	 </a>	
 					   </div>

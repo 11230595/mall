@@ -21,10 +21,10 @@
 		   		<#list bPage.list as bPage>
 					<div class="col-md-4 fashion-grids">
 						<figure class="effect-bubba">
-							<img src="${bPage.imgUrl!''}" alt="" style="width:100%;height:300px;"/>
+							<img src="${bPage.imgUrl!''}" alt="" style="width:100%;height:230px;"/>
 							<figcaption>
-								<h4>${bPage.title!''}</h4>
-								<p class="cart"><a href="${bPage.itemUrl!''}">去看看</a></p>				
+								<h4>&nbsp;</h4>
+								<p class="cart"><a target="_blank" href="${bPage.itemUrl!''}">去逛${bPage.title!''}</a></p>				
 							</figcaption>			
 						</figure>		
 					</div>
@@ -160,7 +160,7 @@
 			var s_type = "${type!''}";
 			var platformType = "${userType!''}";
 			if(pageNo != 1 || s_type != '' || platformType != ''){
-				window.scrollTo(100,1390); //pageNo不等于1的时候，页面定位到商品位置
+				window.scrollTo(100,1340); //pageNo不等于1的时候，页面定位到商品位置
 			}
 			
 			//选定tag
