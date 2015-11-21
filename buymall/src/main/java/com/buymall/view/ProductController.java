@@ -104,6 +104,7 @@ public class ProductController {
 		productVO.setItemUrl(url); //因为跳转不到淘宝，暂时跳转到爱淘宝
 		productVO.setExpireTime(DateUtils.addDay(new Date(), 3));
 		productVO.setStartTime(new Date());
+		productVO.setCreateTime(new Date());
 		productVO.setScore(String.valueOf(map.get("scoreCount")));
 		
 		return productService.addTkProduct(productVO);
