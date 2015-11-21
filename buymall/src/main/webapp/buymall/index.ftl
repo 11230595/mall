@@ -65,7 +65,9 @@
 											<img src="${page.imgUrl!''}" class="img-responsive" style="width:100%;height: 218px"/>
 										</a>
 										<div class="r-title">
-											<h3><#if page.title?length gt 37>${page.title?substring(0,36)}...<#else>${page.title}</#if></h3>
+											<h3 title="${page.title}">
+												<#if page.title?length gt 37>${page.title?substring(0,36)}...<#else>${page.title}</#if>
+											</h3>
 											<h4>
 												￥${page.zkFinalPrice!'19.00'}&nbsp;&nbsp;
 												<span style="color:red;">${page.sale!''}折</spa>
