@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.buymall.mapper.OutCountMapper" >
+  <resultMap id="BaseResultMap" type="com.buymall.entity.OutCount" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="PRODUCT_TYPE" property="productType" jdbcType="INTEGER" />
+    <result column="PRODUCT_USER_TYPE" property="productUserType" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+    <result column="CRETA_TIME" property="cretaTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, PRODUCT_TYPE, PRODUCT_USER_TYPE, USER_ID, CRETA_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from out_count
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from out_count
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.buymall.entity.OutCount" >
+    insert into out_count (ID, PRODUCT_TYPE, PRODUCT_USER_TYPE, 
+      USER_ID, CRETA_TIME)
+    values (#{id,jdbcType=VARCHAR}, #{productType,jdbcType=INTEGER}, #{productUserType,jdbcType=INTEGER}, 
+      #{userId,jdbcType=VARCHAR}, #{cretaTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.buymall.entity.OutCount" >
+    insert into out_count
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="productType != null" >
+        PRODUCT_TYPE,
+      </if>
+      <if test="productUserType != null" >
+        PRODUCT_USER_TYPE,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="cretaTime != null" >
+        CRETA_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="productType != null" >
+        #{productType,jdbcType=INTEGER},
+      </if>
+      <if test="productUserType != null" >
+        #{productUserType,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="cretaTime != null" >
+        #{cretaTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.buymall.entity.OutCount" >
+    update out_count
+    <set >
+      <if test="productType != null" >
+        PRODUCT_TYPE = #{productType,jdbcType=INTEGER},
+      </if>
+      <if test="productUserType != null" >
+        PRODUCT_USER_TYPE = #{productUserType,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="cretaTime != null" >
+        CRETA_TIME = #{cretaTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.buymall.entity.OutCount" >
+    update out_count
+    set PRODUCT_TYPE = #{productType,jdbcType=INTEGER},
+      PRODUCT_USER_TYPE = #{productUserType,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=VARCHAR},
+      CRETA_TIME = #{cretaTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

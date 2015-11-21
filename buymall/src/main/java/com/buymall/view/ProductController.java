@@ -22,7 +22,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.buymall.entity.Member;
+import com.buymall.entity.OutCount;
 import com.buymall.entity.Product;
+import com.buymall.entity.User;
+import com.buymall.service.OutCountService;
 import com.buymall.service.ProductService;
 import com.buymall.utils.GetProduct;
 import com.buymall.utils.TKUtils;
@@ -41,6 +44,8 @@ public class ProductController {
 	private static Logger logger = Logger.getLogger(ProductController.class);
 	@Resource
 	private ProductService productService;
+	@Resource
+	private OutCountService outCountService;
 	
 	/**
 	 * 保存商品
@@ -149,9 +154,14 @@ public class ProductController {
 	 * @return
 	 */
 	@RequestMapping(value="out/{id}",method={RequestMethod.GET,RequestMethod.POST})
-	public ModelAndView tbOut(@PathVariable String id) {
+	public ModelAndView tbOut(HttpServletRequest requst,@PathVariable String id) {
 		ModelAndView mav = new ModelAndView("out");
 		Product product = productService.selectByPrimaryKey(id);
+		if(product != null){
+			User user = (User) requst.getSession().getAttribute("user");
+			outCountService.insert(new OutCount(UUID.randomUUID().toString(), product.getType(), 
+					product.getUserType(), user == null ? "未登陆用户" : user.getUserId(), new Date()));
+		}
 		mav.addObject("product", product);
 		return mav;
 	}

@@ -29,7 +29,7 @@
 			    })(window,document);
 			</script>
 		<#else><!-- 其他的直接跳转走 -->
-			<a href="${product.itemUrl!''}"></a>
+			<a id="alink" href="${product.itemUrl!''}"></a>
 		</#if>
 	<#else>
 	参数有误
