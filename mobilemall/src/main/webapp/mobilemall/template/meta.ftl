@@ -8,5 +8,5 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="format-detection" content="address=no">
 <meta name="keywords" content="优惠购，优惠券，淘宝打折，天猫打折，囤货网，囤货，折扣，抢购" />
-<meta name="description" content="囤货网，最便宜，最省钱购物信息，这里都有的网站" />
+<meta name="description" content="囤货网，最便宜，最省钱购物信息，都在这里~" />
 <meta name="baidu-tc-verification" content="a53a3461f57715564c5da6101ab5fbc6" />
