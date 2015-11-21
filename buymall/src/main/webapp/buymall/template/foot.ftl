@@ -1,3 +1,9 @@
-<footer id="footer">
-	<p style="text-align:center;">&copy; 2015 Company, Inc. 鲁ICP备15020019号-1 &middot; <a href="#">一周科技荣誉出品</a> &middot; <a href="#">Terms</a></p>
-</footer>
+ <!--/start-copyright-->
+ <br><br><br>
+ <div class="copy">
+	<div class="container">
+		<p>Copyright &copy; 2015.一周科技 All rights reserved.鲁ICP备15020019号-2</p>
+	</div>
+</div>
+ <!--//end-copyright-->
+<!--end-footer-->

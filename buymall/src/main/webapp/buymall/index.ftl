@@ -129,18 +129,19 @@
 						<li><a href="">&nbsp;</a></li>
 					</ul>
 				</div>
+				<div class="col-md-2 footer-left">
+					<h3>移动版</h3>
+					<ul>
+						<li><a href="${mobileUrl!''}">查看手机版</a></li>
+						<li><a href="">&nbsp;</a></li>
+					</ul>
+				</div>
 			</div>
 			
 		</div>
 	</div>
-	 <!--/start-copyright-->
-	 <div class="copy">
-		<div class="container">
-			<p>Copyright &copy; 2015.一周科技 All rights reserved.鲁ICP备15020019号-2</p>
-		</div>
-	</div>
-	 <!--//end-copyright-->
-	<!--end-footer-->
+	
+	<#include "template/foot.ftl"><!-- 脚信息 -->
  <!--//end-content-->
  
 	<!--start-smooth-scrolling-->

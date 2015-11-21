@@ -1808,7 +1808,7 @@ display:none;
 	-ms-transition: 0.5s all;
 }
 .footer-left {
-	border-right: 1px solid #555;
+	/*border-right: 1px solid #555;*/
     width: 20%;
 }
 .footer-left.lost{

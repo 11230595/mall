@@ -90,9 +90,10 @@ public class IndexController {
 		Page<Product> page = productService.findByPage(map, pageNo, pageSize);
 		
 		mav.addObject("bannerPage", bannerPage);
-		mav.addObject("bPage", bPage);
+		mav.addObject("bPage", bPage); 
 		mav.addObject("page", page);
 		mav.addObject("url",Constants.config.getString("BASE_URL"));
+		mav.addObject("mobileUrl",Constants.config.getString("MOBILE_URL"));
 		return mav;
 	}
 	
