@@ -28,6 +28,7 @@ import com.buymall.service.LoginLogService;
 import com.buymall.service.PlatformActivityService;
 import com.buymall.service.ProductService;
 import com.buymall.service.UserService;
+import com.buymall.utils.SessionUtils;
 import com.framework.core.page.Page;
 import com.framework.core.utils.DateUtils;
 import com.framework.core.utils.IPUtils;
@@ -60,7 +61,7 @@ public class IndexController {
 			@RequestParam(required=false) String keyword) {
 		ModelAndView mav = new ModelAndView("index");
 		//从cookie取数据
-		User user = getSessionAndCookie(request);
+		User user = new SessionUtils().getSessionAndCookie(request);
 		if(user != null){
 			loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 10, user.getUserCode(), "", "", ""));
 		}
@@ -106,38 +107,6 @@ public class IndexController {
 		return bannerService.findByPage(bannerType);
 	}
 
-	/**
-	 * 获取cookie和session
-	 * @param request
-	 * @return
-	 */
-	private User getSessionAndCookie(HttpServletRequest request){
-		User user = (User) request.getSession().getAttribute("user");
-		String userId = "";
-		
-		//先从session取数据
-		if(request.getSession().getAttribute("user") != null){
-			return user;
-		}
-		Cookie cookies[] = request.getCookies();
-		
-		if (cookies != null) {
-			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals(Constants.config.getString("COOKIE_DOMAIN"))) {
-					userId = cookie.getValue();
-					user = userService.findUserByUserId(userId);
-					if(user != null){
-						request.getSession().setAttribute("user", user);
-					}
-				}
-			}
-		} else {
-			return null;
-		}
-		return user;
-	}
-	
-	
 	/**
 	 * 关于
 	 * @return

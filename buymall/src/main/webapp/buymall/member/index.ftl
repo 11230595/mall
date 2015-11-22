@@ -56,9 +56,9 @@
 			   <caption>正在推广的商品</caption>
 			   <thead>
 			      <tr>
-			         <th>产品名称</th>
-			         <th>产品地址</th>
-			         <th>操作</th>
+			         <th width="35%">产品名称</th>
+			         <th width="60%">产品地址</th>
+			         <th width="5%">操作</th>
 			      </tr>
 			   </thead>
 			   <tbody>

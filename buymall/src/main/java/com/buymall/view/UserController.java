@@ -28,6 +28,7 @@ import com.buymall.entity.LoginLog;
 import com.buymall.entity.User;
 import com.buymall.service.LoginLogService;
 import com.buymall.service.UserService;
+import com.buymall.utils.SessionUtils;
 import com.framework.core.page.Page;
 import com.framework.core.utils.IPUtils;
 
@@ -231,8 +232,13 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value="/home/{userId}",method={RequestMethod.GET,RequestMethod.POST})
-	public ModelAndView userHome(@PathVariable String userId) {
-		ModelAndView mav = new ModelAndView("userHome"); 
+	public ModelAndView userHome(HttpServletRequest request,@PathVariable String userId) {
+		ModelAndView mav = new SessionUtils().checkSession(request);//验证是否登录，未登录跳转到登录页面
+		if(mav != null){ //未登录，跳转到登录页面
+			return mav;
+		}
+		mav = new ModelAndView("userHome"); 
+		mav.addObject("url", Constants.config.getString("BASE_URL"));
 		return mav; 
 	}
 	
@@ -299,5 +305,18 @@ public class UserController {
 		Page<User> page = userService.findUserByPage("findUserByPage",param,pageNo,pageSize);
 		map.put("page", page);
 		return map; 
+	}
+	
+	/**
+	 * to update
+	 * @return
+	 */
+	@RequestMapping(value="/toUpdate",method={RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView toUpdate(HttpServletRequest request) {
+		ModelAndView mav = new SessionUtils().checkSession(request);
+		if(mav != null){
+			return mav;
+		}
+		return new ModelAndView("userUpdate","url",Constants.config.getString("BASE_URL"));
 	}
 }
