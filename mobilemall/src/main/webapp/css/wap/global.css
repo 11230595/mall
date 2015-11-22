@@ -45,7 +45,7 @@
     .ico07{ display: inline-block; width: 78px; height: 23px; }
     .ico08{ display: inline-block; width: 29px; height: 25px; }
     .ico09{ display: inline-block; width: 34px; height: 39px; }
-    .ico10{ display: inline-block; width: 99px; height: 23px;}/*width: 52px;*/
+    .ico10{ display: inline-block; width: 99px; height: 23px; text-align: right;padding-right: 5px;}/*width: 52px;*/
     .ico11{ display: inline-block; width: 19px; height: 19px; }
     .ico12{ display: inline-block; width: 30px; height: 25px; }
     .ico13{ display: inline-block; width: 31px; height: 18px;}
@@ -436,6 +436,7 @@
         height: 50px;
         line-height: 40px;
         position: relative;
+        white-space: nowrap;
     }
 
     .foot-nav a{

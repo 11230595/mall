@@ -127,12 +127,10 @@
 			<div id="foot">
 				<div class="foot-nav">
 					<a href="${url!''}">首页</a>
-					<i>
-						</i>
-							<a href="app">客户端</a>
-						<i>
-					</i>
-					<a	href="${pc_url!''}">电脑版</a>
+					<i></i>
+					<a href="app">客户端</a>
+					<i></i>
+					<a href="${pc_url!''}">电脑版</a>
 				</div>
 				<div class="foot-copyright"></div>
 				<h2>©2015囤货网</h2>
