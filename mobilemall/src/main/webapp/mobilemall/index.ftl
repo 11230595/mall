@@ -43,6 +43,7 @@
 					<a href="${request.contextPath}/index/1?userType=1"><li id="li1">天猫</li></a>
 					<a href="${request.contextPath}/index/1?userType=0"><li id="li2">淘宝</li></a>
 					<a href="${request.contextPath}/index/1?userType=2"><li id="li3">爱淘宝</li></a>
+					<a href="${request.contextPath}/index/1?userType=3"><li id="li4">京东</li></a>
 				</ul>
 				<div id="nav" class="view currents out">
 
@@ -222,6 +223,9 @@
 				  break;
 				case 2:
 				  $("#li3").addClass("active");
+				  break;
+			    case 3:
+				  $("#li4").addClass("active");
 				  break;
 			}
     	}
