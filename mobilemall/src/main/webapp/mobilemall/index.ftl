@@ -51,7 +51,7 @@
 						<div id="search-form" method="get">
 							<div class="box-search">
 								<span class="icon-search icon"></span> 
-									<input id="keyword"	x-webkit-speech type="text" name="key" placeholder="请输入商品关键字" autocomplete="off" value="">
+									<input id="keyword"	x-webkit-speech type="text" name="key" placeholder="请输入商品关键字" autocomplete="off" value="" />
 									<span id="delete-search" class="delete-button" style="display: none;">
 										<i class="ico20">
 											<img src="${request.contextPath}/images/X.png" width="18px" />
@@ -155,10 +155,10 @@
 					<div id="p-search-form">
 						<div class="box-search">
 							<span class="icon-search icon"></span> 
-								<input id="s-keyword" type="text" placeholder="请输入商品关键字" autocomplete="off" value="">
+								<input id="s-keyword" type="text" placeholder="请输入商品关键字" autocomplete="off" value="" />
 								<span id="p-delete-search" class="delete-button" style="display: none;"> </span>
 						</div>
-						<input type="hidden" id="p-page" value="">
+						<input type="hidden" id="p-page" value="" />
 						<button type="submit" id="p-search-submit">
 							<i class="ico01"> 
 								<img src="${request.contextPath}/images/search-w.png" /> 
