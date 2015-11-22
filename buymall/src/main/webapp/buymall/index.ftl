@@ -165,7 +165,7 @@
 			var s_type = "${type!''}";
 			var platformType = "${userType!''}";
 			if(pageNo != 1 || s_type != '' || platformType != ''){
-				window.scrollTo(100,1340); //pageNo不等于1的时候，页面定位到商品位置
+				window.scrollTo(100,1320); //pageNo不等于1的时候，页面定位到商品位置
 			}
 			
 			//选定tag
