@@ -7,7 +7,7 @@ public class User {
 
     private String userCode;
 
-    private String username;
+    private String userName;
 
     private String password;
 
@@ -20,6 +20,10 @@ public class User {
     private Date createTime;
 
     private String editTime;
+
+    private Integer userLevel;
+
+    private String mobile;
 
     public String getUserId() {
         return userId;
@@ -37,12 +41,12 @@ public class User {
         this.userCode = userCode == null ? null : userCode.trim();
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
     }
 
     public String getPassword() {
@@ -91,5 +95,21 @@ public class User {
 
     public void setEditTime(String editTime) {
         this.editTime = editTime == null ? null : editTime.trim();
+    }
+
+    public Integer getUserLevel() {
+        return userLevel;
+    }
+
+    public void setUserLevel(Integer userLevel) {
+        this.userLevel = userLevel;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile == null ? null : mobile.trim();
     }
 }

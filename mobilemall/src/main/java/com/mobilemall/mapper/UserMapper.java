@@ -16,10 +16,16 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
-
+	/**
+	 * 根据userCode查询User
+	 */
 	User findUserByUserCode(String userCode);
-
+	/**
+	 * 根据email查询user
+	 */
 	User findUserByEmail(String email);
-
+	/**
+	 * 登陆
+	 */
 	User login(@Param("userCode") String userCode, @Param("password") String password);
 }

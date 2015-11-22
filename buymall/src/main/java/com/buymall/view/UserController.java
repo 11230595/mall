@@ -110,6 +110,7 @@ public class UserController {
 		user.setEmail(request.getParameter("email"));
 		user.setUserCode(request.getParameter("userCode"));
 		user.setPassword(request.getParameter("password"));
+		user.setUserLevel(0);
 		
 		try {
 			userService.insert(user);
@@ -182,7 +183,7 @@ public class UserController {
 				user = new User();
 				user.setUserCode(userCode);
 				user.setUserId(openId);
-				user.setUsername(userCode);
+				user.setUserName(userCode);
 				user.setEmail(accessToken);
 				user.setCreateTime(new Date());
 				user.setDelFlag(0);

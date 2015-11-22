@@ -147,7 +147,10 @@
     #find.active {background: rgba(253,248,242,1);border-bottom: 1px solid rgba(253,248,242,1);}
     #index {width:120px;margin-left: 50%;left: -60px;position: absolute;}
     #user {float: right;}/*width:70px;*/
-
+	#user a{
+		text-decoration:none;
+	}
+	
     #find i{ display: block; margin: 10px auto;}
     #index i{ display: block; margin: 12px auto;}
     #user .ico10{ display: block; margin: 13px auto;font-style: normal;color: rgba(255,255,255,1);font-weight: 700;}

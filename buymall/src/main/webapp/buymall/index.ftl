@@ -71,6 +71,11 @@
 											<h4>
 												￥${page.zkFinalPrice!'19.00'}&nbsp;&nbsp;
 												<span style="color:red;">${page.sale!''}折</spa>
+												<#if user?? && user.userLevel == 8><!-- 如果是管理员，显示删除选项 -->
+													<span style="color:red;">&nbsp;&nbsp;
+														<a href="javascript:void(0)" onclick="deleteProduct('${page.id}')">删除</a>
+													</spa>
+												</#if>
 											</h4>
 										</div>
 									</div>
@@ -191,7 +196,17 @@
 				window.location.href = "${url}";
 			}
 		}
-		
+		//删除商品
+		function deleteProduct(productId){
+			$.post("${url}/product/delete/"+ productId, function(data){
+				if(data.respCode == 0){
+					alert("删除成功");
+					window.location.reload(true);
+				}else{
+					alert("删除失败，请稍后再试！");
+				}
+			})
+		}
 	</script>
 	<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 </body>

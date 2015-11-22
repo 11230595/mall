@@ -203,4 +203,20 @@ public class ProductController {
 		map.put("page", page);
 		return map;
 	}
+	
+	/**
+	 * 分页查询(时间倒叙排列)
+	 * @return
+	 */
+	@RequestMapping(value="delete/{id}",method={RequestMethod.GET,RequestMethod.POST})
+	public @ResponseBody Map<String, Object> delete(@PathVariable String id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		try {
+			productService.deleteByPrimaryKey(id);
+			map.put("respCode", 0);
+		} catch (Exception e) {
+			map.put("respCode", 1);
+		}
+		return map;
+	}
 }
