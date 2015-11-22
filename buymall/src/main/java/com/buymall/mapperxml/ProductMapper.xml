@@ -304,7 +304,7 @@
 	WHERE
 		o.USER_ID = '${userId}'
 	ORDER BY
-		o.CREATE_TIME
+		o.CREATE_TIME DESC
     <!-- 分页 -->
     <if test="page_sql != null and page_sql !=''"  >
        ${page_sql}

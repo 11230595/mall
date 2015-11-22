@@ -32,7 +32,7 @@
 					</span> 
 					<span id="user">
 						<#if user??>
-							<a href="${request.contextPath}/user/userHome/${user.userId!''}"><i class="ico10">${user.userCode!''}</i></a>
+							<a href="${pc_url}/user/home/${user.userId!''}"><i class="ico10">${user.userCode!''}</i></a>
 						<#else>
 							<a href="${request.contextPath}/user/login"><i class="ico10">登录</i></a>
 						</#if>
@@ -130,7 +130,7 @@
 					<i></i>
 					<a href="app">客户端</a>
 					<i></i>
-					<a href="${pc_url!''}">电脑版</a>
+					<a href="${pc_url!''}?client=PC">电脑版</a>
 				</div>
 				<div class="foot-copyright"></div>
 				<h2>©2015囤货网</h2>
@@ -178,7 +178,7 @@
 						<i></i>
 						<a href="javascript:void(0);">客户端</a>
 						<i></i>
-						<a href="${pc_url!''}">电脑版</a>
+						<a href="${pc_url!''}?client=PC">电脑版</a>
 					</div>
 					<div class="foot-copyright"></div>
 					<h2>©2015囤货网</h2>
