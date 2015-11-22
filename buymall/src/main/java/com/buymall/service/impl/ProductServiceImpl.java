@@ -94,5 +94,14 @@ public class ProductServiceImpl extends BaseMybatisDao implements ProductService
 		}
 		return map;
 	}
+	
+	/**
+	 * 用户查看历史
+	 */
+	@Override
+	public Page<Product> findBrowseHistory(Map<String, Object> param,
+			int pageNo, int pageSize) {
+		return (Page<Product>) findByPageBySqlId("findBrowseHistory", param, pageNo, pageSize);
+	}
 
 }

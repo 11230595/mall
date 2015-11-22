@@ -7,7 +7,7 @@
 					<li><a href="${request.contextPath}/help">帮助</a></li>
 					<li>
 						<#if user??>
-							<a href="${request.contextPath}/user/userHome/${user.userId!''}">您好：${user.userCode!''}</a>
+							<a href="${request.contextPath}/user/home/${user.userId!''}">您好：${user.userCode!''}</a>
 						<#else>
 							<a href="${request.contextPath}/user/login">登录/注册</a>
 						</#if>

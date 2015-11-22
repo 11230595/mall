@@ -293,4 +293,21 @@
        ${page_sql}
     </if>
   </select>
+  
+  <!-- 分页查询，查询用户浏览过的产品 -->
+  <select id="findBrowseHistory" resultMap="BaseResultMap">
+	SELECT
+	p.*
+	FROM
+		product p
+	LEFT JOIN out_count o ON p.ID = o.PRODYCT_ID
+	WHERE
+		o.USER_ID = '${userId}'
+	ORDER BY
+		o.CREATE_TIME
+    <!-- 分页 -->
+    <if test="page_sql != null and page_sql !=''"  >
+       ${page_sql}
+    </if>
+  </select>
 </mapper>

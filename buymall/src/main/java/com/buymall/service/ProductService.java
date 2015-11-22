@@ -75,4 +75,13 @@ public interface ProductService {
 	 * @return
 	 */
 	Map<String, Object> addTkProduct(ProductVO productVO);
+	/**
+	 * 查询用户查看历史
+	 * @param param
+	 * @param pageNo
+	 * @param pageSize
+	 * @return
+	 */
+	Page<Product> findBrowseHistory(Map<String, Object> param, int pageNo,
+			int pageSize);
 }

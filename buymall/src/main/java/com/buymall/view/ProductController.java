@@ -172,7 +172,7 @@ public class ProductController {
 	}
 	
 	/**
-	 * 分页查询(时间倒叙排列)
+	 * 记录流出流量
 	 * @return
 	 */
 	@RequestMapping(value="out/{id}",method={RequestMethod.GET,RequestMethod.POST})
@@ -182,9 +182,25 @@ public class ProductController {
 		if(product != null){
 			User user = (User) requst.getSession().getAttribute("user");
 			outCountService.insert(new OutCount(UUID.randomUUID().toString(), product.getType(), 
-					product.getUserType(), user == null ? "未登陆用户" : user.getUserId(), new Date()));
+					product.getUserType(),product.getId(), user == null ? "未登陆用户" : user.getUserId(), new Date()));
 		}
 		mav.addObject("product", product);
 		return mav;
+	}
+	
+	/**
+	 * 分页查询(根据用户ID查询本人浏览过的商品)
+	 * @return
+	 */
+	@RequestMapping(value="findBrowseHistory/{userId}/{pageSize}/{pageNo}",method={RequestMethod.GET,RequestMethod.POST})
+	public @ResponseBody Map<String, Object> findBrowseHistory(@PathVariable String userId,@PathVariable int pageSize, @PathVariable int pageNo) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		Map<String, Object> param = new HashMap<String, Object>();
+		//参数
+		param.put("userId", userId);
+		
+		Page<Product> page = productService.findBrowseHistory(param,pageNo,pageSize);
+		map.put("page", page);
+		return map;
 	}
 }

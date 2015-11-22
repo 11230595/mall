@@ -5,11 +5,12 @@
     <id column="ID" property="id" jdbcType="VARCHAR" />
     <result column="PRODUCT_TYPE" property="productType" jdbcType="INTEGER" />
     <result column="PRODUCT_USER_TYPE" property="productUserType" jdbcType="INTEGER" />
+    <result column="PRODYCT_ID" property="prodyctId" jdbcType="VARCHAR" />
     <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
-    <result column="CRETA_TIME" property="cretaTime" jdbcType="TIMESTAMP" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    ID, PRODUCT_TYPE, PRODUCT_USER_TYPE, USER_ID, CRETA_TIME
+    ID, PRODUCT_TYPE, PRODUCT_USER_TYPE, PRODYCT_ID, USER_ID, CREATE_TIME
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -23,9 +24,11 @@
   </delete>
   <insert id="insert" parameterType="com.buymall.entity.OutCount" >
     insert into out_count (ID, PRODUCT_TYPE, PRODUCT_USER_TYPE, 
-      USER_ID, CRETA_TIME)
+      PRODYCT_ID, USER_ID, CREATE_TIME
+      )
     values (#{id,jdbcType=VARCHAR}, #{productType,jdbcType=INTEGER}, #{productUserType,jdbcType=INTEGER}, 
-      #{userId,jdbcType=VARCHAR}, #{cretaTime,jdbcType=TIMESTAMP})
+      #{prodyctId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.buymall.entity.OutCount" >
     insert into out_count
@@ -39,11 +42,14 @@
       <if test="productUserType != null" >
         PRODUCT_USER_TYPE,
       </if>
+      <if test="prodyctId != null" >
+        PRODYCT_ID,
+      </if>
       <if test="userId != null" >
         USER_ID,
       </if>
-      <if test="cretaTime != null" >
-        CRETA_TIME,
+      <if test="createTime != null" >
+        CREATE_TIME,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -56,11 +62,14 @@
       <if test="productUserType != null" >
         #{productUserType,jdbcType=INTEGER},
       </if>
+      <if test="prodyctId != null" >
+        #{prodyctId,jdbcType=VARCHAR},
+      </if>
       <if test="userId != null" >
         #{userId,jdbcType=VARCHAR},
       </if>
-      <if test="cretaTime != null" >
-        #{cretaTime,jdbcType=TIMESTAMP},
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -73,11 +82,14 @@
       <if test="productUserType != null" >
         PRODUCT_USER_TYPE = #{productUserType,jdbcType=INTEGER},
       </if>
+      <if test="prodyctId != null" >
+        PRODYCT_ID = #{prodyctId,jdbcType=VARCHAR},
+      </if>
       <if test="userId != null" >
         USER_ID = #{userId,jdbcType=VARCHAR},
       </if>
-      <if test="cretaTime != null" >
-        CRETA_TIME = #{cretaTime,jdbcType=TIMESTAMP},
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where ID = #{id,jdbcType=VARCHAR}
@@ -86,8 +98,9 @@
     update out_count
     set PRODUCT_TYPE = #{productType,jdbcType=INTEGER},
       PRODUCT_USER_TYPE = #{productUserType,jdbcType=INTEGER},
+      PRODYCT_ID = #{prodyctId,jdbcType=VARCHAR},
       USER_ID = #{userId,jdbcType=VARCHAR},
-      CRETA_TIME = #{cretaTime,jdbcType=TIMESTAMP}
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where ID = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

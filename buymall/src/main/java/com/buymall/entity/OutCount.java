@@ -9,9 +9,11 @@ public class OutCount {
 
     private Integer productUserType;
 
+    private String prodyctId;
+
     private String userId;
 
-    private Date cretaTime;
+    private Date createTime;
 
     public String getId() {
         return id;
@@ -37,6 +39,14 @@ public class OutCount {
         this.productUserType = productUserType;
     }
 
+    public String getProdyctId() {
+        return prodyctId;
+    }
+
+    public void setProdyctId(String prodyctId) {
+        this.prodyctId = prodyctId == null ? null : prodyctId.trim();
+    }
+
     public String getUserId() {
         return userId;
     }
@@ -45,12 +55,12 @@ public class OutCount {
         this.userId = userId == null ? null : userId.trim();
     }
 
-    public Date getCretaTime() {
-        return cretaTime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCretaTime(Date cretaTime) {
-        this.cretaTime = cretaTime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
 	public OutCount() {
@@ -58,14 +68,13 @@ public class OutCount {
 	}
 
 	public OutCount(String id, Integer productType, Integer productUserType,
-			String userId, Date cretaTime) {
+			String prodyctId, String userId, Date createTime) {
 		super();
 		this.id = id;
 		this.productType = productType;
 		this.productUserType = productUserType;
+		this.prodyctId = prodyctId;
 		this.userId = userId;
-		this.cretaTime = cretaTime;
+		this.createTime = createTime;
 	}
-    
-    
 }
