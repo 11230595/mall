@@ -45,6 +45,12 @@ public class MobileFilter implements Filter{
 					return;
 				}
 			}
+			
+			String client = request.getParameter("client");
+			if("PC".equals(client)){
+				chain.doFilter(req, resp);
+			}
+			
 			response.sendRedirect(Constants.config.getString("MOBILE_URL"));
 		}else {
 			chain.doFilter(req, resp);  
