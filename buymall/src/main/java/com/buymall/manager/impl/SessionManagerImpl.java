@@ -1,25 +1,30 @@
-package com.buymall.utils;
+package com.buymall.manager.impl;
 
+import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.buymall.constants.Constants;
 import com.buymall.entity.User;
+import com.buymall.manager.SessionManager;
 import com.buymall.service.UserService;
-import com.buymall.view.IndexController;
-import com.framework.core.spring.SpringContextHolder;
-
-public class SessionUtils {
-	private static Logger logger = Logger.getLogger(SessionUtils.class);
-	/**
-	 * 获取cookie和session
-	 * @param request
-	 * @return
-	 */
-	public User getSessionAndCookie(HttpServletRequest request){
+/**
+ * 管理session和cookie
+ * @author zhoudong
+ *
+ */
+@Service
+public class SessionManagerImpl implements SessionManager {
+	private static Logger logger = Logger.getLogger(SessionManagerImpl.class);
+	@Resource
+	private UserService userService;
+	
+	@Override
+	public User getSessionAndCookie(HttpServletRequest request) {
 		User user = (User) request.getSession().getAttribute("user");
 		String userId = "";
 		
@@ -33,13 +38,10 @@ public class SessionUtils {
 			for (Cookie cookie : cookies) {
 				if (cookie.getName().equals(Constants.config.getString("COOKIE_DOMAIN"))) {
 					userId = cookie.getValue();
-					UserService userService = SpringContextHolder.getBean("userService");
 					user = userService.findUserByUserId(userId);
 					if(user != null){
 						request.getSession().setAttribute("user", user);
 					}
-				}else {
-					return null;
 				}
 			}
 		} else {
@@ -48,14 +50,18 @@ public class SessionUtils {
 		return user;
 	}
 	
-	public ModelAndView checkSession(HttpServletRequest request){
-		User user = new SessionUtils().getSessionAndCookie(request);
+	/**
+	 * 检查cookie是否存在
+	 */
+	@Override
+	public ModelAndView checkSession(HttpServletRequest request) {
+		User user = getSessionAndCookie(request);
 		if(user == null){
 			logger.info("Cookie不存在,跳转登录..");
 			return new ModelAndView("redirect:/user/login?returnUrl=" + request.getRequestURL());
 		}else {
 			return null;
 		}
-		
 	}
+
 }
