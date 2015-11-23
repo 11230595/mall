@@ -80,6 +80,6 @@ public class IDUtils {
 	 * @return
 	 */
 	public static int getRandom() {
-		return (int) (Math.random() * 300);
+		return (int) (Math.random() * 1000);
 	}
 }

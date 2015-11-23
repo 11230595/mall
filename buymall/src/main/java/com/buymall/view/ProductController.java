@@ -229,6 +229,7 @@ public class ProductController {
 	public @ResponseBody Map<String, Object> changeTime() {
 		Map<String, Object> map = new HashMap<String, Object>();
 		productService.updateChangeTime();
+		map.put("result", "重新排序成功");
 		return map;
 	}
 }
