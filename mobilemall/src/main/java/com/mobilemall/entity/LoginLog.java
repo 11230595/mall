@@ -23,7 +23,7 @@ public class LoginLog {
     private String addr;
 
     
-    public static final String APP_NAME = "购物";
+    public static final String APP_NAME = "手机囤货网";
     
     public LoginLog(String appName, Integer loginType,
 			String loginName, String errorInfo, String ipAddr,
