@@ -393,7 +393,8 @@ a.collection i {
     padding: 0;
 	float: left;
     width: 90%;
-	    margin-top: 1em;
+	margin-top: 1em;
+	float:right;
 }
 .jock-text {
     float: right;
