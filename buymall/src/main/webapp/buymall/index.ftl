@@ -66,7 +66,7 @@
 										</a>
 										<div class="r-title">
 											<h3 title="${page.title}">
-												<#if page.title?length gt 37>${page.title?substring(0,36)}...<#else>${page.title}</#if>
+												<#if page.title?length gt 37>${page.title?substring(0,33)}...<#else>${page.title}</#if>
 											</h3>
 											<h4>
 												￥${page.zkFinalPrice!'19.00'}&nbsp;&nbsp;
