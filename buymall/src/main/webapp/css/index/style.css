@@ -675,7 +675,8 @@ li.selector {
     font-size: 15px;
     font-weight: 400;
     font-family:Calibri,Arial;
-    line-height:19px
+    line-height:19px;
+    height:48px;
 }
 .tag-wrapper h4 {
     font-size: 1.1em;
