@@ -72,7 +72,7 @@
 												￥${page.zkFinalPrice!'19.00'}&nbsp;&nbsp;
 												<span style="color:red;">${page.sale!''}折</spa>
 												<#if user?? && user.userLevel == 8><!-- 如果是管理员，显示删除选项 -->
-													<span style="color:red;">&nbsp;&nbsp;
+													<span style="color:red;">&nbsp;
 														<a href="javascript:void(0)" onclick="deleteProduct('${page.id}')">删除</a>
 													</spa>
 												</#if>
