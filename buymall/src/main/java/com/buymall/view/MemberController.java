@@ -37,6 +37,7 @@ import com.buymall.utils.GetProduct;
 import com.buymall.vo.ProductVO;
 import com.framework.core.page.Page;
 import com.framework.core.utils.DateUtils;
+import com.framework.core.utils.IDUtils;
 /**
  * 后台管理部分
  * @author zhoudong
@@ -106,7 +107,7 @@ public class MemberController {
 	public String createMember(HttpServletRequest request,@RequestParam String userId,@RequestParam String phoneNum) {
 		Member member = memberService.findMemberByUserId(userId,1);
 		if(member == null){
-			member = new Member(UUID.randomUUID().toString(),userId,0,0,phoneNum);
+			member = new Member(IDUtils.getId(),userId,0,0,phoneNum);
 			memberService.insert(member);
 		} else {
 			memberService.updateMemberStatus(new Member(userId,0,phoneNum));
@@ -181,7 +182,7 @@ public class MemberController {
 			productVO.setReservePrice(reservePrice);
 		}
 		
-		productVO.setId(UUID.randomUUID().toString());
+		productVO.setId(IDUtils.getId());
 		productVO.setType(Integer.parseInt(type));
 		productVO.setStatus(0);
 		productVO.setExpireTime(DateUtils.addDay(new Date(), 3));
@@ -191,7 +192,7 @@ public class MemberController {
 		
 		//保存商户退关产品
 		Member member = (Member) request.getSession().getAttribute("member");
-		memProductService.insert(new MemProduct(UUID.randomUUID().toString(),member.getId(),productVO.getId(),new Date()));
+		memProductService.insert(new MemProduct(IDUtils.getId(),member.getId(),productVO.getId(),new Date()));
 		
 		return productService.addTkProduct(productVO);//保存产品
 	}

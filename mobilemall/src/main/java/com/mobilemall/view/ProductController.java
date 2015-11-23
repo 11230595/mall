@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.framework.core.page.Page;
 import com.framework.core.utils.DateUtils;
+import com.framework.core.utils.IDUtils;
 import com.mobilemall.entity.Product;
 import com.mobilemall.service.ProductService;
 import com.mobilemall.utils.GetProduct;
@@ -75,7 +76,7 @@ public class ProductController {
 			product.setExpireTime(DateUtils.addDay(new Date(), 3));
 			product.setStartTime(new Date());
 			product.setType(itemRequest.getType());
-			product.setId(UUID.randomUUID().toString());
+			product.setId(IDUtils.getId());
 			productService.insert(product);
 		}
 		
@@ -96,7 +97,7 @@ public class ProductController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		productVO.setId(UUID.randomUUID().toString());
+		productVO.setId(IDUtils.getId());
 		productVO.setType(Integer.parseInt(type));
 		productVO.setStatus(0);
 		productVO.setItemUrl(url); //因为跳转不到淘宝，暂时跳转到爱淘宝

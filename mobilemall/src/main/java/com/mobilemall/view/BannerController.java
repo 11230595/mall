@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.framework.core.utils.IDUtils;
 import com.mobilemall.entity.Banner;
 import com.mobilemall.service.BannerService;
 /**
@@ -37,7 +38,7 @@ public class BannerController {
 	public @ResponseBody Map<String, Object> saveBanner(HttpServletRequest request,Banner banner) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
-			banner.setId(UUID.randomUUID().toString());
+			banner.setId(IDUtils.getId());
 			bannerService.insert(banner);
 			map.put("respCode", 0);
 		} catch (Exception e) {

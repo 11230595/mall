@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.framework.core.page.Page;
+import com.framework.core.utils.IDUtils;
 import com.framework.core.utils.IPUtils;
 import com.mobilemall.constants.Constants;
 import com.mobilemall.entity.LoginLog;
@@ -104,7 +105,7 @@ public class UserController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		User user = new User();
-		user.setUserId(UUID.randomUUID().toString());
+		user.setUserId(IDUtils.getId());
 		user.setDelFlag(0);
 		user.setEmail(request.getParameter("email"));
 		user.setUserCode(request.getParameter("userCode"));

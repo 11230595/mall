@@ -30,6 +30,7 @@ import com.buymall.service.LoginLogService;
 import com.buymall.service.UserService;
 import com.buymall.utils.SessionUtils;
 import com.framework.core.page.Page;
+import com.framework.core.utils.IDUtils;
 import com.framework.core.utils.IPUtils;
 
 /**
@@ -105,7 +106,7 @@ public class UserController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		User user = new User();
-		user.setUserId(UUID.randomUUID().toString());
+		user.setUserId(IDUtils.getId());
 		user.setDelFlag(0);
 		user.setEmail(request.getParameter("email"));
 		user.setUserCode(request.getParameter("userCode"));

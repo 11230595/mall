@@ -33,6 +33,7 @@ import com.buymall.vo.ItemListRequestVO;
 import com.buymall.vo.ProductVO;
 import com.framework.core.page.Page;
 import com.framework.core.utils.DateUtils;
+import com.framework.core.utils.IDUtils;
 /**
  * 产品类
  * @author zhoudong
@@ -64,7 +65,7 @@ public class PlatformActivityController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		platformActivity.setCreateTime(new Date());
 		platformActivity.setExpireTime(DateUtils.addDay(platformActivity.getExpireTime(), 1));
-		platformActivity.setId(UUID.randomUUID().toString());
+		platformActivity.setId(IDUtils.getId());
 		
 		try {
 			platformActivityService.insert(platformActivity);
