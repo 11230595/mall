@@ -310,4 +310,14 @@
        ${page_sql}
     </if>
   </select>
+  
+  <!-- 查询全部 -->
+  <select id="findAdllShowProduct" resultMap="BaseResultMap">
+	SELECT
+		*
+	FROM
+		product
+	WHERE
+		expire_Time > #{date,jdbcType=VARCHAR}
+  </select>
 </mapper>

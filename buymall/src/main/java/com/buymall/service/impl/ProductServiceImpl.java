@@ -1,6 +1,8 @@
 package com.buymall.service.impl;
 
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -14,6 +16,8 @@ import com.buymall.service.ProductService;
 import com.buymall.vo.ProductVO;
 import com.framework.core.mybatis.BaseMybatisDao;
 import com.framework.core.page.Page;
+import com.framework.core.utils.DateUtils;
+import com.framework.core.utils.IDUtils;
 /**
  * 
  * @author zhoudong
@@ -102,6 +106,18 @@ public class ProductServiceImpl extends BaseMybatisDao implements ProductService
 	public Page<Product> findBrowseHistory(Map<String, Object> param,
 			int pageNo, int pageSize) {
 		return (Page<Product>) findByPageBySqlId("findBrowseHistory", param, pageNo, pageSize);
+	}
+	/**
+	 * 修改时间，重新排序
+	 */
+	@Override
+	public void updateChangeTime() {
+		List<Product> list = productMapper.findAdllShowProduct(DateUtils.DateToString(new Date(), "yyyy-MM-dd HH:mm:ss"));
+
+		for(Product product : list){
+			product.setCreateTime(DateUtils.addSecond(product.getCreateTime(), IDUtils.getRandom()));
+			productMapper.updateByPrimaryKeySelective(product);
+		}
 	}
 
 }

@@ -220,4 +220,15 @@ public class ProductController {
 		}
 		return map;
 	}
+	
+	/**
+	 * 修改时间，重新排序
+	 * @return
+	 */
+	@RequestMapping(value="changeTime",method={RequestMethod.GET,RequestMethod.POST})
+	public @ResponseBody Map<String, Object> changeTime() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		productService.updateChangeTime();
+		return map;
+	}
 }
