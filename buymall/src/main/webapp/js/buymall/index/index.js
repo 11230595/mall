@@ -12,7 +12,7 @@ $(function() {
 				"position" : "fixed",
 				"top" : 0,
 				"z-index":999,
-				"width":"1170px"
+				"width":"1140px"
 			});
 		} else if (scroH < navH) {
 			$(".skyblue").css({

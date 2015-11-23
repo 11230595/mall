@@ -392,7 +392,7 @@ a.collection i {
 .jock-img {
     padding: 0;
 	float: left;
-    width: 70%;
+    width: 90%;
 	    margin-top: 1em;
 }
 .jock-text {
@@ -401,6 +401,7 @@ a.collection i {
 }
 .shoe-img {
     float: left;
+    margin-top: 1em;
 }
 .shoe-text {
     padding: 0;
@@ -671,8 +672,10 @@ li.selector {
 }
 .tag-wrapper h3{
     color: #252525;
-    font-size: 1.2em;
+    font-size: 15px;
     font-weight: 400;
+    font-family:Calibri,Arial;
+    line-height:19px
 }
 .tag-wrapper h4 {
     font-size: 1.1em;
@@ -2023,7 +2026,7 @@ margin:0;
 	}
 	.shoe-img {
 		float: left;
-		    width: 53%;
+		    width: 90%;
 	}
 	.fashion-grids {
 		padding-left: 0;
