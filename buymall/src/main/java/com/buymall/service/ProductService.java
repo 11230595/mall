@@ -84,4 +84,8 @@ public interface ProductService {
 	 */
 	Page<Product> findBrowseHistory(Map<String, Object> param, int pageNo,
 			int pageSize);
+	/**
+	 * 修改时间，重新排序
+	 */
+	void updateChangeTime();
 }

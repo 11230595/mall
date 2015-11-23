@@ -66,13 +66,13 @@
 										</a>
 										<div class="r-title">
 											<h3 title="${page.title}">
-												<#if page.title?length gt 37>${page.title?substring(0,36)}...<#else>${page.title}</#if>
+												<#if page.title?length gt 37>${page.title?substring(0,33)}...<#else>${page.title}</#if>
 											</h3>
 											<h4>
 												￥${page.zkFinalPrice!'19.00'}&nbsp;&nbsp;
 												<span style="color:red;">${page.sale!''}折</spa>
 												<#if user?? && user.userLevel == 8><!-- 如果是管理员，显示删除选项 -->
-													<span style="color:red;">&nbsp;&nbsp;
+													<span style="color:red;">&nbsp;
 														<a href="javascript:void(0)" onclick="deleteProduct('${page.id}')">删除</a>
 													</spa>
 												</#if>

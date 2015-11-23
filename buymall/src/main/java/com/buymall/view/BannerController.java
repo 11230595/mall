@@ -21,6 +21,7 @@ import com.buymall.constants.Constants;
 import com.buymall.entity.Banner;
 import com.buymall.service.BannerService;
 import com.buymall.vo.ItemListRequestVO;
+import com.framework.core.utils.IDUtils;
 /**
  * 产品类
  * @author zhoudong
@@ -52,7 +53,7 @@ public class BannerController {
 	public @ResponseBody Map<String, Object> saveBanner(HttpServletRequest request,Banner banner) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
-			banner.setId(UUID.randomUUID().toString());
+			banner.setId(IDUtils.getId());
 			bannerService.insert(banner);
 			map.put("respCode", 0);
 		} catch (Exception e) {

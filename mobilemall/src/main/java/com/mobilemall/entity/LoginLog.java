@@ -3,6 +3,8 @@ package com.mobilemall.entity;
 import java.util.Date;
 import java.util.UUID;
 
+import com.framework.core.utils.IDUtils;
+
 public class LoginLog {
     private String id;
 
@@ -21,13 +23,13 @@ public class LoginLog {
     private String addr;
 
     
-    public static final String APP_NAME = "购物";
+    public static final String APP_NAME = "手机囤货网";
     
     public LoginLog(String appName, Integer loginType,
 			String loginName, String errorInfo, String ipAddr,
 			String addr) {
 		super();
-		this.id = UUID.randomUUID().toString();
+		this.id = IDUtils.getId();
 		this.appName = appName;
 		this.loginType = loginType;
 		this.loginName = loginName;

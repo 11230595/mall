@@ -6,7 +6,6 @@ import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
@@ -26,10 +25,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.buymall.constants.Constants;
 import com.buymall.entity.LoginLog;
 import com.buymall.entity.User;
+import com.buymall.manager.SessionManager;
 import com.buymall.service.LoginLogService;
 import com.buymall.service.UserService;
-import com.buymall.utils.SessionUtils;
 import com.framework.core.page.Page;
+import com.framework.core.utils.IDUtils;
 import com.framework.core.utils.IPUtils;
 
 /**
@@ -45,7 +45,8 @@ public class UserController {
 	private UserService userService;
 	@Resource
 	private LoginLogService loginLogService;
-	
+	@Resource
+	private SessionManager sessionManager;
 	/**
 	 * 跳转到注册页面
 	 * @return
@@ -105,7 +106,7 @@ public class UserController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		User user = new User();
-		user.setUserId(UUID.randomUUID().toString());
+		user.setUserId(IDUtils.getId());
 		user.setDelFlag(0);
 		user.setEmail(request.getParameter("email"));
 		user.setUserCode(request.getParameter("userCode"));
@@ -234,7 +235,7 @@ public class UserController {
 	 */
 	@RequestMapping(value="/home/{userId}",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView userHome(HttpServletRequest request,@PathVariable String userId) {
-		ModelAndView mav = new SessionUtils().checkSession(request);//验证是否登录，未登录跳转到登录页面
+		ModelAndView mav = sessionManager.checkSession(request);//验证是否登录，未登录跳转到登录页面
 		if(mav != null){ //未登录，跳转到登录页面
 			return mav;
 		}
@@ -314,7 +315,7 @@ public class UserController {
 	 */
 	@RequestMapping(value="/toUpdate",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView toUpdate(HttpServletRequest request) {
-		ModelAndView mav = new SessionUtils().checkSession(request);
+		ModelAndView mav = sessionManager.checkSession(request);
 		if(mav != null){
 			return mav;
 		}

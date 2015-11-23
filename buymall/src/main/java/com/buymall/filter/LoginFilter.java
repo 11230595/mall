@@ -15,7 +15,8 @@ import org.apache.log4j.Logger;
 
 import com.buymall.constants.Constants;
 import com.buymall.entity.User;
-import com.buymall.utils.SessionUtils;
+import com.buymall.manager.SessionManager;
+import com.framework.core.spring.SpringContextHolder;
 /**
  * 判断是否登录
  * @author zhoudong
@@ -32,7 +33,8 @@ public class LoginFilter implements Filter{
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse)resp;
 		
-		User user = new SessionUtils().getSessionAndCookie(request);
+		SessionManager sessionManager = SpringContextHolder.getBean("sessionManager");
+		User user = sessionManager.getSessionAndCookie(request);
 		if(user == null){
 			logger.info("Cookie不存在,跳转登录..");
 			response.sendRedirect(Constants.config.getString("BASE_URL") + "/user/login?returnUrl=" + request.getRequestURL());

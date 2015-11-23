@@ -55,10 +55,10 @@ $(function(){
 });
 //分页查询活动数据
 function getActivity(){
-	$.post("${request.contextPath}/hd/findByPage/5/1",function(data){
+	$.post("${request.contextPath}/hd/findByPage/7/1",function(data){
 		$("#hotTmp").empty();
 		$.each(data.page.list,function(i,activity){
-			var str = '<a href="'+activity.itemUrl+'" data-toggle="tooltip" title="'+activity.activityDesc+'">\
+			var str = '<a href="'+activity.itemUrl+'" target="_blank" data-toggle="tooltip" title="'+activity.activityDesc+'">\
 					   	<div class="hotTempDiv" onmouseover="showColor(this);" onmouseout="hideColor(this);">'+activity.title+'</div>\
 					   </a>';
 			$("#hotTmp").append(str);

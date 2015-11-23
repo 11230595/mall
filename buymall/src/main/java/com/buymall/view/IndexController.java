@@ -20,18 +20,16 @@ import org.springframework.web.servlet.ModelAndView;
 import com.buymall.constants.Constants;
 import com.buymall.entity.Banner;
 import com.buymall.entity.LoginLog;
-import com.buymall.entity.PlatformActivity;
 import com.buymall.entity.Product;
 import com.buymall.entity.User;
+import com.buymall.manager.SessionManager;
 import com.buymall.service.BannerService;
 import com.buymall.service.LoginLogService;
 import com.buymall.service.PlatformActivityService;
 import com.buymall.service.ProductService;
 import com.buymall.service.UserService;
-import com.buymall.utils.SessionUtils;
 import com.framework.core.page.Page;
 import com.framework.core.utils.DateUtils;
-import com.framework.core.utils.IPUtils;
 /**
  * 首页部分功能
  * @author zhoudong
@@ -50,6 +48,8 @@ public class IndexController {
 	private BannerService bannerService;
 	@Resource
 	private PlatformActivityService platformActivityService;
+	@Resource
+	private SessionManager sessionManager;
 	/**
 	 * 首页
 	 * @return
@@ -61,7 +61,7 @@ public class IndexController {
 			@RequestParam(required=false) String keyword) {
 		ModelAndView mav = new ModelAndView("index");
 		//从cookie取数据
-		User user = new SessionUtils().getSessionAndCookie(request);
+		User user = sessionManager.getSessionAndCookie(request);
 		if(user != null){
 			loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 10, user.getUserCode(), "", "", ""));
 		}

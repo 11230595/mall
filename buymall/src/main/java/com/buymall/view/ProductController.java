@@ -33,6 +33,7 @@ import com.buymall.vo.ItemListRequestVO;
 import com.buymall.vo.ProductVO;
 import com.framework.core.page.Page;
 import com.framework.core.utils.DateUtils;
+import com.framework.core.utils.IDUtils;
 /**
  * 产品类
  * @author zhoudong
@@ -82,7 +83,7 @@ public class ProductController {
 			product.setExpireTime(DateUtils.addDay(new Date(), 3));
 			product.setStartTime(new Date());
 			product.setType(itemRequest.getType());
-			product.setId(UUID.randomUUID().toString());
+			product.setId(IDUtils.getId());
 			productService.insert(product);
 		}
 		
@@ -103,7 +104,7 @@ public class ProductController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		productVO.setId(UUID.randomUUID().toString());
+		productVO.setId(IDUtils.getId());
 		productVO.setType(Integer.parseInt(type));
 		productVO.setStatus(0);
 		productVO.setItemUrl(url); //因为跳转不到淘宝，暂时跳转到爱淘宝
@@ -128,7 +129,7 @@ public class ProductController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		productVO.setId(UUID.randomUUID().toString());
+		productVO.setId(IDUtils.getId());
 		productVO.setStatus(0);
 		productVO.setExpireTime(DateUtils.addDay(new Date(), 3));
 		productVO.setStartTime(new Date());
@@ -181,7 +182,7 @@ public class ProductController {
 		Product product = productService.selectByPrimaryKey(id);
 		if(product != null){
 			User user = (User) requst.getSession().getAttribute("user");
-			outCountService.insert(new OutCount(UUID.randomUUID().toString(), product.getType(), 
+			outCountService.insert(new OutCount(IDUtils.getId(), product.getType(), 
 					product.getUserType(),product.getId(), user == null ? "未登陆用户" : user.getUserId(), new Date()));
 		}
 		mav.addObject("product", product);
@@ -217,6 +218,18 @@ public class ProductController {
 		} catch (Exception e) {
 			map.put("respCode", 1);
 		}
+		return map;
+	}
+	
+	/**
+	 * 修改时间，重新排序
+	 * @return
+	 */
+	@RequestMapping(value="changeTime",method={RequestMethod.GET,RequestMethod.POST})
+	public @ResponseBody Map<String, Object> changeTime() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		productService.updateChangeTime();
+		map.put("result", "重新排序成功");
 		return map;
 	}
 }
