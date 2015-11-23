@@ -4,7 +4,7 @@
 <#include "template/meta.ftl" > <#include "template/ico.ftl" >
 
 <link href="${request.contextPath}/css/wap/global.css" rel="stylesheet"	type="text/css" />
-<title>囤货网</title>
+<title>手机囤货网</title>
 <script src="${request.contextPath}/js/jquery/jquery-1.11.1.min.js"></script>
 <script src="${request.contextPath}/js/wap/zepto.js"></script>
 <script src="${request.contextPath}/js/wap/underscore.js"></script>
