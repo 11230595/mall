@@ -15,7 +15,8 @@
         <!--/start-中部产品-fashion-->
 		<div class="fashion-section">
 		 <div class="container"> 
-		     <h3 class="tittle">精选频道</h3>
+		 	<div class="title-line"></div>
+		     <h3 class="tittle"><div class="title-line-div">精选频道</div></h3>
 
 		   <div class="fashion-info">
 		   		<#list bPage.list as bPage>
@@ -39,7 +40,8 @@
 	 <div class="container">
 			<div class="recommand-section">
 				<div class="recommand-section-head text-center">
-					<h3 class="tittle fea">特惠购</h3>
+					<div class="title-line"></div>
+					<h3 class="tittle fea"><div class="title-line-div">特惠购</div></h3>
 				</div>
 				<!-- recommand -->
 				<div class="recommand-section-grids">

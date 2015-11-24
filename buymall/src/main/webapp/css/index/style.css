@@ -701,10 +701,27 @@ h3.tittle {
     font-size:2em;
     text-align: center;
     text-transform: uppercase;
+    margin: -16px 0 0;
 }
 h3.tittle.con {
     margin-bottom: 1.2em;
 }
+.title-line{}
+.title-line::before {
+    background-image: radial-gradient(circle, #b4b4b4, #efefef);
+    background-repeat: no-repeat;
+    content: "";
+    display: block;
+    height: 1px;
+    overflow: hidden;
+}
+.title-line-div{
+	background:#fff;
+	width: 14%;
+	MARGIN-RIGHT: auto; 
+	MARGIN-LEFT: auto;
+}
+
 .account-top.heading h3 {
   color: #252525;
     font-size:1.6em;
