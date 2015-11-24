@@ -15,7 +15,7 @@
 					<#if user??>
 					<li><a href="javascript:void(0);" onclick="loginOut();">退出</a></li>
 					</#if>
-					<li><a href="#">签到</a></li>
+					<li><a href="${request.contextPath}/member/exist">商户中心</a></li>
 				</ul>
 			</div>
 			<div class="top_left">
