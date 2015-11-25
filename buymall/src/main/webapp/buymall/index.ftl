@@ -54,7 +54,7 @@
 						<li class="selector" id="platformTM" onclick="selectPlatform(1);">天猫</li>
 						<li class="selector" id="platformITB" onclick="selectPlatform(2);">爱淘宝</li>
 						<li class="selector" id="platformJD" onclick="selectPlatform(3);">京东</li>
-						<li class="selector" id="platform99" onclick="selectPlatform(10);">九块九专区</li>
+						<li class="selector" id="platform99" onclick="selectPlatform(10);"  style="color:red">九块九专区</li>
 						<#include "template/showcase.ftl"><!-- 橱窗推荐 -->
 					</ul>
 					
