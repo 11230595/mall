@@ -322,7 +322,7 @@
         width: 52px;
         height: 18px;
         line-height: 18px;
-        background: rgba(255,102,0,1);
+        background: rgba(196,0,0,1);
         color: rgba(255,255,255,1);
         font-size: 12px;
         text-align: right;
@@ -352,7 +352,7 @@
     
 
     .buy .good-btn{
-        background: rgba(255,102,0,1);
+        background: rgba(196,0,0,1);
     }
     .start .good-btn{
         background: rgba(73,186,57,1);

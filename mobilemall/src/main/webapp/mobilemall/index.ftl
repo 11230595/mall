@@ -96,9 +96,9 @@
 							</a> 
 							<a target="_blank" href="${pc_url}/product/out/${page.id!''}">
 								<h1>
-									<i class="ico13">
+									<!--独家标记<i class="ico13">
 										<img src="${request.contextPath}/images/sdj.png">
-									</i>${page.title!''}
+									</i>-->${page.title!''}
 								</h1>
 								<div class="list-price buy">
 									<i>￥</i><span class="price-new">${page.zkFinalPrice!'99.00'}</span>
