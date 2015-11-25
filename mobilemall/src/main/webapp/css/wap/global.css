@@ -396,6 +396,7 @@
     }
 
     .paging-totop{
+    width:25%;
         height: 47px;
         line-height: 47px;
         float: right;
