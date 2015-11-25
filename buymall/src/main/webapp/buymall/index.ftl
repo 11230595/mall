@@ -147,6 +147,14 @@
 						<li><a href="">&nbsp;</a></li>
 					</ul>
 				</div>
+				<div class="col-md-2 footer-left">
+					<h3>关注微信</h3>
+					<ul>
+						<li>
+							<img src="${request.contextPath}/images/weixin_code.jpg" style="width:100px;height:100px"/>
+						</li>
+					</ul>
+				</div>
 			</div>
 			
 		</div>
