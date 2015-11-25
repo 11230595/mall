@@ -179,19 +179,23 @@
 					<ul id="element" class="goods-list clear">
 					</ul>
 				</div>
-
-				<div id="foot">
-					<div class="foot-nav">
-						<a href="${url!''}">首页</a>
-						<i></i>
-						<a href="javascript:void(0);">客户端</a>
-						<i></i>
-						<a href="${pc_url!''}?client=PC">电脑版</a>
-					</div>
-					<div class="foot-copyright"></div>
-					<h2>©2015囤货网</h2>
-				</div>
 			</div>
+			
+			<div id="alert_wrap" class="alert_black_bg">
+                <div class="alert_box">
+                    <div class="alert_content">
+                        <div class="message">
+                            <i  class="close"></i>
+                            <img class="icon" src="${request.contextPath}/images/weixin_code.jpg">
+                            <div class="jky_des">
+                                <p class="f14">关注囤货网公众号</p>
+                                <p class="f12 yellow">全场九块九包邮，</p>
+                                <p class="f12 yellow">优惠快人一步！</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 			
 			<div class="alert_fullbg"></div>
 		</div>
