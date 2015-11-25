@@ -50,7 +50,7 @@
 					<a href="${request.contextPath}/index/1?userType=0"><li id="li2">淘宝</li></a>
 					<a href="${request.contextPath}/index/1?userType=2"><li id="li3">爱淘宝</li></a>
 					<a href="${request.contextPath}/index/1?userType=3"><li id="li4">京东</li></a>
-					<a href="${request.contextPath}/index/1?userType=10"><li id="li10" style="color:red">九块九专区</li></a>
+					<a href="${request.contextPath}/index/1?userType=10"><li id="li10" style="color:red">九块九</li></a>
 				</ul>
 				<div id="nav" class="view currents out">
 
@@ -99,7 +99,7 @@
 					<#list page.list as page>
 						<li>
 							<a target="_blank" href="${pc_url}/product/out/${page.id!''}">
-								<img data-original="${page.imgUrl!''}" src="${request.contextPath}/images/tunhuowang.png"/>
+								<img class="goodsImg" data-original="${page.imgUrl!''}" src="${request.contextPath}/images/tunhuowang.png"/>
 							</a> 
 							<a target="_blank" href="${pc_url}/product/out/${page.id!''}">
 								<h1>
@@ -239,7 +239,7 @@
 				  break;
 			}
     	}
- 	   	
+ 	   	changeHeight();
     })
     
     function searchProduct(){
@@ -250,6 +250,10 @@
     	}
     	
     	window.location.href = "${url!''}?keyword=" + searchInput;
+    }
+    function changeHeight(){
+    	var imgHeight = $(".goodsImg:first").height();
+    	$(".goodsImg").css("height",imgHeight + "px");
     }
     </script>
 	<script type="text/javascript" src="${request.contextPath}/js/wap/mjky.js"></script>
