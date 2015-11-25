@@ -1,7 +1,7 @@
 <!--start-轮转图片-->
 	<div class="scroll-slider">
 		<div class="container"> 											 
-			<div class="nbs-flexisel-container"><div class="nbs-flexisel-inner">
+			<div class="nbs-flexisel-container">
 				<ul class="flexiselDemo3 nbs-flexisel-ul" style="left: -253.6px; display: block;">					    					    					       
 					<li onClick="location.href='https://www.tmall.com/';" class="nbs-flexisel-item" style="width: 253.6px;"><img src="http://img.alicdn.com/tps/i1/TB1JCr_IpXXXXcAXFXXOK.sIXXX-190-27.png" alt=""/></li>
 					<li onClick="location.href='http://www.jd.com/';" class="nbs-flexisel-item" style="width: 253.6px;"><img src="http://misc.360buyimg.com/lib/img/e/logo-201305.png" alt=""/></li>
@@ -9,8 +9,7 @@
 				</ul>
 				<div class="nbs-flexisel-nav-left" style="top: 21.5px;"></div>
 				<div class="nbs-flexisel-nav-right" style="top: 21.5px;"></div>
-			</div>
-		</div> 
+			</div> 
 		<div class="clearfix"> </div>      
 		<!--start-image-->
 		<script type="text/javascript" src="${request.contextPath}/js/index/jquery.flexisel.js"></script>
