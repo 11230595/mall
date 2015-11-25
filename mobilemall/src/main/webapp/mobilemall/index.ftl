@@ -50,6 +50,7 @@
 					<a href="${request.contextPath}/index/1?userType=0"><li id="li2">淘宝</li></a>
 					<a href="${request.contextPath}/index/1?userType=2"><li id="li3">爱淘宝</li></a>
 					<a href="${request.contextPath}/index/1?userType=3"><li id="li4">京东</li></a>
+					<a href="${request.contextPath}/index/1?userType=10"><li id="li5">九块九疯抢</li></a>
 				</ul>
 				<div id="nav" class="view currents out">
 
