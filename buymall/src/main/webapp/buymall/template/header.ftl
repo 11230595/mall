@@ -81,7 +81,7 @@
 								<ul>
 									<li><a href="${url!''}/pre/index?type=2">品牌特卖</a></li>
 									<li><a href="${url!''}/pre/index?type=3">精品疯抢季</a></li>
-									<li><a href="${url!''}/pre/index?type=20">卷皮精选</a></li>
+									<li><a href="${url!''}/pre/index?type=4">一折清仓</a></li>
 								</ul>	
 							</div>							
 						</div>
