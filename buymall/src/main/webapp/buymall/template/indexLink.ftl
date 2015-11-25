@@ -3,6 +3,7 @@
 <!-- Custom Theme files -->
 <link href="${request.contextPath}/css/index/style.css" rel='stylesheet' type='text/css' />	
 <script src="${request.contextPath}/js/jquery/jquery-1.11.1.min.js"></script>
+<script src="${request.contextPath}/js/jquery/jquery.lazyload.min.js"></script><!-- jquery 延迟加载 -->
 <script src="${request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 <!-- start menu -->
 <link href="${request.contextPath}/css/index/megamenu.css" rel="stylesheet" type="text/css" media="all" />
@@ -20,6 +21,7 @@
 <script src="${request.contextPath}/js/count.js"></script><!-- 流量统计 -->
 <script src="${request.contextPath}/js/share.js"></script><!-- 流量统计 -->
 <script src="${request.contextPath}/js/buymall/index/index.js"></script><!-- 首页 -->
+
 <!--/script-->
 <script type="text/javascript">
 	var type = "${type!''}";
@@ -32,4 +34,10 @@
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
 		});
 	});
+</script>
+<!-- 延迟加载 -->
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+      $("img").lazyload();
+  });
 </script>

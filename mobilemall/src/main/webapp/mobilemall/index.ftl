@@ -6,11 +6,17 @@
 <link href="${request.contextPath}/css/wap/global.css" rel="stylesheet"	type="text/css" />
 <title>手机囤货网</title>
 <script src="${request.contextPath}/js/jquery/jquery-1.11.1.min.js"></script>
+<script src="${request.contextPath}/js/jquery/jquery.lazyload.min.js"></script><!-- 延迟加载 -->
 <script src="${request.contextPath}/js/wap/zepto.js"></script>
 <script src="${request.contextPath}/js/wap/underscore.js"></script>
 <script src="${request.contextPath}/js/count.js"></script>
 <script src="${request.contextPath}/js/share.js"></script>
-
+<!-- 延迟加载 -->
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+      $("img").lazyload();
+  });
+</script>
 </head>
 
 <body>
@@ -92,7 +98,7 @@
 					<#list page.list as page>
 						<li>
 							<a target="_blank" href="${pc_url}/product/out/${page.id!''}">
-								<img src="${page.imgUrl!''}" />
+								<img data-original="${page.imgUrl!''}" src="${request.contextPath}/images/tunhuowang.png"/>
 							</a> 
 							<a target="_blank" href="${pc_url}/product/out/${page.id!''}">
 								<h1>

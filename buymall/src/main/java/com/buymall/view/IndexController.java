@@ -87,7 +87,7 @@ public class IndexController {
 		}
 		
 		map.put("expireTime", DateUtils.DateToString(new Date(),"yyyy-MM-dd HH:mm:ss"));
-		int pageSize = 21;
+		int pageSize = 36;
 		Page<Product> page = productService.findByPage(map, pageNo, pageSize);
 		
 		mav.addObject("bannerPage", bannerPage);

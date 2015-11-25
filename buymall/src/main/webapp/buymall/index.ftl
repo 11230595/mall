@@ -54,6 +54,7 @@
 						<li class="selector" id="platformTM" onclick="selectPlatform(1);">天猫</li>
 						<li class="selector" id="platformITB" onclick="selectPlatform(2);">爱淘宝</li>
 						<li class="selector" id="platformJD" onclick="selectPlatform(3);">京东</li>
+						<li class="selector" id="platform99" onclick="selectPlatform(10);">九块九专区</li>
 						<#include "template/showcase.ftl"><!-- 橱窗推荐 -->
 					</ul>
 					
@@ -64,7 +65,7 @@
 								<div class="tag-grid">
 									<div class="tag-wrapper">		
 										<a target="_blank" href="${request.contextPath}/product/out/${page.id!''}">
-											<img src="${page.imgUrl!''}" class="img-responsive" style="width:100%;height: 218px"/>
+											<img data-original="${page.imgUrl!''}" src="${request.contextPath}/images/tunhuowang.png" class="img-responsive" style="width:100%;height: 218px"/>
 										</a>
 										<div class="r-title">
 											<h3 title="${page.title}">
@@ -187,6 +188,10 @@
 			case "3":
 				$("#platformJD").parent().find("li").removeClass("active");
 				$("#platformJD").addClass("active");
+			  	break;
+			case "10":
+				$("#platform99").parent().find("li").removeClass("active");
+				$("#platform99").addClass("active");
 			  	break;
 			}
 		})

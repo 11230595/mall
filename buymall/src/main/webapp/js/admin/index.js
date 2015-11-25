@@ -37,6 +37,7 @@ function doSubmit() {
 		"url" : url
 	}, function(data) {
 		if (data.respCode == 0) {
+			alert("导入成功");
 			window.location.reload(true);
 		} else {
 			alert("网络繁忙，请稍后再试..");
@@ -95,9 +96,47 @@ function submit_jd() {
 		alert("请输入商品推广地址");
 		return;
 	}
-	//TODO
 	$.post("../product/add_jd?catchUrl="+catchUrl, $("#f").serialize(), function(data) {
 		if (data.respCode == 0) {
+			alert("导入成功");
+			window.location.reload(true);
+		} else {
+			alert("网络繁忙，请稍后再试..");
+		}
+	});
+}
+
+//导入数据提交
+function submit_99() {
+	var type = $("#type").val();
+	var url = $("#url").val();
+	var day = $("#day").val();
+	
+	if (type == "0") {
+		alert("请选择类型");
+		return;
+	}
+
+	if ($.trim(url) == "") {
+		alert("请输入商品地址");
+		return;
+	}
+	if($.trim(day) == ""){
+		alert("请输入几天后过期");
+		return;
+	}
+	if(isNaN(day)){
+		alert("几天后过期只能使用数值型！");
+		return;
+	}
+
+	$.post("../product/add_tk_activity", {
+		"type" : type,
+		"url" : url,
+		"day":day
+	}, function(data) {
+		if (data.respCode == 0) {
+			alert("导入成功");
 			window.location.reload(true);
 		} else {
 			alert("网络繁忙，请稍后再试..");

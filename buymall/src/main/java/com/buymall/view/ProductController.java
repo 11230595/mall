@@ -2,6 +2,7 @@ package com.buymall.view;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -27,6 +28,7 @@ import com.buymall.entity.Product;
 import com.buymall.entity.User;
 import com.buymall.service.OutCountService;
 import com.buymall.service.ProductService;
+import com.buymall.utils.GetIframeProduct;
 import com.buymall.utils.GetProduct;
 import com.buymall.utils.TKUtils;
 import com.buymall.vo.ItemListRequestVO;
@@ -137,6 +139,35 @@ public class ProductController {
 		productVO.setScore(String.valueOf(map.get("scoreCount")));
 		
 		return productService.addTkProduct(productVO);
+	}
+	
+	/**
+	 * 保存商品(淘宝客活动，批量保存保存)
+	 * @return
+	 */
+	@RequestMapping(value="add_tk_activity",method={RequestMethod.GET,RequestMethod.POST})
+	public @ResponseBody Map<String, Object> saveProductTkActivity(HttpServletRequest request,
+			@RequestParam String url, @RequestParam String type,@RequestParam Integer day) {
+		List<Map<String, Object>> list = GetIframeProduct.autoSaveTaoBaoKeActivity(url);
+		Map<String, Object> respMap = new HashMap<String, Object>();
+		ProductVO productVO = null;
+		try {
+			for (Map<String, Object> map : list) {
+				productVO = new ProductVO();
+				BeanUtils.populate(productVO, map);
+				productVO.setId(IDUtils.getId());
+				productVO.setType(Integer.parseInt(type));
+				productVO.setStatus(0);
+				productVO.setExpireTime(DateUtils.addDay(new Date(), day));
+				productVO.setStartTime(new Date());
+				productVO.setCreateTime(new Date());
+				productService.addTkProduct(productVO);
+			}
+			respMap.put("respCode", 0);
+		} catch (Exception e) {
+			respMap.put("respCode", 1);
+		}
+		return respMap;
 	}
 	
 	/**
