@@ -21,10 +21,8 @@
 
 <body>
 	<div class="main">
-
 		<div class="app">
 			<div id="head">
-
 				<div class="fixtop">
 					<span id="find">
 						<i class="ico08">
@@ -145,7 +143,6 @@
 			</div>
 			<div id="seach-page" class="view current out">
 				<div id="p-head">
-
 					<div class="fixtop">
 						<span id="p-find">
 							<i class="ico18">
@@ -155,15 +152,14 @@
 						<span id="p-index">搜索结果</span>
 						<span id="p-user"></span>
 					</div>
-
 				</div>
 
 				<div id="p-search-box">
 					<div id="p-search-form">
 						<div class="box-search">
 							<span class="icon-search icon"></span> 
-								<input id="s-keyword" type="text" placeholder="请输入商品关键字" autocomplete="off" value="" />
-								<span id="p-delete-search" class="delete-button" style="display: none;"> </span>
+							<input id="s-keyword" type="text" placeholder="请输入商品关键字" autocomplete="off" value="" />
+							<span id="p-delete-search" class="delete-button" style="display: none;"> </span>
 						</div>
 						<input type="hidden" id="p-page" value="" />
 						<button type="submit" id="p-search-submit">
@@ -176,8 +172,7 @@
 				</div>
 
 				<div id="p-goods" class="clear">
-					<ul id="element" class="goods-list clear">
-					</ul>
+					<ul id="element" class="goods-list clear"></ul>
 				</div>
 			</div>
 			
