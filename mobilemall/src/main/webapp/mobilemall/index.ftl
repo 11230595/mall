@@ -14,7 +14,9 @@
 <!-- 延迟加载 -->
 <script type="text/javascript" charset="utf-8">
   $(function() {
-      $("img").lazyload();
+      $("img").lazyload({
+      	effect : "fadeIn",
+      });
   });
 </script>
 </head>
@@ -106,7 +108,7 @@
 									</i>-->${page.title!''}
 								</h1>
 								<div class="list-price buy">
-									<i>￥</i><span class="price-new">${page.zkFinalPrice!'99.00'}</span>
+									<i>￥</i><span class="price-new">${page.zkFinalPrice!'9.00'}</span>
 									<i class="del">${page.sale!''}折</i>
 									<span class="good-btn"> 
 										<i class="ico15">
@@ -176,7 +178,7 @@
 				</div>
 			</div>
 			
-			<div id="alert_wrap" class="alert_black_bg">
+			<div id="alert_wrap" style="display:none;" class="alert_black_bg">
                 <div class="alert_box">
                     <div class="alert_content">
                         <div class="message">
@@ -217,6 +219,8 @@
     }
     
     $(function(){
+    	is_show_alert_wrap();//是否显示关注微信选项
+    	
     	var userType = ${userType!-1};
     	if(userType != -1){
     		$("#li0").removeClass("active");
@@ -238,7 +242,7 @@
 				  break;
 			}
     	}
- 	   	changeHeight();
+    	changeHeight();
     })
     
     function searchProduct(){
@@ -250,10 +254,26 @@
     	
     	window.location.href = "${url!''}?keyword=" + searchInput;
     }
+	//固定每一个图片的高度
     function changeHeight(){
     	var imgHeight = $(".goodsImg:first").height();
     	$(".goodsImg").css("height",imgHeight + "px");
     }
+    //是否显示关注微信选项，如果是微信登录，则不显示
+    function is_show_alert_wrap(){
+    	if(!is_weixin()){
+    		$("#alert_wrap").show();
+    	}
+    }
+    //是不是微信访问
+    function is_weixin(){
+		var ua = navigator.userAgent.toLowerCase();
+		if(ua.match(/MicroMessenger/i)=="micromessenger") {
+			return true;
+	 	} else {
+			return false;
+		}
+	}
     </script>
 	<script type="text/javascript" src="${request.contextPath}/js/wap/mjky.js"></script>
 </body>

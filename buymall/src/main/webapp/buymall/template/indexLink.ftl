@@ -38,6 +38,8 @@
 <!-- 延迟加载 -->
 <script type="text/javascript" charset="utf-8">
   $(function() {
-      $("img").lazyload();
+      $("img").lazyload({
+      	effect : "fadeIn",
+      });
   });
 </script>
