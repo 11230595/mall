@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.buymall.constants.Constants;
 import com.buymall.entity.LinkProduct;
 import com.buymall.entity.Member;
 import com.buymall.entity.OutCount;
@@ -81,6 +82,23 @@ public class LinkProductController {
 			respMap.put("respCode", 1);
 		}
 		return respMap;
+	}
+	
+	/**
+	 * 到专区页面
+	 * @return
+	 */
+	@RequestMapping(value="index/{userType}/{pageNo}",method={RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView index(@PathVariable int userType, @PathVariable int pageNo) {
+		ModelAndView mav = new ModelAndView("link_product/index");
+		Map<String, Object> param = new HashMap<String, Object>();
+		//分页参数
+		param.put("expireTime", DateUtils.DateToString(new Date(), "yyyy-MM-dd HH:mm:ss"));
+		
+		Page<LinkProduct> page = linkProductService.findByPage(param,pageNo,88);
+		mav.addObject("page", page);
+		mav.addObject("url", Constants.config.getString("BASE_URL"));
+		return mav;
 	}
 	
 	/**

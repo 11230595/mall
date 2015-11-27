@@ -1,7 +1,5 @@
 package com.buymall.view;
 
-import javax.annotation.Resource;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
@@ -11,10 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.buymall.constants.Constants;
-import com.buymall.entity.LoginLog;
-import com.buymall.entity.User;
-import com.buymall.service.LoginLogService;
-import com.buymall.service.UserService;
 /**
  * 后台管理部分
  * @author zhoudong
@@ -46,8 +40,10 @@ public class AdminController {
 	 * 淘宝客活动导入产品
 	 * @return
 	 */
-	@RequestMapping(value="admin/99",method={RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value="admin/link",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView tkactivity(HttpServletRequest request) {
-		return new ModelAndView("admin/99_add","url",Constants.config.getString("BASE_URL"));
+		return new ModelAndView("admin/link_add","url",Constants.config.getString("BASE_URL"));
 	}
+	
+	
 }

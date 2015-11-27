@@ -30,8 +30,6 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <#include "template/data.ftl"><!-- 导入数据 -->
-      <#include "template/template.ftl"><!-- 模板管理 -->
-
     </div> <!-- /container -->
 
     <!-- Bootstrap core JavaScript

@@ -143,3 +143,49 @@ function submit_99() {
 		}
 	});
 }
+
+//导入数据提交
+function submit_link() {
+	var type = $("#type").val();
+	var url = $("#url").val();
+	var day = $("#day").val();
+	var userType = $("#userType").val();
+	
+	if (type == "0") {
+		alert("请选择类型");
+		return;
+	}
+
+	if ($.trim(url) == "") {
+		alert("请输入商品地址");
+		return;
+	}
+	
+	if(userType == -1){
+		alert("请选择所属专区");
+		return;
+	}
+	
+	if($.trim(day) == ""){
+		alert("请输入几天后过期");
+		return;
+	}
+	if(isNaN(day)){
+		alert("几天后过期只能使用数值型！");
+		return;
+	}
+
+	$.post("../link/add", {
+		"type" : type,
+		"url" : url,
+		"day":day,
+		"userType":userType
+	}, function(data) {
+		if (data.respCode == 0) {
+			alert("导入成功");
+			window.location.reload(true);
+		} else {
+			alert("网络繁忙，请稍后再试..");
+		}
+	});
+}
