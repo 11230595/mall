@@ -94,6 +94,7 @@ public class LinkProductController {
 		Map<String, Object> param = new HashMap<String, Object>();
 		//分页参数
 		param.put("expireTime", DateUtils.DateToString(new Date(), "yyyy-MM-dd HH:mm:ss"));
+		param.put("userType", userType);
 		
 		Page<LinkProduct> page = linkProductService.findByPage(param,pageNo,88);
 		mav.addObject("page", page);

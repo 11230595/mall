@@ -15,7 +15,7 @@
             <li class="active"><a href="${request.contextPath}/admin">淘宝导入数据</a></li>
             <li id="jd" ><a href="${request.contextPath}/admin/jd">京东导入数据</a></li>
             <li id="99" ><a href="${request.contextPath}/admin/99">淘宝客模板导入数据</a></li>
-            <li><a href="${request.contextPath}/admin/link">专区商品管理</a></li>
+            <li id="link"><a href="${request.contextPath}/admin/link">专区商品管理</a></li>
             <li><a href="${request.contextPath}/banner/admin/toAdd">Banner管理</a></li>
             <li><a href="${request.contextPath}/hd/admin/add">平台活动管理</a></li>
           </ul>
