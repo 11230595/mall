@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-<#include "template/meta.ftl" > <#include "template/ico.ftl" >
+<#include "template/meta.ftl" > 
+<#include "template/ico.ftl" >
 
 <link href="${request.contextPath}/css/wap/global.css" rel="stylesheet"	type="text/css" />
 <title>手机囤货网</title>
@@ -16,12 +17,14 @@
   $(function() {
       $("img").lazyload({
       	effect : "fadeIn",
+      	threshold: 200
       });
   });
 </script>
 </head>
 
 <body>
+	<#include "template/weixin.ftl" ><!-- 微信提醒 -->
 	<div class="main">
 		<div class="app">
 			<div id="head">
