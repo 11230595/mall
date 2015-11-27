@@ -12,6 +12,85 @@
 <script src="${request.contextPath}/js/wap/underscore.js"></script>
 <script src="${request.contextPath}/js/count.js"></script>
 <script src="${request.contextPath}/js/share.js"></script>
+
+<script type="text/javascript">
+	var BASE_URL = "${url!''}";
+    function addLoadEvent(func) {
+        var oldOnload = window.onload;
+        if (typeof window.onload != 'function') {
+            window.onload = func;
+        }
+        else {
+            window.onload = function() {
+                oldOnload();
+                func();
+            }
+        }
+    }
+    // 添加Load事件处理
+    addLoadEvent(hideMenu);
+    function hideMenu() {
+        setTimeout("window.scrollTo(0, 0)", 1);
+    }
+    
+    $(function(){
+    	changeHeight();
+    	is_show_alert_wrap();//是否显示关注微信选项
+    	
+    	var userType = ${userType!-1};
+    	if(userType != -1){
+    		$("#li0").removeClass("active");
+    		switch(userType){
+				case 1:
+				  $("#li1").addClass("active");
+				  break;
+				case 0:
+				  $("#li2").addClass("active");
+				  break;
+				case 2:
+				  $("#li3").addClass("active");
+				  break;
+			    case 3:
+				  $("#li4").addClass("active");
+				  break;
+				case 10:
+				  $("#li10").addClass("active");
+				  break;
+			}
+    	}
+    })
+    
+    function searchProduct(){
+    	var searchInput = $("#keyword").val();
+    	if($.trim(searchInput) == ""){
+    		alert("请输入关键字搜索");
+    		return;
+    	}
+    	
+    	window.location.href = "${url!''}?keyword=" + searchInput;
+    }
+	//固定每一个图片的高度
+    function changeHeight(){
+    	var imgHeight = $(".goodsImg:first").height();
+    	$(".goodsImg").css("height",imgHeight + "px");
+    }
+    //是否显示关注微信选项，如果是微信登录，则不显示
+    function is_show_alert_wrap(){
+    	if(!is_weixin()){
+    		$("#alert_wrap").show();
+    	}
+    }
+    //是不是微信访问
+    function is_weixin(){
+		var ua = navigator.userAgent.toLowerCase();
+		if(ua.match(/MicroMessenger/i)=="micromessenger") {
+			return true;
+	 	} else {
+			return false;
+		}
+	}
+</script>
+
 <!-- 延迟加载 -->
 <script type="text/javascript" charset="utf-8">
   $(function() {
@@ -24,7 +103,6 @@
 </head>
 
 <body>
-	<#include "template/weixin.ftl" ><!-- 微信提醒 -->
 	<div class="main">
 		<div class="app">
 			<div id="head">
@@ -200,84 +278,7 @@
 			<div class="alert_fullbg"></div>
 		</div>
 	</div>
-	
-	<script type="text/javascript">
-	var BASE_URL = "${url!''}";
-    function addLoadEvent(func) {
-        var oldOnload = window.onload;
-        if (typeof window.onload != 'function') {
-            window.onload = func;
-        }
-        else {
-            window.onload = function() {
-                oldOnload();
-                func();
-            }
-        }
-    }
-    // 添加Load事件处理
-    addLoadEvent(hideMenu);
-    function hideMenu() {
-        setTimeout("window.scrollTo(0, 0)", 1);
-    }
-    
-    $(function(){
-    	is_show_alert_wrap();//是否显示关注微信选项
-    	
-    	var userType = ${userType!-1};
-    	if(userType != -1){
-    		$("#li0").removeClass("active");
-    		switch(userType){
-				case 1:
-				  $("#li1").addClass("active");
-				  break;
-				case 0:
-				  $("#li2").addClass("active");
-				  break;
-				case 2:
-				  $("#li3").addClass("active");
-				  break;
-			    case 3:
-				  $("#li4").addClass("active");
-				  break;
-				case 10:
-				  $("#li10").addClass("active");
-				  break;
-			}
-    	}
-    	changeHeight();
-    })
-    
-    function searchProduct(){
-    	var searchInput = $("#keyword").val();
-    	if($.trim(searchInput) == ""){
-    		alert("请输入关键字搜索");
-    		return;
-    	}
-    	
-    	window.location.href = "${url!''}?keyword=" + searchInput;
-    }
-	//固定每一个图片的高度
-    function changeHeight(){
-    	var imgHeight = $(".goodsImg:first").height();
-    	$(".goodsImg").css("height",imgHeight + "px");
-    }
-    //是否显示关注微信选项，如果是微信登录，则不显示
-    function is_show_alert_wrap(){
-    	if(!is_weixin()){
-    		$("#alert_wrap").show();
-    	}
-    }
-    //是不是微信访问
-    function is_weixin(){
-		var ua = navigator.userAgent.toLowerCase();
-		if(ua.match(/MicroMessenger/i)=="micromessenger") {
-			return true;
-	 	} else {
-			return false;
-		}
-	}
-    </script>
+	<#include "template/weixin.ftl" ><!-- 微信提醒 -->
 	<script type="text/javascript" src="${request.contextPath}/js/wap/mjky.js"></script>
 </body>
 </html>
