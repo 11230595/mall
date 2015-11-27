@@ -99,6 +99,7 @@ public class LinkProductController {
 		Page<LinkProduct> page = linkProductService.findByPage(param,pageNo,88);
 		mav.addObject("page", page);
 		mav.addObject("url", Constants.config.getString("BASE_URL"));
+		mav.addObject("pageName", "pre");
 		return mav;
 	}
 	

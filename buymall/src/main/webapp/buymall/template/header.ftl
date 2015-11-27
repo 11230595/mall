@@ -22,11 +22,11 @@
 						<div class="col1">
 							<div class="h_nav">
 								<h4>穿着</h4>
-								<ul>
-									<li><a href="${url!''}?type=1&userType=${userType!''}">女装</a></li>
-									<li><a href="${url!''}?type=2&userType=${userType!''}">男装</a></li>
-									<li><a href="${url!''}?type=3&userType=${userType!''}">内衣</a></li>
-									<li><a href="${url!''}?type=4&userType=${userType!''}">鞋品</a></li>
+								<ul><!-- 如果pageName为空，则说明是首页，可以现实userType -->
+									<li><a href="${url!''}?type=1<#if !pageName?? && userType??>&userType=${userType!''}</#if>">女装</a></li>
+									<li><a href="${url!''}?type=2<#if !pageName?? && userType??>&userType=${userType!''}</#if>">男装</a></li>
+									<li><a href="${url!''}?type=3<#if !pageName?? && userType??>&userType=${userType!''}</#if>">内衣</a></li>
+									<li><a href="${url!''}?type=4<#if !pageName?? && userType??>&userType=${userType!''}</#if>">鞋品</a></li>
 								</ul>	
 							</div>							
 						</div>
@@ -34,10 +34,10 @@
 							<div class="h_nav">
 								<h4>居家</h4>
 								<ul>
-									<li><a href="${url!''}?type=7&userType=${userType!''}">家居</a></li>
-									<li><a href="${url!''}?type=8&userType=${userType!''}">食品</a></li>
-									<li><a href="${url!''}?type=10&userType=${userType!''}">箱包</a></li>
-									<li><a href="${url!''}?type=11&userType=${userType!''}">美妆</a></li>
+									<li><a href="${url!''}?type=7<#if !pageName?? && userType??>&userType=${userType!''}</#if>">家居</a></li>
+									<li><a href="${url!''}?type=8<#if !pageName?? && userType??>&userType=${userType!''}</#if>">食品</a></li>
+									<li><a href="${url!''}?type=10<#if !pageName?? && userType??>&userType=${userType!''}</#if>">箱包</a></li>
+									<li><a href="${url!''}?type=11<#if !pageName?? && userType??>&userType=${userType!''}</#if>">美妆</a></li>
 								</ul>	
 							</div>							
 						</div>
@@ -45,8 +45,8 @@
 							<div class="h_nav">
 								<h4>母婴</h4>
 								<ul>
-									<li><a href="${url!''}?type=5&userType=${userType!''}">儿童</a></li>
-									<li><a href="${url!''}?type=6&userType=${userType!''}">母婴</a></li>
+									<li><a href="${url!''}?type=5<#if !pageName?? && userType??>&userType=${userType!''}</#if>">儿童</a></li>
+									<li><a href="${url!''}?type=6<#if !pageName?? && userType??>&userType=${userType!''}</#if>">母婴</a></li>
 								</ul>	
 							</div>												
 						</div>
@@ -54,7 +54,7 @@
 							<div class="h_nav">
 								<h4>数码</h4>
 								<ul>
-									<li><a href="${url!''}?type=9&userType=${userType!''}">数码</a></li>
+									<li><a href="${url!''}?type=9<#if !pageName?? && userType??>&userType=${userType!''}</#if>">数码</a></li>
 								</ul>	
 							</div>												
 						</div>
