@@ -45,7 +45,7 @@ import com.framework.core.utils.IDUtils;
  *
  */
 @Controller
-@RequestMapping("link")
+@RequestMapping("pre")
 public class LinkProductController {
 	private static Logger logger = Logger.getLogger(LinkProductController.class);
 	@Resource

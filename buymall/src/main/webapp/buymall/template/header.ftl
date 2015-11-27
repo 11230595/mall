@@ -69,9 +69,9 @@
 							<div class="h_nav">
 								<h4>专区优惠</h4>
 								<ul>
-									<li><a href="${url!''}/pre/index?type=10">天天特价</a></li>
-									<li><a href="${url!''}/pre/index?type=0">9块9专区</a></li>
-									<li><a href="${url!''}/pre/index?type=1">20封顶</a></li>
+									<li><a href="${url!''}/pre/0/1">天天特价</a></li>
+									<li><a href="${url!''}/pre/1/1">9块9专区</a></li>
+									<li><a href="${url!''}/pre/2/1">20封顶</a></li>
 								</ul>	
 							</div>							
 						</div>
@@ -79,9 +79,9 @@
 							<div class="h_nav">
 								<h4>专区特卖</h4>
 								<ul>
-									<li><a href="${url!''}/pre/index?type=2">品牌特卖</a></li>
-									<li><a href="${url!''}/pre/index?type=3">精品疯抢季</a></li>
-									<li><a href="${url!''}/pre/index?type=4">一折清仓</a></li>
+									<li><a href="${url!''}/pre/3/1">50元好货</a></li>
+									<li><a href="${url!''}/pre/4/1">一折清仓</a></li>
+									<li><a href="${url!''}/pre/5/1">全场半价</a></li>
 								</ul>	
 							</div>							
 						</div>

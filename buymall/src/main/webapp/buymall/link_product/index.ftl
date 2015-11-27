@@ -25,7 +25,7 @@
 							<#list page.list as page>
 								<div class="tag-grid" style="width:21%;margin:10px 1% 0;">
 									<div class="tag-wrapper">		
-										<a target="_blank" href="${request.contextPath}/link/out/${page.id!''}">
+										<a target="_blank" href="${request.contextPath}/pre/out/${page.id!''}">
 											<img data-original="${page.imgUrl!''}" src="${request.contextPath}/images/tunhuowang.png" class="img-responsive" style="width:100%;height: 218px"/>
 										</a>
 										<div class="r-title">
@@ -43,7 +43,7 @@
 											</h4>
 										</div>
 									</div>
-									<div class="atc"><a target="_blank" href="${request.contextPath}/link/out/${page.id!''}">去看看</a></div>
+									<div class="atc"><a target="_blank" href="${request.contextPath}/pre/out/${page.id!''}">去看看</a></div>
 							   </div>
 						   </#list>
 							<div class="clearfix"></div>
@@ -75,7 +75,7 @@
 		});
 		//删除商品
 		function deleteLinkProduct(productId){
-			$.post("${url}/link/delete/"+ productId, function(data){
+			$.post("${url}/pre/delete/"+ productId, function(data){
 				if(data.respCode == 0){
 					alert("删除成功");
 					window.location.reload(true);

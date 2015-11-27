@@ -27,7 +27,7 @@ import com.buymall.service.FrameUrlService;
  *
  */
 @Controller
-@RequestMapping("pre")
+@RequestMapping("prefe")
 public class FrameController {
 	private static Logger logger = Logger.getLogger(FrameController.class);
 	@Resource

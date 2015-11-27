@@ -175,7 +175,7 @@ function submit_link() {
 		return;
 	}
 
-	$.post("../link/add", {
+	$.post("../pre/add", {
 		"type" : type,
 		"url" : url,
 		"day":day,
