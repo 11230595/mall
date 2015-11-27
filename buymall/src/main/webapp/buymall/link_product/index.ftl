@@ -60,6 +60,8 @@
 	</div>
 	<!-- //end-产品 -->
 	 
+	<#include "../template/jd_ad.ftl"><!-- 京东广告 -->
+	 
    <!-- 图片旋转start -->
    <#include "../template/rotate.ftl"><!-- 导航模板 -->
    <!-- 图片旋转end -->

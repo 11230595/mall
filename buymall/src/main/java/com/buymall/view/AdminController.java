@@ -35,13 +35,23 @@ public class AdminController {
 	public ModelAndView jd(HttpServletRequest request) {
 		return new ModelAndView("admin/jd_add","url",Constants.config.getString("BASE_URL"));
 	}
-	
+
 	/**
 	 * 淘宝客活动导入产品
 	 * @return
 	 */
-	@RequestMapping(value="admin/link",method={RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value="admin/99",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView tkactivity(HttpServletRequest request) {
+		return new ModelAndView("admin/99_add","url",Constants.config.getString("BASE_URL"));
+	}
+
+	
+	/**
+	 * 专区产品导入
+	 * @return
+	 */
+	@RequestMapping(value="admin/link",method={RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView link(HttpServletRequest request) {
 		return new ModelAndView("admin/link_add","url",Constants.config.getString("BASE_URL"));
 	}
 	
