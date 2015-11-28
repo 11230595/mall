@@ -58,6 +58,8 @@
 				  break;
 			}
     	}
+    	
+    	lazyImg(); //延迟加载
     })
     
     function searchProduct(){
@@ -89,16 +91,22 @@
 			return false;
 		}
 	}
-</script>
-
-<!-- 延迟加载 -->
-<script type="text/javascript" charset="utf-8">
-  $(function() {
-      $("img").lazyload({
-      	effect : "fadeIn",
-      	threshold: 200
-      });
-  });
+	//判断手机QQ访问
+	function is_mobileQQ() {
+		var ua = navigator.userAgent.toLowerCase();
+		if (ua.match(/\sQQ/i) == " qq" && /iphone/i.test(ua) == false) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	//延迟加载
+	function lazyImg(){
+		$("img").lazyload({
+	      	effect : "fadeIn",
+	      	threshold: 200
+      	});
+	}
 </script>
 </head>
 
