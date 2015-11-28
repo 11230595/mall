@@ -145,5 +145,9 @@
         
         $('.alert_black_bg .close').on('click', function(){
             $('.alert_black_bg').hide();
+            setCookies();
         })
-
+        //关闭关注微信的时候 设置cookie
+        function setCookies(){
+        	$.cookie('alert_cookie', 'true');
+        }

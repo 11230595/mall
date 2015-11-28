@@ -8,6 +8,7 @@
 <title>手机囤货网</title>
 <script src="${request.contextPath}/js/jquery/jquery-1.11.1.min.js"></script>
 <script src="${request.contextPath}/js/jquery/jquery.lazyload.min.js"></script><!-- 延迟加载 -->
+<script src="${request.contextPath}/js/jquery/jquery.cookie.js"></script><!-- cookie -->
 <script src="${request.contextPath}/js/wap/zepto.js"></script>
 <script src="${request.contextPath}/js/wap/underscore.js"></script>
 <script src="${request.contextPath}/js/count.js"></script>
@@ -78,9 +79,17 @@
     }
     //是否显示关注微信选项，如果是微信登录，则不显示
     function is_show_alert_wrap(){
-    	if(!is_weixin()){
+    	if(!is_weixin() && getCookies('alert_cookie')){
     		$("#alert_wrap").show();
     	}
+    }
+    //获取cookie
+    function getCookies(cookieName){
+    	var cookie_flag = $.cookie(cookieName);
+    	if(cookie_flag == null || cookie_flag == ''){
+    		return true;
+    	}
+    	return false;
     }
     //是不是微信访问
     function is_weixin(){
