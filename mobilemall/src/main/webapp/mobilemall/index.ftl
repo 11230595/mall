@@ -35,7 +35,8 @@
     }
     
     $(function(){
-    	changeHeight();
+    	changeHeight();//统一高度
+		lazyImg(); //延迟加载
     	is_show_alert_wrap();//是否显示关注微信选项
     	
     	var userType = ${userType!-1};
@@ -59,8 +60,6 @@
 				  break;
 			}
     	}
-    	
-    	setTimeout(lazyImg(),500); //延迟加载
     })
     
     function searchProduct(){
@@ -75,7 +74,9 @@
 	//固定每一个图片的高度
     function changeHeight(){
     	var imgHeight = $(".goodsImg:first").height();
-    	$(".goodsImg").css("height",imgHeight + "px");
+    	if(imgHeight > 0){
+	    	$(".goodsImg").css("height",imgHeight + "px");
+    	}
     }
     //是否显示关注微信选项，如果是微信登录，则不显示
     function is_show_alert_wrap(){
