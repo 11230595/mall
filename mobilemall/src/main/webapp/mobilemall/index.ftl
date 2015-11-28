@@ -59,7 +59,7 @@
 			}
     	}
     	
-    	lazyImg(); //延迟加载
+    	setTimeout(lazyImg(),500); //延迟加载
     })
     
     function searchProduct(){
