@@ -19,11 +19,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.buymall.constants.Constants;
 import com.buymall.entity.Banner;
+import com.buymall.entity.HongBao;
 import com.buymall.entity.LoginLog;
 import com.buymall.entity.Product;
 import com.buymall.entity.User;
 import com.buymall.manager.SessionManager;
 import com.buymall.service.BannerService;
+import com.buymall.service.HongBaoService;
 import com.buymall.service.LoginLogService;
 import com.buymall.service.PlatformActivityService;
 import com.buymall.service.ProductService;
@@ -50,6 +52,8 @@ public class IndexController {
 	private PlatformActivityService platformActivityService;
 	@Resource
 	private SessionManager sessionManager;
+	@Resource
+	private HongBaoService hongBaoService;
 	/**
 	 * 首页
 	 * @return
@@ -117,11 +121,15 @@ public class IndexController {
 	}
 	
 	/**
-	 * 关于
+	 * 帮助
 	 * @return
 	 */
 	@RequestMapping(value="help",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView help() {
-		return new ModelAndView("help","url",Constants.config.getString("BASE_URL"));
+		ModelAndView mav = new ModelAndView("help");
+		mav.addObject("url", Constants.config.getString("BASE_URL"));
+		HongBao hongBao = hongBaoService.findNowHongBao();
+		mav.addObject("hongBao", hongBao);
+		return mav;
 	}
 }

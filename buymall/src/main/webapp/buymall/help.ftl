@@ -39,6 +39,14 @@
         	3、可以和卖家沟通相关细节问题<br>
         	4、登录商家账号购买，如：登录天猫账号，购买宝贝<br>
         	5、商户中心，商户可以自行注册，开通商户，上传自己的产品进行退关，此功能完全免费，<code>注意：请不要上传没有任何折扣的商品，一经发现，立即删除！</code><br>
+        	6、使用小窍门，使用百度搜索：囤货网&nbsp;&nbsp;&nbsp;或者关注公众号：囤货网，获取优惠信息，更近一步噢~
+        	<#if hongBao ??>
+        		<br>
+        		<span style="color:red">
+        			7、${hongBao.createTime?string("yyyy-MM-dd")}，${hongBao.tKey!''}：${hongBao.tValue!''}
+        		</span>
+        		</br>
+        	</#if>
         </p>
       </div>
       <!-- 地脚信息 -->

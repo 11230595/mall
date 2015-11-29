@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.buymall.mapper.HongBaoMapper" >
+  <resultMap id="BaseResultMap" type="com.buymall.entity.HongBao" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="T_KEY" property="tKey" jdbcType="VARCHAR" />
+    <result column="T_VALUE" property="tValue" jdbcType="VARCHAR" />
+    <result column="T_DESC" property="tDesc" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, T_KEY, T_VALUE, T_DESC, CREATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from hong_bao
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from hong_bao
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.buymall.entity.HongBao" >
+    insert into hong_bao (ID, T_KEY, T_VALUE, 
+      T_DESC, CREATE_TIME)
+    values (#{id,jdbcType=VARCHAR}, #{tKey,jdbcType=VARCHAR}, #{tValue,jdbcType=VARCHAR}, 
+      #{tDesc,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.buymall.entity.HongBao" >
+    insert into hong_bao
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="tKey != null" >
+        T_KEY,
+      </if>
+      <if test="tValue != null" >
+        T_VALUE,
+      </if>
+      <if test="tDesc != null" >
+        T_DESC,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="tKey != null" >
+        #{tKey,jdbcType=VARCHAR},
+      </if>
+      <if test="tValue != null" >
+        #{tValue,jdbcType=VARCHAR},
+      </if>
+      <if test="tDesc != null" >
+        #{tDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.buymall.entity.HongBao" >
+    update hong_bao
+    <set >
+      <if test="tKey != null" >
+        T_KEY = #{tKey,jdbcType=VARCHAR},
+      </if>
+      <if test="tValue != null" >
+        T_VALUE = #{tValue,jdbcType=VARCHAR},
+      </if>
+      <if test="tDesc != null" >
+        T_DESC = #{tDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.buymall.entity.HongBao" >
+    update hong_bao
+    set T_KEY = #{tKey,jdbcType=VARCHAR},
+      T_VALUE = #{tValue,jdbcType=VARCHAR},
+      T_DESC = #{tDesc,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <!-- 获取最新的红包信息 -->
+  <select id="findNowHongBao" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    FROM
+		hong_bao
+	ORDER BY
+		create_time DESC
+	LIMIT 1
+  </select>
+</mapper>
