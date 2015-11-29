@@ -45,17 +45,17 @@
       /* CSS class that is added to the helperLayer */
       highlightClass: '',
       /* Close introduction when pressing Escape button? */
-      exitOnEsc: true,
+      exitOnEsc: false,
       /* Close introduction when clicking on overlay layer? */
-      exitOnOverlayClick: true,
+      exitOnOverlayClick: false,
       /* Show step numbers in introduction? */
-      showStepNumbers: true,
+      showStepNumbers: false,
       /* Let user use keyboard to navigate the tour? */
-      keyboardNavigation: true,
+      keyboardNavigation: false,
       /* Show tour control buttons? */
       showButtons: true,
       /* Show tour bullets? */
-      showBullets: true,
+      showBullets: false,
       /* Show tour progress? */
       showProgress: false,
       /* Scroll to highlighted element? */
