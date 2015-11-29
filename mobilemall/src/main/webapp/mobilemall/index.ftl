@@ -235,7 +235,7 @@
 				<div class="foot-nav">
 					<a href="${url!''}">首页</a>
 					<i></i>
-					<a href="app">客户端</a>
+					<a href="${pc_url!''}/help">帮助</a>
 					<i></i>
 					<a href="${pc_url!''}?client=PC">电脑版</a>
 				</div>
