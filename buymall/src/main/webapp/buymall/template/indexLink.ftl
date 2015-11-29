@@ -4,6 +4,7 @@
 <link href="${request.contextPath}/css/index/style.css" rel='stylesheet' type='text/css' />	
 <script src="${request.contextPath}/js/jquery/jquery-1.11.1.min.js"></script>
 <script src="${request.contextPath}/js/jquery/jquery.lazyload.min.js"></script><!-- jquery 延迟加载 -->
+<script src="${request.contextPath}/js/jquery/jquery.cookie.js"></script><!-- jquery cookie -->
 <script src="${request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 <!-- start menu -->
 <link href="${request.contextPath}/css/index/megamenu.css" rel="stylesheet" type="text/css" media="all" />
@@ -16,6 +17,8 @@
 <script src="${request.contextPath}/js/index/scripts.js" type="text/javascript"></script>
 <script type="text/javascript" src="${request.contextPath}/js/index/move-top.js"></script>
 <script type="text/javascript" src="${request.contextPath}/js/index/easing.js"></script>
+<script src="${request.contextPath}/js/intro/intro.js" type="text/javascript"></script><!-- 提示js -->
+<link href="${request.contextPath}/css/intro/introjs.css" rel="stylesheet" type="text/css" /><!-- 提示css -->
 <script type="text/javascript" src="${request.contextPath}/js/search.js"></script><!-- 搜索 -->
 <script src="${request.contextPath}/js/common/common.js"></script><!-- 公共js，有退出等方法 -->
 <script src="${request.contextPath}/js/count.js"></script><!-- 流量统计 -->

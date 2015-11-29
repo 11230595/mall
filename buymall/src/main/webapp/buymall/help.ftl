@@ -45,6 +45,7 @@
         		<span style="color:red">
         			7、${hongBao.createTime?string("yyyy-MM-dd")}，${hongBao.tKey!''}：${hongBao.tValue!''}
         		</span>
+        		<br>注：红包每日更新，记得及时来查看哟~
         		</br>
         	</#if>
         </p>

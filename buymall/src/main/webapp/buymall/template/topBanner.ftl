@@ -4,7 +4,7 @@
 		<div class="header_top">
 			<div class="top_right">
 				<ul>
-					<li><a href="${request.contextPath}/help">帮助</a></li>
+					<li><a href="${request.contextPath}/help" data-intro="红包来啦~~点击“帮助”按钮获取最新红包口令~~">帮助</a></li>
 					<li>
 						<#if user??>
 							<a href="${request.contextPath}/user/home/${user.userId!''}">您好：${user.userCode!''}</a>
@@ -25,3 +25,13 @@
 		</div>
 	</div>
 </div>
+
+<!-- 提示 -->
+<script type="text/javascript">
+$(function(){
+	if($.cookie('introJs_cookie') == null || $.cookie('introJs_cookie') == ''){
+		introJs().start();
+		$.cookie('introJs_cookie', 'true',{ expires: 1 }); //cookie时间 一天
+	}
+})
+</script>
