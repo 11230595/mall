@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>囤货网-跳转中</title>
 <script src="${request.contextPath}/js/jquery/jquery-1.11.1.min.js"></script>
+<script src="${request.contextPath}/js/jquery/jquery.cookie.js"></script><!-- jquery cookie -->
 </head>
 <body>
 	<#if product??>
@@ -39,8 +40,13 @@
 		function skip(){
 			document.getElementById("alink").click();
 		}
-		
-		window.onload=skip;
+		var onlyId = '${onlyId!""}';
+		if($.cookie(onlyId) == '' || $.cookie(onlyId) == null || $.cookie(onlyId) == undefined){
+			$.cookie(onlyId, onlyId);
+			window.onload=skip;
+		}else{
+			history.back();
+		}
 	</script>
 </body>
 </html>

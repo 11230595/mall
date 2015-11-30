@@ -217,6 +217,7 @@ public class ProductController {
 					product.getUserType(),product.getId(), user == null ? "未登陆用户" : user.getUserId(), new Date()));
 		}
 		mav.addObject("product", product);
+		mav.addObject("onlyId", UUID.randomUUID().toString());
 		return mav;
 	}
 	
