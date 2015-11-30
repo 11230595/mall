@@ -35,7 +35,17 @@ label{
 	margin:0;
 }
 /*--start-header--*/
-
+.new-icon {
+  background: rgba(0, 0, 0, 0) url("../../images/new.png") no-repeat scroll 0 0;
+  height: 0;
+  left: 0;
+  overflow: hidden;
+  padding-top: 37px;
+  position: absolute;
+  top: 0;
+  width: 37px;
+  z-index: 15;
+}
 /*-- header --*/
 .top_bg{
 	background: #252525;
