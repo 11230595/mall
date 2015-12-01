@@ -27,6 +27,9 @@
 									<div class="tag-wrapper">		
 										<a target="_blank" href="${request.contextPath}/pre/out/${page.id!''}">
 											<img data-original="${page.imgUrl!''}" src="${request.contextPath}/images/tunhuowang.png" class="img-responsive" style="width:100%;height: 218px"/>
+											<#if .now?string("yyyyMMdd") == page.createTime?string("yyyyMMdd")>
+												<span class="new-icon">新品</span>
+											</#if>
 										</a>
 										<div class="r-title">
 											<h3 title="${page.title}">
