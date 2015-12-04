@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.buymall.entity.Member;
 import com.buymall.entity.OutCount;
 import com.buymall.entity.Product;
 import com.buymall.entity.User;
@@ -31,6 +30,7 @@ import com.buymall.service.ProductService;
 import com.buymall.utils.GetIframeProduct;
 import com.buymall.utils.GetProduct;
 import com.buymall.utils.TKUtils;
+import com.buymall.utils.TypeUtils;
 import com.buymall.vo.ItemListRequestVO;
 import com.buymall.vo.ProductVO;
 import com.framework.core.page.Page;
@@ -156,7 +156,7 @@ public class ProductController {
 				productVO = new ProductVO();
 				BeanUtils.populate(productVO, map);
 				productVO.setId(IDUtils.getId());
-				productVO.setType(Integer.parseInt(type));
+				productVO.setType(TypeUtils.getType(productVO.getTitle(),Integer.parseInt(type)));
 				productVO.setStatus(0);
 				productVO.setExpireTime(DateUtils.addDay(new Date(), day));
 				productVO.setStartTime(new Date());
