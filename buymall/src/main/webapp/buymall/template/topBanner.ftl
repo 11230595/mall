@@ -28,10 +28,10 @@
 
 <!-- 提示 -->
 <script type="text/javascript">
-$(function(){
+/*$(function(){
 	if($.cookie('introJs_cookie') == null || $.cookie('introJs_cookie') == ''){
 		introJs().start();
 		$.cookie('introJs_cookie', 'true',{ expires: 1 }); //cookie时间 一天
 	}
-})
+})*/
 </script>
