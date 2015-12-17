@@ -188,6 +188,7 @@ public class UserController {
 				user.setEmail(accessToken);
 				user.setCreateTime(new Date());
 				user.setDelFlag(0);
+				user.setUserLevel(0);
 				userService.insert(user);
 			}else{
 				loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 1, user.getUserCode(), userCode + "，已经有人使用，跳转到信息补充页面。", ip, IPUtils.getAddress(ip)));
