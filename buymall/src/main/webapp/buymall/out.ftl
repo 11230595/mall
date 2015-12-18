@@ -8,7 +8,7 @@
 </head>
 <body>
 	<#if product??>
-		<#if product.userType == 0 || product.userType ==1><!-- 淘宝或者天猫 使用淘点金 -->
+		<#if product.userType == 0 || product.userType ==1 || product.userType ==10><!-- 淘宝或者天猫 使用淘点金 -->
 			<a data-type="0" id="alink" biz-itemid="${product.numIid!''}" style="display:none;" data-tmpl="470x190" data-tmplid="1111" data-rd="2" data-style="2" data-border="1" href="${product.itemUrl!''}"></a>
 			<script type="text/javascript">
 			    (function(win,doc){
