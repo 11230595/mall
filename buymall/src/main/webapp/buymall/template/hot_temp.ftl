@@ -31,9 +31,9 @@
 	color:#c81623;
 }
 .hotTmp a{
-	color:#3f3d3d
+	color:#3f3d3d;text-decoration:none;
 }
-.hotTmp a:hover{color:#3f3d3d}
+.hotTmp a:hover{color:#3f3d3d;text-decoration:none;}
 </style>
 <script>
 /**
