@@ -1,6 +1,6 @@
 <!-- QQ登录 -->
 <p>
-  	<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101267617" charset="utf-8" ></script>
+  	<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101223876" charset="utf-8" ></script>
 
 	<span id="qqLoginBtn" ></span>
 	
