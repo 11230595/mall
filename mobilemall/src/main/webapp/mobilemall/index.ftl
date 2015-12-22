@@ -5,6 +5,7 @@
 <#include "template/ico.ftl" >
 
 <link href="${request.contextPath}/css/wap/global.css" rel="stylesheet"	type="text/css" />
+<link href="${request.contextPath}/css/intro/introjs.css" rel="stylesheet"	type="text/css" />
 <title>手机囤货网</title>
 <script src="${request.contextPath}/js/jquery/jquery-1.11.1.min.js"></script>
 <script src="${request.contextPath}/js/jquery/jquery.lazyload.min.js"></script><!-- 延迟加载 -->
@@ -13,6 +14,7 @@
 <script src="${request.contextPath}/js/wap/underscore.js"></script>
 <script src="${request.contextPath}/js/count.js"></script>
 <script src="${request.contextPath}/js/share.js"></script>
+<script src="${request.contextPath}/js/intro/intro.js"></script><!-- 提示 -->
 
 <script type="text/javascript">
 	var BASE_URL = "${url!''}";
@@ -117,6 +119,14 @@
 	      	threshold: 200
       	});
 	}
+	
+	//提示
+	window.onload = function(){
+		if($.cookie('introJs_cookie') == null || $.cookie('introJs_cookie') == ''){
+			introJs().start();
+			$.cookie('introJs_cookie', 'true',{ expires: 365 }); //cookie时间 一天
+		}
+	}
 </script>
 </head>
 
@@ -126,8 +136,8 @@
 			<div id="head">
 				<div class="fixtop">
 					<span id="find">
-						<i class="ico08">
-							<img src="${request.contextPath}/images/ss1.png" width="29px" />
+						<i class="ico08" data-intro="点这里可以查看分类和搜索产品">
+							<img src="${request.contextPath}/images/ss1.png" width="29px"/>
 						</i>
 					</span> 
 					<span id="index">
@@ -145,11 +155,11 @@
 				</div>
 				<ul class="head-nav">
 					<a href="${url!''}"><li class="active" id="li0">全部</li></a>
-					<a href="${request.contextPath}/index/1?userType=1"><li id="li1">天猫</li></a>
-					<a href="${request.contextPath}/index/1?userType=0"><li id="li2">淘宝</li></a>
-					<a href="${request.contextPath}/index/1?userType=2"><li id="li3">爱淘宝</li></a>
-					<a href="${request.contextPath}/index/1?userType=3"><li id="li4">京东</li></a>
-					<a href="${request.contextPath}/index/1?userType=10"><li id="li10" style="color:red">九块九</li></a>
+					<a href="${request.contextPath}?type=1"><li id="li1">女装</li></a>
+					<a href="${request.contextPath}?type=2"><li id="li2">男装</li></a>
+					<a href="${request.contextPath}?type=7"><li id="li3">居家</li></a>
+					<a href="${request.contextPath}?type=3"><li id="li4">内衣</li></a>
+					<a href="${request.contextPath}?type=11"><li id="li10" style="color:red">美妆</li></a>
 				</ul>
 				<div id="nav" class="view currents out">
 
