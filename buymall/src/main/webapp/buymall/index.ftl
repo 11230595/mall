@@ -46,7 +46,8 @@
 				<!-- recommand -->
 				<div class="recommand-section-grids">
 
-				<div class="standards">
+				<div class="standards" style="margin: 0 0 0px -38%;">
+				   <!--
 				   <h5>Tags<i class="glyphicon glyphicon-tag"></i></h5>
 					<ul class="selectors_wrapper">
 						<li class="selector active" id="platformAll" onclick="selectPlatform(-1);">全部</li>
@@ -55,9 +56,10 @@
 						<li class="selector" id="platformITB" onclick="selectPlatform(2);">爱淘宝</li>
 						<li class="selector" id="platformJD" onclick="selectPlatform(3);">京东</li>
 						<li class="selector" id="platform99" onclick="selectPlatform(10);" style="color:red">九块九专区</li>
-						<#include "template/showcase.ftl"><!-- 橱窗推荐 -->
+						<#--<#include "template/showcase.ftl">--><!-- 橱窗推荐 
 					</ul>
-					
+					-->
+										
 					<!-- 内容 -->
 					<div class="standard_content">
 						<div class="standard active">
