@@ -126,9 +126,9 @@
 			var s_type = "${type!''}";
 			var platformType = "${userType!''}";
 			if(pageNo != 1 || s_type != '' || platformType != ''){
-				window.scrollTo(100,1320); //pageNo不等于1的时候，页面定位到商品位置
+				$("html,body").animate({scrollTop:1290},1000);//pageNo不等于1的时候，页面定位到商品位置
 			}
-			
+			/* 已经废弃
 			//选定tag
 			switch(platformType){
 			case "0":
@@ -152,6 +152,7 @@
 				$("#platform99").addClass("active");
 			  	break;
 			}
+			*/
 		})
 		//跳转平台
 		function selectPlatform(flag){

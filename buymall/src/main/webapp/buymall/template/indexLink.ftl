@@ -20,10 +20,10 @@
 <script src="${request.contextPath}/js/intro/intro.js" type="text/javascript"></script><!-- 提示js -->
 <link href="${request.contextPath}/css/intro/introjs.css" rel="stylesheet" type="text/css" /><!-- 提示css -->
 <script type="text/javascript" src="${request.contextPath}/js/search.js"></script><!-- 搜索 -->
+<script src="${request.contextPath}/js/buymall/index/index.js"></script><!-- 首页 -->
 <script src="${request.contextPath}/js/common/common.js"></script><!-- 公共js，有退出等方法 -->
 <script src="${request.contextPath}/js/count.js"></script><!-- 流量统计 -->
 <script src="${request.contextPath}/js/share.js"></script><!-- 分享 -->
-<script src="${request.contextPath}/js/buymall/index/index.js"></script><!-- 首页 -->
 
 <!--/script-->
 <script type="text/javascript">
