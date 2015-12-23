@@ -11,7 +11,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.buymall.constants.Constants;
 import com.buymall.entity.User;
@@ -23,7 +24,7 @@ import com.framework.core.spring.SpringContextHolder;
  *
  */
 public class LoginFilter implements Filter{
-	private static Logger logger = Logger.getLogger(LoginFilter.class);
+	private static Logger logger = LoggerFactory.getLogger(LoginFilter.class);
 	public void destroy() {
 		
 	}
@@ -39,6 +40,7 @@ public class LoginFilter implements Filter{
 			logger.info("Cookie不存在,跳转登录..");
 			response.sendRedirect(Constants.config.getString("BASE_URL") + "/user/login?returnUrl=" + request.getRequestURL());
 		}else {
+			logger.info("Cookie存在，走cookie,用户名：{}",user.getUserCode());
 			chain.doFilter(req, resp);
 		}
 	}

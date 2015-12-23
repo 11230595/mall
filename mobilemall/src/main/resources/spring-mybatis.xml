@@ -15,30 +15,7 @@
      
  
 
-	<description>Spring公共配置 </description>
-
-     <context:property-placeholder location="classpath:/application.properties"  />
-	 <!-- 自动扫描 -->  
-    <context:component-scan base-package="com.mobilemall" />
-
-	<!-- 用于持有ApplicationContext,可以使用SpringContextHolder.getBean('xxxx')的静态方法得到spring bean对象 -->
-	<bean id="springContextHolder" class="com.framework.core.spring.SpringContextHolder" lazy-init="false" />
-	
-
-	<!-- 会自动注册DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter 两个bean,是spring MVC为@Controllers分发请求所必须的。
-	并提供了：数据绑定支持，@NumberFormatannotation支持，@DateTimeFormat支持，@Valid支持，读写XML的支持（JAXB），读写JSON的支持（Jackson）。 -->
- 	<mvc:annotation-driven>  
-        <mvc:message-converters>  
-            <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">  
-                <property name="objectMapper" ref="customObjectMapper"></property>  
-            </bean>  
-        </mvc:message-converters>  
-    </mvc:annotation-driven>  
-    <bean id="customObjectMapper" class="com.framework.core.utils.DateObjectMapper"></bean>  
-
-	<!-- 支持上传文件 -->  
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>  
-
+	<description>Spring-mybatis配置 </description>
 
 	<!-- 数据源配置,使用应用内的C3P0数据库连接池 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
