@@ -4,7 +4,7 @@
 	<!-- 控制台输出日志 -->
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>%d{mm:ss} %-5level %logger{36} >>> %msg%n</pattern>
+			<pattern>%d{MM-dd HH:mm:ss} %-5level %logger{36} >>> %msg%n</pattern>
 		</encoder>
 	</appender>
 	<!--每天生成一个日志文件，保存30天的日志文件。 -->
