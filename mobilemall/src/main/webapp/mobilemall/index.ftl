@@ -235,7 +235,7 @@
 						<#include "template/page.ftl"><!-- 分页模板 -->
 					</div>
 					<div class="paging-totop">
-						<a href="#"><i class="ico14"></i>回到顶部</a>
+						<a href="#"><i class="ico14"></i>顶部</a>
 					</div>
 				</div>
 			</div>
