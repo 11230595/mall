@@ -41,23 +41,23 @@
 		lazyImg(); //延迟加载
     	is_show_alert_wrap();//是否显示关注微信选项
     	
-    	var userType = ${userType!-1};
-    	if(userType != -1){
+    	var defaultType = ${type!-1};
+    	if(defaultType != -1){
     		$("#li0").removeClass("active");
-    		switch(userType){
+    		switch(defaultType){
 				case 1:
 				  $("#li1").addClass("active");
 				  break;
-				case 0:
+				case 2:
 				  $("#li2").addClass("active");
 				  break;
-				case 2:
+				case 7:
 				  $("#li3").addClass("active");
 				  break;
 			    case 3:
 				  $("#li4").addClass("active");
 				  break;
-				case 10:
+				case 11:
 				  $("#li10").addClass("active");
 				  break;
 			}
@@ -159,7 +159,7 @@
 					<a href="${request.contextPath}?type=2"><li id="li2">男装</li></a>
 					<a href="${request.contextPath}?type=7"><li id="li3">居家</li></a>
 					<a href="${request.contextPath}?type=3"><li id="li4">内衣</li></a>
-					<a href="${request.contextPath}?type=11"><li id="li10" style="color:red">美妆</li></a>
+					<a href="${request.contextPath}?type=11"><li id="li10">美妆</li></a>
 				</ul>
 				<div id="nav" class="view currents out">
 
