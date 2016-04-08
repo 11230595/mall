@@ -49,19 +49,19 @@
 			         <option value="4">鞋品</option>
 			         <option value="5">儿童</option>
 			         <option value="6">母婴</option>
-			         <option value="7">居家</option>
+			         <option value="7" selected>居家</option>
 			         <option value="8">食品</option>
 			         <option value="9">数码</option>
 			         <option value="10">箱包</option>
 			         <option value="11">美妆</option>
-			         <option value="12" selected>9块9专区</option>
+			         <option value="12">9块9专区</option>
 			      </select>
 			   </div>
 			
 			   <div class="form-group">
 			      <div class="form-group">
 				    <label for="name">几天后过期</label>
-				    <input type="text" class="form-control" id="day" name="day" placeholder="只能存储数值型">
+				    <input type="text" class="form-control" id="day" name="day" placeholder="只能存储数值型" value="3">
 				  </div>
 			   </div>
 			   
