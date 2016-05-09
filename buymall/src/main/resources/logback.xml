@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
-	<contextName>registry</contextName>
+	<contextName>zhoudong</contextName>
 	<property name="logRoot" value="/opt/logs/buymall" />
 	
 	<!-- 控制台输出日志 -->
