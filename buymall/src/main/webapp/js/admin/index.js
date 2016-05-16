@@ -1,6 +1,6 @@
 //退出登录
 function loginOut() {
-	$.post("user/loginOut", function(data) {
+	$.post(ROOT + "user/loginOut", function(data) {
 		if (data.respCode == 0) {
 			window.location.href = data.baseUrl;
 		}
@@ -17,6 +17,34 @@ $(function() {
 		}
 	}
 });
+
+function doTBSubmit(){
+	var type = $("#tbType").val();
+	var url = $("#tbUrl").val();
+
+	if (type == "0") {
+		alert("请选择类型");
+		return;
+	}
+
+	if ($.trim(url) == "") {
+		alert("请输入商品地址");
+		return;
+	}
+
+	$.post(ROOT + "product/add_tb", {
+		"type" : type,
+		"url" : url
+	}, function(data) {
+		if (data.respCode == 0) {
+			alert("导入成功");
+			window.location.reload(true);
+		} else {
+			alert("网络繁忙，请稍后再试..");
+		}
+	});
+}
+
 //导入数据提交
 function doSubmit() {
 	var type = $("#iType").val();
@@ -32,7 +60,7 @@ function doSubmit() {
 		return;
 	}
 
-	$.post("product/add_itaobao", {
+	$.post(ROOT +  "product/add_itaobao", {
 		"type" : type,
 		"url" : url
 	}, function(data) {
@@ -52,7 +80,7 @@ function doAPISubmit(){
 		return;
 	}
 	
-	$.post("product/add", $("#tpForm").serialize(), function(data) {
+	$.post(ROOT + "product/add", $("#tpForm").serialize(), function(data) {
 		if (data.respCode == 0) {
 			alert("导入成功");
 			window.location.reload(true);

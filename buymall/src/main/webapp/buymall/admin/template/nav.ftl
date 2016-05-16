@@ -1,3 +1,6 @@
+<script>
+var ROOT="${url!''}/";
+</script>
 <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -13,6 +16,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="${request.contextPath}/admin">淘宝导入数据</a></li>
+            <li id="tb"><a href="${request.contextPath}/admin/tb">爱淘宝导入数据</a></li>
             <li id="jd" ><a href="${request.contextPath}/admin/jd">京东导入数据</a></li>
             <li id="99" ><a href="${request.contextPath}/admin/99">淘宝客模板导入数据</a></li>
             <li id="link"><a href="${request.contextPath}/admin/link">专区商品管理</a></li>

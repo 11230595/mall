@@ -44,6 +44,15 @@ public class AdminController {
 	public ModelAndView tkactivity(HttpServletRequest request) {
 		return new ModelAndView("admin/99_add","url",Constants.config.getString("BASE_URL"));
 	}
+	
+	/**
+	 * 淘宝客活动导入产品
+	 * @return
+	 */
+	@RequestMapping(value="admin/tb",method={RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView tb(HttpServletRequest request) {
+		return new ModelAndView("admin/tb","url",Constants.config.getString("BASE_URL"));
+	}
 
 	
 	/**

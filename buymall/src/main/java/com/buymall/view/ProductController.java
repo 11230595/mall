@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.buymall.entity.OutCount;
 import com.buymall.entity.Product;
 import com.buymall.entity.User;
+import com.buymall.exception.BuyMallException;
 import com.buymall.service.OutCountService;
 import com.buymall.service.ProductService;
 import com.buymall.utils.GetIframeProduct;
@@ -100,6 +101,33 @@ public class ProductController {
 	@RequestMapping(value="add_itaobao",method={RequestMethod.GET,RequestMethod.POST})
 	public @ResponseBody Map<String, Object> saveProduct(HttpServletRequest request,@RequestParam String url, @RequestParam String type) {
 		Map<String, Object> map = GetProduct.autoSaveAiTaoBao(url);
+		ProductVO productVO = new ProductVO();
+		try {
+			BeanUtils.populate(productVO, map);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		productVO.setId(IDUtils.getId());
+		productVO.setType(Integer.parseInt(type));
+		productVO.setStatus(0);
+		productVO.setItemUrl(url); //因为跳转不到淘宝，暂时跳转到爱淘宝
+		productVO.setExpireTime(DateUtils.addDay(new Date(), 3));
+		productVO.setStartTime(new Date());
+		productVO.setCreateTime(new Date());
+		productVO.setUserType(2);
+		productVO.setScore(String.valueOf(map.get("scoreCount")));
+		
+		return productService.addTkProduct(productVO);
+	}
+	
+	/**
+	 * 保存商品(爱淘宝，单个保存)
+	 * @return
+	 * @throws BuyMallException 
+	 */
+	@RequestMapping(value="add_tb",method={RequestMethod.GET,RequestMethod.POST})
+	public @ResponseBody Map<String, Object> saveProductTbOrTmall(HttpServletRequest request,@RequestParam String url, @RequestParam String type) throws BuyMallException {
+		Map<String, Object> map = GetProduct.autoSaveTaoBaoOrTmall(url);
 		ProductVO productVO = new ProductVO();
 		try {
 			BeanUtils.populate(productVO, map);

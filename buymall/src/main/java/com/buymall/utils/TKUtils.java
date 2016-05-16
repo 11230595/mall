@@ -75,13 +75,13 @@ public class TKUtils {
 	 * @return
 	 * @throws ApiException
 	 */
-	public static String getItemDesc(String url, String appkey, String secret){
+	public static String getItemDesc(String url, String appkey, String secret,String id){
 		TaobaoClient client = new DefaultTaobaoClient(url, appkey, secret);
 		TbkItemInfoGetRequest req = new TbkItemInfoGetRequest();
 		//需返回的字段列表
 		req.setFields("num_iid,title,pict_url,small_images,reserve_price,zk_final_price,user_type,provcity,item_url");
 		req.setPlatform(1L);//链接形式：1：PC，2：无线，默认：１
-		req.setNumIids("521395059494,40887946035");	//商品ID串，用,分割，从taobao.tbk.item.get接口获取num_iid字段，最大40个
+		req.setNumIids(id);	//商品ID串，用,分割，从taobao.tbk.item.get接口获取num_iid字段，最大40个
 		TbkItemInfoGetResponse rsp = null;
 		try {
 			rsp = client.execute(req);

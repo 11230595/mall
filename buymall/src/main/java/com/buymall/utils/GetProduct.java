@@ -4,9 +4,15 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 import org.apache.commons.lang.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+
+import com.buymall.exception.BuyMallException;
+import com.buymall.vo.ItemListRequestVO;
 /**
  * 获取产品
  * @author zhoudong
@@ -14,13 +20,15 @@ import org.jsoup.nodes.Document;
  */
 public class GetProduct {
 
-	public static void main(String[] args) {
-		String url = "http://item.jd.com/1582914476.html";
-		Map<String, Object> map = autoSaveProduct(url,3);
+	public static void main(String[] args) throws BuyMallException {
+		/*String url = "https://detail.tmall.com/item.htm?id=527572365532&ali_trackid=2:mm_18774322_11774819_41742628:1463402394_2k2_198447214&pvid=50_122.71.74.96_267_1463402163723";
+		Map<String, Object> map = autoSaveProduct(url,1);
 		
 		for(Map.Entry<String, Object> entry : map.entrySet()){
 			System.out.println(entry.getKey() + "---->" + entry.getValue());
-		}
+		}*/
+		
+		autoSaveTaoBaoOrTmall("https://detail.tmall.com/item.htm?id=527572365532&ali_trackid=2:mm_18774322_11774819_41742628:1463402394_2k2_198447214&pvid=50_122.71.74.96_267_1463402163723");
 	}
 	
 	public static Map<String, Object> autoSaveAiTaoBao(String getUrl){
@@ -112,6 +120,9 @@ public class GetProduct {
 			e.printStackTrace();
 			map.put("error", "1");//错误信息  0,简介成功，1，连接失败
 		}
+		
+		System.out.println(doc.toString());
+		
 		map.put("itemUrl", url);
 		map.put("title", doc.select(".tb-detail-hd").select("h1").text());//淘宝标题
 		map.put("imgUrl", doc.select("#J_ImgBooth").attr("src"));//淘宝图片
@@ -147,6 +158,42 @@ public class GetProduct {
 		
 		map.put("platform", "淘宝");//平台
 		map.put("userType", 0);//平台类型 0-淘宝，1-天猫，2-爱淘宝
+		
+		return map;
+	}
+	
+	/**
+	 * 淘宝客去掉中间页以后，使用这个导入
+	 * @param url
+	 * @return 
+	 * @throws BuyMallException 
+	 */
+	public static Map<String, Object> autoSaveTaoBaoOrTmall(String url) throws BuyMallException {
+		if(StringUtils.isBlank(url)){
+			throw new BuyMallException("url 不能是空！");
+		}
+		if(! url.contains("?") && url.contains("&")){
+			throw new BuyMallException("url 不合法！");
+		}
+		ItemListRequestVO itemRequest = new ItemListRequestVO();
+		String id = url.split("\\?")[1].split("\\&")[0].split("=")[1];
+		String result = TKUtils.getItemDesc(itemRequest.URL, itemRequest.APPKEY, itemRequest.SECRET,id);
+		JSONObject jsonObject = JSONObject.fromObject(result);
+		
+		JSONArray jsonArray = jsonObject.optJSONObject("tbk_item_info_get_response").optJSONObject("results").optJSONArray("n_tbk_item");
+		Map<String, Object> map = new HashMap<String, Object>();
+		for(int i=0; i<jsonArray.size(); i++){
+			JSONObject json = jsonArray.optJSONObject(i);
+			
+			map.put("itemUrl", url);
+			map.put("title", json.optString("title"));//淘宝标题
+			map.put("imgUrl", json.optString("pict_url"));//淘宝图片
+			map.put("zkFinalPrice", json.optString("zk_final_price"));//价格
+			map.put("reservePrice", json.optString("reserve_price"));//原价
+			int userType = json.optInt("user_type");
+			map.put("platform", userType == 0 ? "淘宝" : "天猫");//平台
+			map.put("userType", userType);//平台类型 0-淘宝，1-天猫，2-爱淘宝
+		}
 		
 		return map;
 	}
