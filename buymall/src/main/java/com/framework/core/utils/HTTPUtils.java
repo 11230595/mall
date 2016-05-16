@@ -18,6 +18,7 @@ import org.apache.commons.io.IOUtils;
  * 
  */
 public class HTTPUtils {
+	
 	/**
 	 * 发送get请求
 	 * 
