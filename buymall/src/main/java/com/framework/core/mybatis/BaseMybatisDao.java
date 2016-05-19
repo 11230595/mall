@@ -131,14 +131,14 @@ public class BaseMybatisDao extends SqlSessionDaoSupport  {
 			 */
 			MysqlDialect o = new MysqlDialect();
 			
-			PreparedStatement ps=conn.prepareStatement(o.getCountSqlString(sql,begin,size));
+			PreparedStatement ps=conn.prepareStatement(o.getCountSqlString(sql));
 			int index=1;
 			for(int i = 0; i < parameterMappingList.size(); i++) {
 				ps.setObject(index++, params.get(parameterMappingList.get(i).getProperty()));
 			}
 				return ps;
-			}
-			
+	}
+	
 	public Map<String, Object> callProcedureUtils(Map<String, Object> params, String proName) {
 		this.getSqlSession().selectList(proName, params);
 		return params;
